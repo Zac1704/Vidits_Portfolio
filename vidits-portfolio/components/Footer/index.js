@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <section className="bg-[#363636] text-white py-12 px-6 md:px-12 lg:px-25">
+    <section className="bg-(--text-color) text-white py-12 px-6 md:px-12 lg:px-25">
       <div className="">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
           {/* Left Content */}

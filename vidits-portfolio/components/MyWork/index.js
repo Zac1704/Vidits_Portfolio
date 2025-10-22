@@ -79,7 +79,7 @@ export default function MyWork() {
     <div className="uppercase bg-white">
       {/* Header */}
       <header className="text-center pb-5 px-4">
-        <h1 className="text-5xl font-black text-gray-900 mb-4">MY WORK</h1>
+        <h1 className="text-5xl font-black text-(--text-color) mb-4">MY WORK</h1>
         <p className="text-[#D6D6D6] text-sm md:text-lg">
           Don&apos;t be shy, check my work all you want
         </p>

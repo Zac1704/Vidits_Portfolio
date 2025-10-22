@@ -1,12 +1,14 @@
 "use client";
 
+import Link from "next/link";
+
 export default function AboutPageButton() {
   const handleClick = () => {
     console.log("About Page clicked!");
   };
 
   return (
-    <div className="fixed top-8 right-5 z-50">
+    <Link href="/about" className="fixed top-8 right-5 z-50">
       <button
         onClick={handleClick}
         className="cursor-pointer bg-gray-200 p-4 rounded-full shadow-lg transition-all duration-300 active:scale-95"
@@ -33,6 +35,6 @@ export default function AboutPageButton() {
           />
         </svg>
       </button>
-    </div>
+    </Link>
   );
 }
