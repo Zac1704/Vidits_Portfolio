@@ -86,7 +86,7 @@ export default function ExperienceSection() {
 
               {/* Company Name */}
               <div className="flex-1 min-w-0">
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-(--gray-text-color) uppercase tracking-tight truncate">
+                <h2 className={`text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-(--gray-text-color) uppercase tracking-tight truncate`}>
                   {exp.company}
                 </h2>
               </div>
