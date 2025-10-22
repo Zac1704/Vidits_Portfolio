@@ -1,8 +1,8 @@
 "use client";
 
-import Plus from "../../public/Images/svg/PlusSign.svg";
 import Image from "next/image";
 import { useState } from "react";
+import Plus from "../../public/Images/svg/PlusSign.svg";
 
 const experiences = [
   {
@@ -59,74 +59,107 @@ export default function ExperienceSection() {
   const [expandedId, setExpandedId] = useState(null);
 
   const toggleExpand = (id) => {
-    setExpandedId(expandedId === id ? null : id);
+    setExpandedId((prev) => (prev === id ? null : id));
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+    <section className="w-full px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
       <h1 className="text-(--text-color) text-5xl font-bold text-center mb-10 uppercase tracking-tight">
-        EXPERIENCE
+        Experience
       </h1>
 
-      <div className="space-y-0">
-        {experiences.map((exp) => (
+      {experiences.map((exp, index) => {
+        const isExpanded = expandedId === exp.id;
+        const textColor = isExpanded
+          ? "text-(--text-color)"
+          : "text-(--gray-text-color)";
+        const bgColor = isExpanded
+          ? "bg-(--text-color)"
+          : "bg-(--gray-text-color)";
+        const hasBorder = index !== experiences.length - 1;
+
+        return (
           <div
             key={exp.id}
-            className={
-              exp.id !== 4 ? `border-b-4 border-(--gray-text-color)` : ``
-            }
+            className={hasBorder ? "border-b-4 border-(--gray-text-color)" : ""}
           >
-            {/* Collapsed View */}
+            {/* Header */}
             <div
               onClick={() => toggleExpand(exp.id)}
-              className="flex items-center gap-3 sm:gap-4 md:gap-6 py-4 sm:py-6 cursor-pointer transition-colors duration-300 px-2 sm:px-4"
+              className={`flex items-center gap-4 md:gap-6 py-6 cursor-pointer px-2 sm:px-4 
+              transition-all duration-500 ease-in-out 
+              ${isExpanded ? "bg-(--bg-active)" : "bg-transparent"}
+              hover:bg-(--hover-bg)`} // optional subtle hover
             >
-              {/* Logo Placeholder */}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-[50px] md:h-[50px] bg-(--gray-text-color) rounded-lg flex-shrink-0"></div>
+              {/* Indicator Box */}
+              <div
+                className={`w-10 h-10 sm:w-12 sm:h-12 md:w-[50px] md:h-[50px] rounded-lg flex-shrink-0 
+                transition-all duration-500 ease-in-out
+                ${isExpanded ? "bg-(--text-color)" : "bg-(--gray-text-color)"}`}
+              />
 
-              {/* Company Name */}
-              <div className="flex-1 min-w-0">
-                <h2 className={`text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-(--gray-text-color) uppercase tracking-tight truncate`}>
-                  {exp.company}
-                </h2>
-              </div>
+              {/* Company */}
+              <h2
+                className={`flex-1 text-xl md:text-2xl font-bold uppercase truncate 
+                transition-all duration-500 ease-in-out
+                ${
+                  isExpanded
+                    ? "text-(--text-color)"
+                    : "text-(--gray-text-color)"
+                }`}
+              >
+                {exp.company}
+              </h2>
 
-              {/* Role - Hidden on mobile */}
-              <div className="hidden md:block flex-1 min-w-0">
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-(--gray-text-color) uppercase tracking-tight truncate text-center">
-                  {exp.role}
-                </p>
-              </div>
+              {/* Role (hidden on mobile) */}
+              <p
+                className={`hidden md:block flex-1 text-xl font-bold uppercase text-center truncate
+                transition-all duration-500 ease-in-out
+                ${
+                  isExpanded
+                    ? "text-(--text-color)"
+                    : "text-(--gray-text-color)"
+                }`}
+              >
+                {exp.role}
+              </p>
 
-              {/* Duration - Hidden on small mobile */}
-              <div className="hidden sm:block flex-shrink-0">
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-(--gray-text-color) uppercase tracking-tight whitespace-nowrap">
-                  {exp.duration}
-                </p>
-              </div>
+              {/* Duration (hidden on small mobile) */}
+              <p
+                className={`hidden sm:block text-xl font-bold uppercase whitespace-nowrap
+                transition-all duration-500 ease-in-out
+                ${
+                  isExpanded
+                    ? "text-(--text-color)"
+                    : "text-(--gray-text-color)"
+                }`}
+              >
+                {exp.duration}
+              </p>
 
               {/* Toggle Button */}
               <button
-                className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 flex items-center justify-center transition-transform duration-300 cursor-pointer"
+                className="cursor-pointer w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center 
+               transition-transform duration-500 ease-in-out"
                 style={{
-                  transform:
-                    expandedId === exp.id ? "rotate(45deg)" : "rotate(0deg)",
+                  transform: isExpanded
+                    ? "rotate(45deg) scale(1.1)"
+                    : "rotate(0deg) scale(1)",
                 }}
+                aria-label={isExpanded ? "Collapse details" : "Expand details"}
               >
-                <Image src={Plus} alt="Plus Sign" width={30} height={30} />
+                <Image src={Plus} alt="Toggle" width={30} height={30} />
               </button>
             </div>
 
-            {/* Expanded View */}
+            {/* Expanded Content */}
             <div
               className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                expandedId === exp.id
-                  ? "max-h-[800px] opacity-100"
-                  : "max-h-0 opacity-0"
+                isExpanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <div className="px-2 sm:px-4 pb-6 sm:pb-8">
-                {/* Mobile: Show role and duration */}
+              <div className="px-2 sm:px-4 pb-8">
+                {/* Mobile Role + Duration */}
                 <div className="md:hidden mb-4 ml-14 sm:ml-16">
                   <p className="text-sm sm:text-base font-bold text-gray-800 uppercase mb-1">
                     {exp.role}
@@ -137,21 +170,21 @@ export default function ExperienceSection() {
                 </div>
 
                 {/* Details */}
-                <div className="space-y-3 sm:space-y-4">
-                  {exp.details.map((detail, index) => (
-                    <p
-                      key={index}
-                      className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-(--text-color) uppercase leading-relaxed"
+                <ul className="space-y-3 sm:space-y-4">
+                  {exp.details.map((detail, i) => (
+                    <li
+                      key={i}
+                      className="text-base sm:text-lg md:text-xl font-bold text-(--text-color) uppercase leading-relaxed"
                     >
                       {detail}
-                    </p>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
+        );
+      })}
+    </section>
   );
 }
