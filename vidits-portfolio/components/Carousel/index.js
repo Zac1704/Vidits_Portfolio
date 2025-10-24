@@ -155,7 +155,7 @@ export default function Carousel({ title }) {
           >
             <path
               fillRule="evenodd"
-              clip-rule="evenodd"
+              clipRule="evenodd"
               d="M8.36912 6.962H0V4.88599H8.36912L5.15933 1.46796L6.53785 0L12.1009 5.92399L6.53785 11.848L5.15933 10.38L8.36912 6.962Z"
               fill="#999999"
             />
