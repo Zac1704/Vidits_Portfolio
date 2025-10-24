@@ -1,4 +1,6 @@
+import Carousel from "@/components/Carousel";
 import ExperienceSection from "@/components/Experience";
+import HoverRevealText from "@/components/HoverRevealText";
 
 const Aboutpage = () => {
   return (
@@ -24,6 +26,11 @@ const Aboutpage = () => {
       </div>
 
       <ExperienceSection />
+
+      <Carousel title="Project Archive" />
+
+
+      <HoverRevealText />
     </div>
   );
 };
