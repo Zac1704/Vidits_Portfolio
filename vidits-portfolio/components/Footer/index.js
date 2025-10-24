@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6 lg:min-w-[300px]">
             {/* Call Button */}
             <a
-              href="tel:+1234567890"
+              href="tel:+917869963454"
               className="flex items-center gap-4 px-8 py-4 bg-transparent border-2 border-gray-500 rounded-full hover:bg-gray-700 hover:border-gray-400 transition-all duration-300 group"
             >
               <svg
@@ -35,7 +35,7 @@ export default function Footer() {
 
             {/* Mail Button */}
             <a
-              href="mailto:contact@example.com"
+              href="mailto:viditshah2019@gmail.com"
               className="flex items-center gap-4 px-8 py-4 bg-transparent border-2 border-gray-500 rounded-full hover:bg-gray-700 hover:border-gray-400 transition-all duration-300 group"
             >
               <svg className="w-8 h-8" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@ export default function Footer() {
 
             {/* WhatsApp Button */}
             <a
-              href="https://wa.me/1234567890"
+              href="https://wa.me/<7869963454>"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 px-8 py-4 bg-transparent border-2 border-gray-500 rounded-full hover:bg-gray-700 hover:border-gray-400 transition-all duration-300 group"
