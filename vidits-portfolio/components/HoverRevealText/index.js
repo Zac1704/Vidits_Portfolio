@@ -157,8 +157,9 @@ export default function HoverRevealText() {
         className="max-w-6xl w-full text-center relative cursor-pointer py-20"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={() => setIsHovered(true)}
       >
-        {/* Particle texture overlay - ONLY on text area */}
+        {/* Particle canvas overlay */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <canvas
             ref={canvasRef}
@@ -168,9 +169,18 @@ export default function HoverRevealText() {
               isHovered ? "opacity-0" : "opacity-100"
             }`}
           />
+
+          {/* ✅ Mobile + Tablet centered hint inside the canvas */}
+          <p
+            className={`md:hidden absolute text-lg font-medium text-gray-500 transition-opacity duration-300 ${
+              isHovered ? "opacity-0" : "opacity-70"
+            }`}
+          >
+            Tap to reveal
+          </p>
         </div>
 
-        {/* Clear text that appears on hover */}
+        {/* Clear text shown on hover */}
         <div
           className={`relative z-10 text-[#363636] transition-opacity duration-1000 ease-out ${
             isHovered ? "opacity-100" : "opacity-0"
@@ -189,15 +199,6 @@ export default function HoverRevealText() {
           <p className="text-3xl md:text-4xl font-black">
             <span className="inline-block">~</span> VIDIT
           </p>
-        </div>
-
-        {/* Mobile Tap Hint */}
-        <div
-          className={`md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${
-            isHovered ? "opacity-0" : "opacity-50"
-          }`}
-        >
-          <p className="text-sm text-gray-500">Tap to reveal</p>
         </div>
       </div>
     </section>

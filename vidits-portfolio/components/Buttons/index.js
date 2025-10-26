@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Buttons({ ButtonName }) {
   return (
-    <div className=" rounded-full ">
-      <div className=" flex py-6.5 px-16 space-x-4 bg-[#D6D6D6]/30 rounded-full">
+    <div className="rounded-full p-[2px] bg-gradient-to-r from-gray-400 via-white to-gray-500">
+      <div className="flex py-6.5 px-16 space-x-4 bg-[#D6D6D6]/30 rounded-full">
         <Image
           src="/Images/Button/star.svg"
           alt="Next.js logo"
