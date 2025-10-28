@@ -18,10 +18,42 @@ export default function ThemeButton() {
   return (
     <div className="fixed bottom-8 right-5 z-50">
       <div className="relative flex items-center justify-center">
-        {/* Central Button */}
+        {/* Expanding Color Circles - Now behind the button */}
+        <AnimatePresence>
+          {open &&
+            colors.map((item, index) => {
+              const angle = (index * 100) / (colors.length - 1); // spread 90° arc
+              const radius = 85; // increased for better spacing
+              const x = -Math.cos((angle * Math.PI) / 180) * radius;
+              const y = -Math.sin((angle * Math.PI) / 180) * radius;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
+                  animate={{ opacity: 1, x, y, scale: 1 }}
+                  exit={{ opacity: 0, x: 0, y: 0, scale: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeOut",
+                    delay: index * 0.1, // Sequential appearance
+                  }}
+                  className="absolute -z-10" // Behind the main button
+                >
+                  <button
+                    onClick={() => console.log(`Color selected: ${item.color}`)}
+                    className="w-10 h-10 rounded-full shadow-md cursor-pointer hover:scale-110 transition-transform duration-200"
+                    style={{ backgroundColor: item.color }}
+                  />
+                </motion.div>
+              );
+            })}
+        </AnimatePresence>
+
+        {/* Central Button - Now in front */}
         <button
           onClick={togglePalette}
-          className="bg-gray-200 p-4 rounded-full shadow-lg transition-all duration-300 active:scale-95 cursor-pointer"
+          className="bg-gray-200 p-4 rounded-full shadow-lg transition-all duration-300 active:scale-95 cursor-pointer relative z-10"
         >
           <svg
             width="40"
@@ -36,34 +68,6 @@ export default function ThemeButton() {
             />
           </svg>
         </button>
-
-        {/* Expanding Color Circles */}
-        <AnimatePresence>
-          {open &&
-            colors.map((item, index) => {
-              const angle = (index * 90) / (colors.length - 1); // spread 90° arc
-              const radius = 85; // increased for better spacing
-              const x = -Math.cos((angle * Math.PI) / 180) * radius;
-              const y = -Math.sin((angle * Math.PI) / 180) * radius;
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
-                  animate={{ opacity: 1, x, y, scale: 1 }}
-                  exit={{ opacity: 0, x: 0, y: 0, scale: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="absolute "
-                >
-                  <button
-                    onClick={() => console.log(`Color selected: ${item.color}`)}
-                    className="w-10 h-10 rounded-full shadow-md cursor-pointer"
-                    style={{ backgroundColor: item.color }}
-                  />
-                </motion.div>
-              );
-            })}
-        </AnimatePresence>
       </div>
     </div>
   );
