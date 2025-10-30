@@ -89,7 +89,7 @@ export default function ExperienceSection() {
               className={`flex items-center gap-4 md:gap-6 py-6 cursor-pointer px-2 sm:px-4 
               transition-all duration-500 ease-in-out 
               ${isExpanded ? "bg-(--bg-active)" : "bg-transparent"}
-              hover:bg-(--hover-bg)`} // optional subtle hover
+              hover:bg-(--hover-bg)`}
             >
               {/* Indicator Box */}
               <div
@@ -113,7 +113,7 @@ export default function ExperienceSection() {
 
               {/* Role (hidden on mobile) */}
               <p
-                className={`hidden md:block flex-1 text-xl font-bold uppercase text-center truncate
+                className={`hidden md:block flex-1 text-xl font-bold uppercase  truncate
                 transition-all duration-500 ease-in-out
                 ${
                   isExpanded
@@ -174,9 +174,10 @@ export default function ExperienceSection() {
                   {exp.details.map((detail, i) => (
                     <li
                       key={i}
-                      className="text-base sm:text-lg md:text-xl font-bold text-(--text-color) uppercase leading-relaxed"
+                      className="text-base sm:text-lg md:text-xl font-bold text-(--text-color) uppercase leading-relaxed flex items-start gap-3"
                     >
-                      {detail}
+                      <span className="w-2 h-2 rounded-full bg-(--text-color) mt-2 flex-shrink-0"></span>
+                      <span className="flex-1">{detail}</span>
                     </li>
                   ))}
                 </ul>

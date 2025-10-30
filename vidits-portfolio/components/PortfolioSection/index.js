@@ -328,186 +328,187 @@ const PortfolioPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen max-w-[1310px] mx-auto relative overflow-hidden">
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 py-12">
-        {/* Dotted Background Pattern */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `radial-gradient(circle, #c0c0c0 5px, transparent 2px)`,
-            backgroundSize: "40px 40px",
-            backgroundPosition: "0 0",
-          }}
-        />
-        {activeSection === "primary" ? (
-          /* Primary Research Section */
-          <div>
-            <div className="min-h-screen absolute top-8 right-8 z-20">
-              <button
-                onClick={() => setActiveSection("secondary")}
-                className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
-              >
-                <svg
-                  className="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+    <>
+      <div className="min-h-screen max-w-[1310px] mx-auto relative overflow-hidden">
+        {/* Main Content */}
+        <div className="relative z-10 container mx-auto px-4 py-12">
+          {/* Dotted Background Pattern */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: `radial-gradient(circle, #c0c0c0 5px, transparent 2px)`,
+              backgroundSize: "40px 40px",
+              backgroundPosition: "0 0",
+            }}
+          />
+          {activeSection === "primary" ? (
+            /* Primary Research Section */
+            <div>
+              <div className="min-h-screen absolute top-8 right-8 z-20">
+                <button
+                  onClick={() => setActiveSection("secondary")}
+                  className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </button>
+                  <svg
+                    className="w-12 h-12"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div className="space-y-16">
+                <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                  {primaryCards.map((card, index) => (
+                    <div key={index} className="relative">
+                      <div
+                        className={`absolute ${card.position} ${card.color} h-[${card.height}] w-[276px] ${card.rotate} text-white p-6 shadow-xl transform hover:scale-105 transition-transform duration-300`}
+                      >
+                        <h3 className="font-bold text-xl mb-4 border-b-2 border-white pb-6 uppercase">
+                          {card.title}
+                        </h3>
+                        <p className="text-xl note italic">{card.content}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="space-y-16">
-              <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                {primaryCards.map((card, index) => (
-                  <div key={index} className="relative">
-                    <div
-                      className={`absolute ${card.position} ${card.color} h-[${card.height}] w-[276px] ${card.rotate} text-white p-6 shadow-xl transform hover:scale-105 transition-transform duration-300`}
-                    >
-                      <h3 className="font-bold text-xl mb-4 border-b-2 border-white pb-6 uppercase">
-                        {card.title}
-                      </h3>
-                      <p className="text-xl note italic">{card.content}</p>
+          ) : (
+            <div>
+              <div className="min-h-screen absolute top-8 left-8 z-20">
+                <button
+                  onClick={() => setActiveSection("primary")}
+                  className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+                >
+                  <svg
+                    className="w-12 h-12"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M11 17l-5-5m0 0l5-5m-5 5h12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              {/*  Secondary Research Section */}
+              <div className="space-y-16 ">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                  {/* First Photo with Text */}
+                  <div className="relative">
+                    <div className="absolute note tracking-wider left-16 top-36 w-[156px] h-[156px] bg-[#9B1B25] text-white p-3 shadow-xl z-10 max-w-xs italic">
+                      <p className="text-sm leading-relaxed">
+                        Well not your average photogenic guy. I&apos;m much more
+                        into mirror selfies...
+                      </p>
+                    </div>
+
+                    <Image
+                      src="/Images/Portfolio/image1.png"
+                      height={288}
+                      width={240}
+                      alt="Secondary Research"
+                      className="absolute left-32 top-48"
+                    />
+                  </div>
+
+                  {/* Second Photo with Text */}
+                  <div className="relative space-y-6">
+                    <div>
+                      <Image
+                        src="/Images/Portfolio/image2.png"
+                        height={227}
+                        width={189}
+                        alt="Secondary Research"
+                        className="absolute top-19 left-10"
+                      />
+                    </div>
+                    <div className="absolute top-64 left-36 bg-[#FFB629] text-white w-[143px] h-[178px] p-3 note tracking-wider shadow-xl italic max-w-xs">
+                      <p className="text-sm leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt.
+                      </p>
                     </div>
                   </div>
-                ))}
+
+                  {/* Third Photo with Text */}
+                  <div className="relative">
+                    <div>
+                      <Image
+                        src="/Images/Portfolio/image3.png"
+                        height={205}
+                        width={205}
+                        alt="Secondary Research"
+                        className="absolute top-24"
+                      />
+                    </div>
+                    <div className="absolute -left-20 top-24 w-[143px] h-[112px] p-3 note tracking-wider bg-[#276A96] text-white shadow-xl z-10 max-w-xs italic">
+                      <p className="text-sm leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Fourth Photo with Text */}
+                  <div className="relative">
+                    <div>
+                      <Image
+                        src="/Images/Portfolio/image4.png"
+                        height={259}
+                        width={262}
+                        alt="Secondary Research"
+                        className="absolute right-24 top-14"
+                      />
+                    </div>
+                    <div className="absolute right-12 top-57 w-[143px] h-[156px] bg-[#0E7F01] text-white p-3 note tracking-wider shadow-xl z-10 max-w-xs italic">
+                      <p className="text-sm leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Lorem dolor sit amet.
+                      </p>
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <div>
-            <div className="min-h-screen absolute top-8 left-8 z-20">
-              <button
-                onClick={() => setActiveSection("primary")}
-                className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+          )}
+
+          <div className="relative w-full text-center py-20">
+            {/* Animated Heading */}
+            <AnimatePresence custom={direction} mode="wait">
+              <motion.h2
+                key={activeSection}
+                custom={direction}
+                variants={variants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className={`mx-auto text-[64px] font-black uppercase tracking-wider text-(--gray-text-color) bg-(--background) p-1 ${
+                  activeSection === "primary"
+                    ? "max-w-2xl mt-100"
+                    : "max-w-3xl mt-90"
+                } mx-auto`}
               >
-                <svg
-                  className="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M11 17l-5-5m0 0l5-5m-5 5h12"
-                  />
-                </svg>
-              </button>
-            </div>
-            {/*  Secondary Research Section */}
-            <div className="space-y-16 ">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                {/* First Photo with Text */}
-                <div className="relative">
-                  <div className="absolute note tracking-wider left-16 top-36 w-[156px] h-[156px] bg-[#9B1B25] text-white p-3 shadow-xl z-10 max-w-xs italic">
-                    <p className="text-sm leading-relaxed">
-                      Well not your average photogenic guy. I&apos;m much more
-                      into mirror selfies...
-                    </p>
-                  </div>
-
-                  <Image
-                    src="/Images/Portfolio/image1.png"
-                    height={288}
-                    width={240}
-                    alt="Secondary Research"
-                    className="absolute left-32 top-48"
-                  />
-                </div>
-
-                {/* Second Photo with Text */}
-                <div className="relative space-y-6">
-                  <div>
-                    <Image
-                      src="/Images/Portfolio/image2.png"
-                      height={227}
-                      width={189}
-                      alt="Secondary Research"
-                      className="absolute top-19 left-10"
-                    />
-                  </div>
-                  <div className="absolute top-64 left-36 bg-[#FFB629] text-white w-[143px] h-[178px] p-3 note tracking-wider shadow-xl italic max-w-xs">
-                    <p className="text-sm leading-relaxed">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Third Photo with Text */}
-                <div className="relative">
-                  <div>
-                    <Image
-                      src="/Images/Portfolio/image3.png"
-                      height={205}
-                      width={205}
-                      alt="Secondary Research"
-                      className="absolute top-24"
-                    />
-                  </div>
-                  <div className="absolute -left-20 top-24 w-[143px] h-[112px] p-3 note tracking-wider bg-[#276A96] text-white shadow-xl z-10 max-w-xs italic">
-                    <p className="text-sm leading-relaxed">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Fourth Photo with Text */}
-                <div className="relative">
-                  <div>
-                    <Image
-                      src="/Images/Portfolio/image4.png"
-                      height={259}
-                      width={262}
-                      alt="Secondary Research"
-                      className="absolute right-24 top-14"
-                    />
-                  </div>
-                  <div className="absolute right-12 top-57 w-[143px] h-[156px] bg-[#0E7F01] text-white p-3 note tracking-wider shadow-xl z-10 max-w-xs italic">
-                    <p className="text-sm leading-relaxed">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Lorem dolor sit amet.
-                    </p>
-                  </div>
-                </div>
-                <div></div>
-              </div>
-            </div>
+                {activeSection === "primary"
+                  ? "Primary Research"
+                  : "Secondary Research"}
+              </motion.h2>
+            </AnimatePresence>
           </div>
-        )}
-
-        <div className="relative w-full text-center py-20">
-          {/* Animated Heading */}
-          <AnimatePresence custom={direction} mode="wait">
-            <motion.h2
-              key={activeSection}
-              custom={direction}
-              variants={variants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className={`mx-auto text-[64px] font-black uppercase tracking-wider text-(--gray-text-color) bg-(--background) p-1 ${
-                activeSection === "primary"
-                  ? "max-w-2xl mt-100"
-                  : "max-w-3xl mt-90"
-              } mx-auto`}
-            >
-              {activeSection === "primary"
-                ? "Primary Research"
-                : "Secondary Research"}
-            </motion.h2>
-          </AnimatePresence>
         </div>
       </div>
-
       {/* Keychains Section */}
       <div className="relative z-30 flex justify-center gap-8 md:gap-12 flex-wrap px-4 pt-8">
         {keychains.map((keychain) => (
@@ -558,8 +559,8 @@ const PortfolioPage = () => {
             </div>
           </div>
         ))}
-      </div>
-    </div>
+      </div>  
+    </>
   );
 };
 

@@ -19,7 +19,7 @@ export default function AboutPageButton() {
   return (
     <button
       onClick={handleClick}
-      className="fixed top-8 right-5 z-50 cursor-pointer bg-gray-200 p-4 rounded-full shadow-lg transition-all duration-300 active:scale-95"
+      className="fixed top-5 right-5 z-50 cursor-pointer bg-gray-200 p-4 rounded-full shadow-lg transition-all duration-300 active:scale-95"
       aria-label="Toggle About/Home Page"
     >
       <svg

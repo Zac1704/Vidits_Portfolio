@@ -1,104 +1,115 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
-const PortfolioCard = ({ img, title }) => (
-  <div
-    className="w-[380px] h-[300px] p-1 rounded-[32px] shadow-lg"
-    style={{
-      perspective: "1000px",
-      transformStyle: "preserve-3d",
-    }}
-    onMouseMove={(e) => {
-      const card = e.currentTarget;
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+const PortfolioCard = ({ img, title, shadow }) => {
+  const [isPressed, setIsPressed] = useState(false);
 
-      // Perfect tilt range (12 degrees feels most natural)
-      const rotateX = ((y - centerY) / centerY) * -12;
-      const rotateY = ((x - centerX) / centerX) * 12;
-
-      // Smooth immediate response
-      card.style.transition = "transform 0.1s ease-out";
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-    }}
-    onMouseLeave={(e) => {
-      const card = e.currentTarget;
-      // Smooth spring-like return
-      card.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-      card.style.transform =
-        "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
-    }}
-  >
+  return (
     <div
-      className="w-full h-full bg-white p-[3px] rounded-[28px]"
-      style={{ transformStyle: "preserve-3d" }}
+      className="relative w-[380px] h-[300px] rounded-[32px] flex items-center justify-center bg-transparent transition-transform duration-300"
+      style={{
+        perspective: "1000px",
+        transformStyle: "preserve-3d",
+      }}
+      onMouseMove={(e) => {
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -12;
+        const rotateY = ((x - centerX) / centerX) * 12;
+
+        card.style.transition = "transform 0.1s ease-out";
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+      }}
+      onMouseLeave={(e) => {
+        const card = e.currentTarget;
+        card.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+        card.style.transform =
+          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+        setIsPressed(false);
+      }}
+      onMouseUp={() => {
+        setIsPressed(false);
+        console.log(`Clicked on ${title}`);
+      }}
+      onMouseDown={() => setIsPressed(true)}
     >
-      <div className="w-full h-full rounded-[26px] overflow-hidden">
+      <div
+        className="inner w-full h-full rounded-[32px] overflow-hidden border-[4px] border-white flex items-center justify-center bg-white transition-all duration-300"
+        style={{
+          transform: "rotateX(0deg) rotateY(0deg)",
+          transformStyle: "preserve-3d",
+          willChange: "transform, box-shadow",
+          boxShadow: shadow,
+        }}
+      >
         <Image
           src={img}
           alt={title}
           width={380}
           height={300}
-          className="object-cover w-full h-full"
+          draggable={false}
+          className="w-full h-full object-cover rounded-[32px] select-none pointer-events-none"
+          style={{
+            maskImage:
+              "radial-gradient(ellipse 100% 100% at center, black 96%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 100% 100% at center, black 96%, transparent 100%)",
+          }}
         />
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // ✅ Main Component
 export default function MyWork() {
-  // const navItems = [
-  //   "ALL",
-  //   "BANNER",
-  //   "INSTAGRAM POSTS",
-  //   "ILLUSTRATIONS",
-  //   "POSTERS",
-  //   "PROJECTS",
-  //   "WEDDING CARD",
-  //   "UI/UX",
-  // ];
-
-  // ✅ Portfolio Data List
   const Portfolio = [
     {
-      title: "Jimmy The Pet Shop",
-      img: "/Images/myWork/baking.png",
-      category: "Logo Design",
+      title: "Baking Gharana",
+      img: "/Images/myWork/baking.webp",
+      shadow: "rgba(197, 173, 150, 0.7) 0px 0px 22px 0px",
     },
     {
-      title: "Baking Gharana",
-      img: "/Images/myWork/JimmyThePetShop.png",
-      category: "Logo Design",
+      title: "Jimmy The Pet Shop",
+      img: "/Images/myWork/JimmyThePetShop.webp",
+      shadow: "rgba(207, 144, 82, 0.7) 0px 0px 22px 0px",
     },
     {
       title: "Relaxzone",
-      img: "/Images/myWork/Relaxzone.png",
-      category: "Poster Design",
+      img: "/Images/myWork/Relaxzone.webp",
+      shadow: "rgba(91, 131, 166, 0.7) 0px 0px 22px 0px",
     },
     {
       title: "AK Studio",
-      img: "/Images/myWork/AK.png",
-      category: "UI/UX",
+      img: "/Images/myWork/AK.webp",
+      shadow: "rgba(124, 80, 56, 0.7) 0px 0px 22px 0px",
     },
     {
       title: "Nalanda",
-      img: "/Images/myWork/Nalanda.png",
-      category: "Brand Identity",
+      img: "/Images/myWork/Nalanda.webp",
+      shadow: "rgba(178, 131, 126, 0.7) 0px 0px 22px 0px",
     },
     {
       title: "Shudh Kesari",
-      img: "/Images/myWork/ShudhKesari.png",
-      category: "Product Label",
+      img: "/Images/myWork/ShudhKesari.webp",
+      shadow: "rgba(222, 135, 96, 0.7) 0px 0px 22px 0px",
     },
     {
       title: "Vistaar Webx",
-      img: "/Images/myWork/VistaarWebx.png",
-      category: "Website Design",
+      img: "/Images/myWork/VistaarWebx.webp",
+      shadow: "rgba(236, 209, 209, 0.7) 0px 0px 22px 0px",
+    },
+    {
+      title: "Frame 43",
+      img: "/Images/myWork/Frame43.webp",
+      shadow: "rgba(118, 140, 148, 0.7) 0px 0px 22px 0px",
     },
   ];
 
@@ -114,29 +125,15 @@ export default function MyWork() {
         </p>
       </header>
 
-      {/* Navigation */}
-      {/* <nav className="border-b-4 border-[#D6D6D6] mb-12">
-        <ul className="flex flex-wrap justify-center space-x-4 md:gap-8 p-4 text-sm md:text-2xl font-bold">
-          {navItems.map((item) => (
-            <li
-              key={item}
-              className="cursor-pointer hover:text-orange-500 transition-colors"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </nav> */}
-
       {/* Portfolio Grid */}
-      <section className="px-4 pb-16 flex justify-center">
+      <section className="px-4 flex justify-center">
         <div className="flex flex-wrap gap-10">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}
               img={work.img}
               title={work.title}
-              category={work.category}
+              shadow={work.shadow} // ✅ pass shadow color
             />
           ))}
         </div>

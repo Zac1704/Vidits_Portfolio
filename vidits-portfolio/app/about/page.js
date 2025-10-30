@@ -32,7 +32,6 @@ const Aboutpage = () => {
 
       <Carousel title="Project Archive" />
 
-
       <HoverRevealText />
     </div>
   );

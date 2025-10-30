@@ -4,14 +4,14 @@ export default function Footer() {
       <div className="">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
           {/* Left Content */}
-          <div className="flex-1">
-            <h3 className="text-gray-300 text-xl md:text-2xl font-bold mb-6">
+          <div className="flex-1 space-y-2">
+            <h3 className="text-(--gray-text-color) text-xl md:text-4xl font-bold">
               LIKED MY WORK??
             </h3>
-            <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
+            <h2 className="text-white text-5xl md:text-6xl lg:text-8xl font-black leading-tight">
               LET&apos;S CONNECT
             </h2>
-            <p className="text-gray-300 text-2xl font-bold">
+            <p className="text-(--gray-text-color) text-4xl font-bold">
               WHAT&apos;S YOUR POISON??
             </p>
           </div>
@@ -78,7 +78,7 @@ export default function Footer() {
               href="https://www.behance.net/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
+              className="w-12 h-12 bg-gradient-to-t from-[#0059f4] to-[#0046ad] rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
             >
               <svg
                 className="w-7 h-7 text-white"
@@ -93,7 +93,7 @@ export default function Footer() {
               href="https://www.linkedin.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
+              className="w-12 h-12 bg-[#0a66c2] rounded-lg flex items-center justify-center transition-colors"
             >
               <svg
                 className="w-6 h-6 text-white"

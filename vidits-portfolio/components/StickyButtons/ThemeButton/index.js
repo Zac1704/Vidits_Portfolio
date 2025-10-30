@@ -16,7 +16,7 @@ export default function ThemeButton() {
   const togglePalette = () => setOpen(!open);
 
   return (
-    <div className="fixed bottom-8 right-5 z-50">
+    <div className="fixed bottom-5 right-5 z-50">
       <div className="relative flex items-center justify-center">
         {/* Expanding Color Circles - Now behind the button */}
         <AnimatePresence>
