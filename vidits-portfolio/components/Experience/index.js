@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Plus from "../../public/Images/svg/PlusSign.svg";
+import PlusIcon from "../SVG/PlusIcon";
 
 const experiences = [
   {
@@ -148,7 +149,19 @@ export default function ExperienceSection() {
                 }}
                 aria-label={isExpanded ? "Collapse details" : "Expand details"}
               >
-                <Image src={Plus} alt="Toggle" width={30} height={30} />
+                {/* <Image src={Plus} alt="Toggle" width={30} height={30} /> */}
+                <PlusIcon
+                  alt="Toggle"
+                  className={`
+                  transition-transform duration-500 ease-in-out
+                  ${
+                    isExpanded
+                      ? "text-(--text-color)"
+                      : "text-(--gray-text-color)"
+                  }
+                  `}
+                  color="currentColor"
+                />
               </button>
             </div>
 
