@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Buttons({ ButtonName }) {
+export default function Buttons({ ButtonName, src }) {
   return (
     <div className="cursor-pointer rounded-full p-[1px] bg-gradient-to-br from-white/80 via-white/40 to-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
       <div className="rounded-full bg-white/70 backdrop-blur-md shadow-[inset_0_4px_16px_rgba(0,0,0,0.15)]">
@@ -9,7 +9,7 @@ export default function Buttons({ ButtonName }) {
           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none"></div>
 
           <Image
-            src="/Images/Button/star.svg"
+            src={src}
             alt="Star icon"
             width={24}
             height={24}

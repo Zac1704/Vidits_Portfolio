@@ -8,12 +8,14 @@ const PortfolioCard = ({ img, title, shadow }) => {
 
   return (
     <div
-      className="relative w-[380px] h-[300px] rounded-[32px] flex items-center justify-center bg-transparent transition-transform duration-300"
+      className="relative w-[380px] h-[300px] rounded-[32px] flex items-center justify-center bg-transparent transition-transform duration-300 cursor-pointer"
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
       }}
       onMouseMove={(e) => {
+        if (isPressed) return; // Disable tilt when pressed
+
         const card = e.currentTarget;
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -34,19 +36,39 @@ const PortfolioCard = ({ img, title, shadow }) => {
           "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
         setIsPressed(false);
       }}
-      onMouseUp={() => {
+      onMouseDown={(e) => {
+        setIsPressed(true);
+        const card = e.currentTarget;
+        card.style.transition = "transform 0.1s ease-out";
+        card.style.transform =
+          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(0.97)";
+      }}
+      onMouseUp={(e) => {
+        const card = e.currentTarget;
+        card.style.transition =
+          "transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        card.style.transform =
+          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.05)";
+
+        setTimeout(() => {
+          card.style.transition = "transform 0.3s ease-out";
+          card.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+        }, 150);
+
         setIsPressed(false);
         console.log(`Clicked on ${title}`);
       }}
-      onMouseDown={() => setIsPressed(true)}
     >
       <div
-        className="inner w-full h-full rounded-[32px] overflow-hidden border-[4px] border-white flex items-center justify-center bg-white transition-all duration-300"
+        className={`inner w-full h-full rounded-[32px] overflow-hidden border-[4px] border-white flex items-center justify-center bg-white transition-all duration-200 ${
+          isPressed ? "brightness-95" : ""
+        }`}
         style={{
           transform: "rotateX(0deg) rotateY(0deg)",
           transformStyle: "preserve-3d",
           willChange: "transform, box-shadow",
-          boxShadow: shadow,
+          boxShadow: isPressed ? `${shadow.replace("22px", "12px")}` : shadow,
         }}
       >
         <Image
@@ -126,14 +148,14 @@ export default function MyWork() {
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 flex justify-center">
-        <div className="flex flex-wrap gap-10">
+      <section className="px-4 flex justify-center items-center">
+        <div className="flex flex-wrap gap-10 justify-center items-center">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}
               img={work.img}
               title={work.title}
-              shadow={work.shadow} // ✅ pass shadow color
+              shadow={work.shadow}
             />
           ))}
         </div>

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap'); */
 
 :root {
   --background: #ffffff;
@@ -12,14 +13,13 @@ body {
 }
 
 .note {
-  font-family: "Caveat", cursive;
+  font-family: var(--font-caveat);
+  font-optical-sizing: auto;
 }
-
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
 
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */

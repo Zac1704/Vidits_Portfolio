@@ -6,18 +6,15 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const variants = {
   initial: (direction) => ({
-    x: direction === "next" ? 100 : -100,
-    opacity: 0,
+    x: direction === "next" ? "100%" : "-100%",
   }),
   animate: {
     x: 0,
-    opacity: 1,
-    transition: { duration: 0.55, ease: "easeOut" },
+    transition: { duration: 0.65, ease: "easeInOut" },
   },
   exit: (direction) => ({
-    x: direction === "next" ? -100 : 100,
-    opacity: 0,
-    transition: { duration: 0.45, ease: "easeIn" },
+    x: direction === "next" ? "-100%" : "100%",
+    transition: { duration: 0.6, ease: "easeInOut" },
   }),
 };
 
@@ -39,7 +36,7 @@ const PRIMARY_CARDS = [
     color: "bg-[#FFB629]",
     height: "275px",
     rotate: "-rotate-[1.72deg]",
-    position: "top-[120px] left-5",
+    position: "top-[120px] left-3",
   },
   {
     title: "I'LL LEARN IT, NO MATTER WHAT.",
@@ -48,7 +45,7 @@ const PRIMARY_CARDS = [
     color: "bg-[#276A96]",
     height: "320px",
     rotate: "rotate-[2.18deg]",
-    position: "top-[30px]",
+    position: "top-[30px] ",
   },
   {
     title: "I'M A COCONUT-TOUGH OUTSIDE, SOFT INSIDE.",
@@ -57,7 +54,7 @@ const PRIMARY_CARDS = [
     color: "bg-[#0E7F01]",
     height: "275px",
     rotate: "-rotate-[2.57deg]",
-    position: "top-[116px]",
+    position: "top-[116px] -left-5",
   },
 ];
 
@@ -188,12 +185,12 @@ const NavigationButton = ({ direction, onClick }) => (
 const PrimaryCard = ({ card }) => (
   <div className="relative">
     <div
-      className={`absolute ${card.position} ${card.color} h-[${card.height}] w-[276px] ${card.rotate} text-white p-6 shadow-xl transform hover:scale-105 transition-transform duration-300`}
+      className={`absolute ${card.position} ${card.color} h-[${card.height}] w-[270px] ${card.rotate} text-white p-6 shadow-xl transform hover:scale-105 transition-transform duration-300`}
     >
-      <h3 className="font-bold text-xl mb-4 border-b-2 border-white pb-6 uppercase">
+      <h3 className="font-bold text-xl mb-4 border-b-2 border-white pb-6 uppercase ">
         {card.title}
       </h3>
-      <p className="text-xl note italic">{card.content}</p>
+      <p className="text-xl note ">{card.content}</p>
     </div>
   </div>
 );
@@ -213,117 +210,65 @@ const SecondaryImage = ({ image, index }) => (
   </div>
 );
 
-const Keychain = ({ keychain, onMouseEnter, onMouseLeave }) => (
-  <div
-    className="relative cursor-pointer"
-    onMouseEnter={onMouseEnter}
-    onMouseLeave={onMouseLeave}
-  >
-    <div className="absolute left-1/2 top-[76px] -ml-10 w-20 h-20 rounded-2xl shadow-2xl flex items-center justify-center transition-transform hover:scale-110">
-      <Image src={keychain.svg} alt={keychain.name} width={80} height={80} />
-    </div>
-  </div>
-);
+const Keychain = ({ keychain }) => {
+  const [rotation, setRotation] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const offsetX = e.clientX - centerX;
+    const angle = Math.max(-20, Math.min(20, offsetX / 5)); // limit swing angle
+    setRotation(angle);
+
+    // Reset timer — if mouse stays still for 5s, go back to center
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setRotation(0);
+    }, 5000);
+  };
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+    clearTimeout(timeoutRef.current);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+    setRotation(0);
+    clearTimeout(timeoutRef.current);
+  };
+
+  return (
+    <motion.div
+      className="relative cursor-pointer origin-top"
+      onMouseEnter={handleMouseEnter}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      animate={{
+        rotate: rotation,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 60,
+        damping: 5,
+        mass: 0.8,
+      }}
+      style={{
+        transformOrigin: "top center",
+      }}
+    >
+      <div className="absolute left-1/2 -top-[20px] -ml-10 w-[75px] h-[154px] flex items-center justify-center">
+        <Image src={keychain.svg} alt={keychain.name} width={75} height={154} />
+      </div>
+    </motion.div>
+  );
+};
 
 const PortfolioPage = () => {
   const [activeSection, setActiveSection] = useState("primary");
   const [direction, setDirection] = useState("next");
-  const [hoveredKeychain, setHoveredKeychain] = useState(null);
-  const keychainStates = useRef({});
-  const animationFrames = useRef({});
-
-  // Initialize keychain states
-  useEffect(() => {
-    KEYCHAINS.forEach((keychain) => {
-      keychainStates.current[keychain.id] = {
-        angle: 0,
-        velocity: 0,
-        targetAngle: 0,
-      };
-    });
-  }, []);
-
-  const handleMouseMove = (e, keychainId) => {
-    const element = document.getElementById(`keychain-${keychainId}`);
-    if (!element) return;
-
-    const rect = element.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + 20;
-
-    const deltaX = e.clientX - centerX;
-    const deltaY = e.clientY - centerY;
-
-    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-    const maxDistance = 250;
-
-    const normalizedDistance = Math.min(1, distance / maxDistance);
-    const influence = Math.pow(1 - normalizedDistance, 2);
-
-    const maxAngle = 25;
-    const angle = Math.atan2(deltaX, Math.max(1, deltaY)) * (180 / Math.PI);
-    const targetAngle = angle * influence * 0.8;
-
-    const state = keychainStates.current[keychainId];
-    if (state) {
-      state.targetAngle = Math.max(-maxAngle, Math.min(maxAngle, targetAngle));
-    }
-  };
-
-  const animatePendulum = () => {
-    KEYCHAINS.forEach((keychain) => {
-      const state = keychainStates.current[keychain.id];
-      if (!state) return;
-
-      const element = document.getElementById(`keychain-chain-${keychain.id}`);
-      if (!element) return;
-
-      const isHovered = hoveredKeychain === keychain.id;
-
-      const springStrength = isHovered ? 0.008 : 0.004;
-      const damping = isHovered ? 0.88 : 0.93;
-      const gravity = 0.0008;
-
-      const restingForce = state.targetAngle === 0 ? -state.angle * 0.002 : 0;
-
-      const angleDiff = state.targetAngle - state.angle;
-      const springForce = angleDiff * springStrength;
-      const gravityForce = Math.sin((state.angle * Math.PI) / 180) * -gravity;
-
-      state.velocity += springForce + gravityForce + restingForce;
-      state.velocity *= damping;
-
-      if (Math.abs(state.velocity) < 0.1 && Math.abs(angleDiff) < 0.5) {
-        state.velocity += (Math.random() - 0.5) * 0.02;
-      }
-
-      state.angle += state.velocity;
-      state.angle = Math.max(-35, Math.min(35, state.angle));
-
-      element.style.transform = `rotate(${state.angle}deg)`;
-      element.style.transformOrigin = "top center";
-    });
-
-    animationFrames.current.main = requestAnimationFrame(animatePendulum);
-  };
-
-  useEffect(() => {
-    animatePendulum();
-    return () => {
-      if (animationFrames.current.main) {
-        cancelAnimationFrame(animationFrames.current.main);
-      }
-    };
-  }, [hoveredKeychain]);
-
-  useEffect(() => {
-    const handleGlobalMouseMove = (e) => {
-      KEYCHAINS.forEach((keychain) => handleMouseMove(e, keychain.id));
-    };
-
-    window.addEventListener("mousemove", handleGlobalMouseMove);
-    return () => window.removeEventListener("mousemove", handleGlobalMouseMove);
-  }, []);
 
   const handleSectionChange = (section) => {
     setDirection(section === "secondary" ? "next" : "prev");
@@ -332,14 +277,16 @@ const PortfolioPage = () => {
 
   return (
     <>
-      <div className="min-h-screen max-w-[1310px] mx-auto relative overflow-hidden">
-        <div className="relative z-10 container mx-auto px-4 py-12">
+      <div className="min-h-screen max-w-[1238px] mx-auto relative overflow-hidden">
+        <div className="relative z-10 container mx-auto ">
           {/* Dotted Background Pattern */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: `radial-gradient(circle, #c0c0c0 5px, transparent 2px)`,
-              backgroundSize: "40px 40px",
+              width: "1260px", // 42 * 30
+              height: "900px", // 30 * 30
+              backgroundImage: `radial-gradient(circle, #c0c0c0 5px, transparent 5px)`,
+              backgroundSize: "30px 30px",
               backgroundPosition: "0 0",
             }}
           />
@@ -361,60 +308,74 @@ const PortfolioPage = () => {
           </div>
 
           {/* Content Sections */}
-          {activeSection === "primary" ? (
-            <div className="space-y-16">
-              <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                {PRIMARY_CARDS.map((card, index) => (
-                  <PrimaryCard key={index} card={card} />
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-16">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                {SECONDARY_IMAGES.map((image, index) => (
-                  <SecondaryImage key={index} image={image} index={index} />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Animated Heading */}
-          <div className="relative w-full text-center py-20">
+          <div className="w-full overflow-hidden">
             <AnimatePresence custom={direction} mode="wait">
-              <motion.h2
+              <motion.div
                 key={activeSection}
                 custom={direction}
                 variants={variants}
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                className={`mx-auto text-[64px] font-black uppercase tracking-wider text-(--gray-text-color) bg-(--background) p-1 ${
-                  activeSection === "primary"
-                    ? "max-w-2xl mt-100"
-                    : "max-w-3xl mt-90"
-                }`}
+                transition={{ duration: 0.65, ease: "easeInOut" }}
+                className="absolute inset-0"
               >
-                {activeSection === "primary"
-                  ? "Primary Research"
-                  : "Secondary Research"}
-              </motion.h2>
+                {activeSection === "primary" ? (
+                  <div className="space-y-16 pt-5">
+                    <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                      {PRIMARY_CARDS.map((card, index) => (
+                        <PrimaryCard key={index} card={card} />
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-16">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                      {SECONDARY_IMAGES.map((image, index) => (
+                        <SecondaryImage
+                          key={index}
+                          image={image}
+                          index={index}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </motion.div>
             </AnimatePresence>
+          </div>
+
+          {/* Animated Heading */}
+          <div className="relative flex justify-center mt-137">
+            <div className="bg-[var(--background)] w-[700px] text-center py-2 overflow-hidden">
+              <AnimatePresence custom={direction} mode="wait">
+                <motion.div
+                  key={activeSection}
+                  custom={direction}
+                  variants={variants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  className="flex justify-center"
+                >
+                  <h2 className="text-[64px] font-black uppercase tracking-wider text-[var(--gray-text-color)]">
+                    {activeSection === "primary"
+                      ? "Primary Research"
+                      : "Secondary Research"}
+                  </h2>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Keychains Section */}
-      {/* <div className="relative z-30 flex justify-center gap-8 md:gap-12 flex-wrap px-4 pt-8">
+      <div className="relative z-30 space-x-24 flex justify-center gap-8 md:gap-12 flex-wrap px-4 pb-40">
         {KEYCHAINS.map((keychain) => (
-          <Keychain
-            key={keychain.id}
-            keychain={keychain}
-            onMouseEnter={() => setHoveredKeychain(keychain.id)}
-            onMouseLeave={() => setHoveredKeychain(null)}
-          />
+          <Keychain key={keychain.id} keychain={keychain} />
         ))}
-      </div> */}
+      </div>
     </>
   );
 };
