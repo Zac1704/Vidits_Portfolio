@@ -394,19 +394,9 @@ const PortfolioPage = () => {
       </div>
 
       {/* Keychains Section */}
-      {/* Keychains Section */}
-      <div className="z-30 max-w-7xl mx-auto flex justify-center flex-wrap gap-x-20 gap-y-8 px-4 pb-10 relative">
-        {KEYCHAINS.map((keychain, i) => (
-          <div
-            key={keychain.id}
-            className={`flex flex-col items-center ${keychain.marign || ""}`}
-            style={{
-              marginTop: i % 2 === 0 ? "-12px" : "-27px", // aligns to dot rows visually
-            }}
-          >
-            {/* Keychain animation */}
-            <Keychain keychain={keychain} />
-          </div>
+      <div className="z-30 max-w-7xl mx-auto space-x-20 flex justify-center -mt-[33px] flex-wrap px-4 pb-5">
+        {KEYCHAINS.map((keychain) => (
+          <Keychain key={keychain.id} keychain={keychain} />
         ))}
       </div>
     </>
