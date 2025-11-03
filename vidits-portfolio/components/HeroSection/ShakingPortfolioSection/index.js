@@ -1,115 +1,132 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useEffect, useState, useMemo } from "react";
 
-export default function ParallaxPortfolioSection() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [idle, setIdle] = useState(false);
-  const containerRef = useRef(null);
-  let idleTimer = useRef(null);
+export default function BouncyImageStack() {
+  // Shared mouse-based motion values
+  const baseX = useMotionValue(0);
+  const baseY = useMotionValue(0);
+
+  // Gentle, smooth spring motion with optimized settings
+  const springX = useSpring(baseX, { stiffness: 80, damping: 20, mass: 1 });
+  const springY = useSpring(baseY, { stiffness: 80, damping: 20, mass: 1 });
+
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
-    const onMove = (e) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-      const x = (e.clientX - centerX) / (rect.width / 2);
-      const y = (e.clientY - centerY) / (rect.height / 2);
-
-      setMousePos({ x, y });
-      setIdle(false);
-
-      clearTimeout(idleTimer.current);
-      idleTimer.current = setTimeout(() => {
-        setIdle(true);
-      }, 3000);
+    const handleMouseMove = (e) => {
+      const { innerWidth, innerHeight } = window;
+      const offsetX = (e.clientX - innerWidth / 2) / 10;
+      const offsetY = (e.clientY - innerHeight / 2) / 10;
+      baseX.set(offsetX);
+      baseY.set(offsetY);
     };
 
-    window.addEventListener("mousemove", onMove);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      clearTimeout(idleTimer.current);
-    };
-  }, []);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [baseX, baseY]);
 
-  const getCardStyle = (index, depth = 1) => {
-    // depth = larger number → slower movement (further in depth)
-    const intensity = 20 / depth;
-    const moveX = mousePos.x * intensity * (index % 2 === 0 ? 1 : -1);
-    const moveY = mousePos.y * intensity * (index % 2 === 0 ? -1 : 1);
-    const idleFloatY = idle
-      ? Math.sin(Date.now() / (1500 + index * 200)) * (2 + index)
-      : 0;
-    const rotateY = mousePos.x * (5 / depth);
-    const rotateX = mousePos.y * (5 / depth);
-
-    return {
-      transform: `
-        perspective(700px)
-        translate3d(${moveX}px, ${moveY + idleFloatY}px, 0)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-      `,
-      transition: "transform 0.3s ease-out",
-      willChange: "transform",
-    };
-  };
-
-  const cards = [
-    {
-      id: 1,
-      src: "/Images/heroSection/post1.webp",
-      color: "from-amber-900 to-amber-700",
-      depth: 1,
-    },
-    {
-      id: 2,
-      src: "/Images/heroSection/post2.webp",
-      color: "from-orange-500 to-orange-400",
-      depth: 1.2,
-    },
-    {
-      id: 3,
-      src: "/Images/heroSection/post3.webp",
-      color: "from-black to-gray-900",
-      depth: 1.4,
-    },
-    {
-      id: 4,
-      src: "/Images/heroSection/post4.webp",
-      color: "from-blue-900 to-blue-700",
-      depth: 1.6,
-    },
-  ];
+  const cards = useMemo(
+    () => [
+      { src: "/Images/heroSection/post1.webp", rotate: "rotate-4", z: "z-0" },
+      {
+        src: "/Images/heroSection/post2.webp",
+        rotate: "-rotate-4",
+        z: "z-10 -mt-10",
+      },
+      { src: "/Images/heroSection/post3.webp", rotate: "rotate-4", z: "z-20" },
+      {
+        src: "/Images/heroSection/post4.webp",
+        rotate: "-rotate-4",
+        z: "z-30 -mt-10",
+      },
+    ],
+    []
+  );
 
   return (
-    <div className="w-full py-6" ref={containerRef}>
-      <div className="flex justify-center items-center -space-x-20">
-        {cards.map((card, i) => (
-          <div
-            key={card.id}
-            className={`transform ${
-              i % 2 === 0 ? "rotate-4" : "-rotate-4"
-            } hover:rotate-0 hover:scale-110 hover:z-50 transition-all duration-300`}
-            style={getCardStyle(i, card.depth)}
-          >
-            <div
-              className={`w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 bg-gradient-to-br ${card.color} rounded-xl shadow-2xl overflow-hidden`}
-            >
-              <Image
-                width={200}
-                height={200}
-                src={card.src}
-                alt={`Portfolio ${card.id}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        ))}
+    <div className="w-full py-10 flex justify-center items-center">
+      <div className="flex justify-center items-center -space-x-20 cursor-default select-none">
+        {cards.map((card, i) => {
+          return (
+            <CardItem
+              key={i}
+              card={card}
+              index={i}
+              springX={springX}
+              springY={springY}
+              hoveredIndex={hoveredIndex}
+              setHoveredIndex={setHoveredIndex}
+            />
+          );
+        })}
       </div>
     </div>
+  );
+}
+
+function CardItem({
+  card,
+  index,
+  springX,
+  springY,
+  hoveredIndex,
+  setHoveredIndex,
+}) {
+  // Smooth intensity blending with stable calculations
+  const baseIntensity = 0.8 + index * 0.4;
+  const targetIntensity =
+    hoveredIndex === index ? baseIntensity * 8 : baseIntensity * 0.3;
+
+  // Animated intensity for smooth transitions
+  const animatedIntensity = useSpring(targetIntensity, {
+    stiffness: 120,
+    damping: 25,
+    mass: 0.5,
+  });
+
+  // Memoized transforms to prevent recreation
+  const x = useTransform(springX, (val) => val * animatedIntensity.get());
+  const y = useTransform(springY, (val) => val * animatedIntensity.get());
+
+  // Update animated intensity when target changes
+  useEffect(() => {
+    animatedIntensity.set(targetIntensity);
+  }, [targetIntensity, animatedIntensity]);
+
+  return (
+    <motion.div
+      style={{ x, y }}
+      className={`transform ${card.rotate} ${card.z}`}
+      onMouseEnter={() => setHoveredIndex(index)}
+      onMouseLeave={() => setHoveredIndex(null)}
+    >
+      <motion.div
+        transition={{
+          type: "spring",
+          stiffness: 90,
+          damping: 16,
+          mass: 0.6,
+        }}
+        className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-xl shadow-xl overflow-hidden bg-black will-change-transform"
+        style={{ backfaceVisibility: "hidden", perspective: 1000 }}
+      >
+        <Image
+          width={224}
+          height={224}
+          src={card.src}
+          alt={`Image ${index + 1}`}
+          className="w-full h-full object-cover"
+          style={{
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+          }}
+          priority={index === 0}
+          quality={90}
+        />
+      </motion.div>
+    </motion.div>
   );
 }

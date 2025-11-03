@@ -28,6 +28,7 @@ const PRIMARY_CARDS = [
     height: "310px",
     rotate: "rotate-5",
     position: "left-10 top-8",
+    margin: "mt-18",
   },
   {
     title: "I'M POROUS - I ABSORB PERSPECTIVES LIKE A SPONGE",
@@ -37,6 +38,7 @@ const PRIMARY_CARDS = [
     height: "275px",
     rotate: "-rotate-[1.72deg]",
     position: "top-[120px] left-3",
+    margin: "mt-42",
   },
   {
     title: "I'LL LEARN IT, NO MATTER WHAT.",
@@ -46,6 +48,7 @@ const PRIMARY_CARDS = [
     height: "320px",
     rotate: "rotate-[2.18deg]",
     position: "top-[30px] ",
+    margin: "mt-18",
   },
   {
     title: "I'M A COCONUT-TOUGH OUTSIDE, SOFT INSIDE.",
@@ -55,6 +58,7 @@ const PRIMARY_CARDS = [
     height: "275px",
     rotate: "-rotate-[2.57deg]",
     position: "top-[116px] -left-5",
+    margin: "mt-42",
   },
 ];
 
@@ -64,12 +68,14 @@ const KEYCHAINS = [
     name: "Photoshop",
     bg: "#001E36",
     svg: "/Images/svg/keychain/svg1.svg",
+    marign: "-ml-[3px]",
   },
   {
     id: "ai",
     name: "Illustrator",
     bg: "#330000",
     svg: "/Images/svg/keychain/svg2.svg",
+    marign: "-ml-2",
   },
   {
     id: "figma",
@@ -118,7 +124,7 @@ const SECONDARY_IMAGES = [
     note: {
       text: "Well not your average photogenic guy. I'm much more into mirror selfies...",
       className:
-        "absolute note tracking-wider left-16 top-36 w-[156px] h-[156px] bg-[#9B1B25] text-white p-3 shadow-xl z-10 max-w-xs italic",
+        "absolute note tracking-wider left-16 top-36 w-[156px] h-[156px] bg-[#9B1B25] text-white p-3 shadow-xl z-10 max-w-xs ",
     },
   },
   {
@@ -129,7 +135,7 @@ const SECONDARY_IMAGES = [
     note: {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
       className:
-        "absolute top-64 left-36 bg-[#FFB629] text-white w-[143px] h-[178px] p-3 note tracking-wider shadow-xl italic max-w-xs",
+        "absolute top-64 left-36 bg-[#FFB629] text-white w-[143px] h-[178px] p-3 note tracking-wider shadow-xl max-w-xs",
     },
   },
   {
@@ -140,7 +146,7 @@ const SECONDARY_IMAGES = [
     note: {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       className:
-        "absolute -left-20 top-24 w-[143px] h-[112px] p-3 note tracking-wider bg-[#276A96] text-white shadow-xl z-10 max-w-xs italic",
+        "absolute -left-20 top-24 w-[143px] h-[112px] p-3 note tracking-wider bg-[#276A96] text-white shadow-xl z-10 max-w-xs ",
     },
   },
   {
@@ -151,7 +157,7 @@ const SECONDARY_IMAGES = [
     note: {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem dolor sit amet.",
       className:
-        "absolute right-12 top-57 w-[143px] h-[156px] bg-[#0E7F01] text-white p-3 note tracking-wider shadow-xl z-10 max-w-xs italic",
+        "absolute right-12 top-57 w-[143px] h-[156px] bg-[#0E7F01] text-white p-3 note tracking-wider shadow-xl z-10 max-w-xs ",
     },
   },
 ];
@@ -182,15 +188,18 @@ const NavigationButton = ({ direction, onClick }) => (
   </button>
 );
 
-const PrimaryCard = ({ card }) => (
-  <div className="relative">
+const PrimaryCard = ({ card, index }) => (
+  <div
+    key={index}
+    className={`transform ${card.rotate} transition-transform duration-300 hover:rotate-0 hover:scale-105`}
+  >
     <div
-      className={`absolute ${card.position} ${card.color} h-[${card.height}] w-[270px] ${card.rotate} text-white p-6 shadow-xl transform hover:scale-105 transition-transform duration-300`}
+      className={`${card.color} ${card.margin} w-[270px] h-auto text-white p-5 shadow-xl transition-all duration-300`}
     >
-      <h3 className="font-bold text-xl mb-4 border-b-2 border-white pb-6 uppercase ">
+      <h3 className="font-bold text-xl mb-4 border-b-2 border-white pb-4 uppercase">
         {card.title}
       </h3>
-      <p className="text-xl note ">{card.content}</p>
+      <p className="text-lg md:text-2xl note leading-snug">{card.content}</p>
     </div>
   </div>
 );
@@ -216,17 +225,19 @@ const Keychain = ({ keychain }) => {
   const timeoutRef = useRef(null);
 
   const handleMouseMove = (e) => {
+    if (!hovered) return; // Only follow mouse when hovered
+
     const rect = e.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const offsetX = e.clientX - centerX;
-    const angle = Math.max(-20, Math.min(20, offsetX / 5)); // limit swing angle
+
+    // Map offset to rotation (-180° to +180° for extreme swing)
+    const angle = Math.max(-180, Math.min(180, offsetX / 2));
+
     setRotation(angle);
 
-    // Reset timer — if mouse stays still for 5s, go back to center
+    // Clear any pending timeout
     clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      setRotation(0);
-    }, 5000);
   };
 
   const handleMouseEnter = () => {
@@ -236,8 +247,12 @@ const Keychain = ({ keychain }) => {
 
   const handleMouseLeave = () => {
     setHovered(false);
-    setRotation(0);
     clearTimeout(timeoutRef.current);
+
+    // Pendulum swing back with momentum
+    timeoutRef.current = setTimeout(() => {
+      setRotation(0);
+    }, 50);
   };
 
   return (
@@ -251,21 +266,29 @@ const Keychain = ({ keychain }) => {
       }}
       transition={{
         type: "spring",
-        stiffness: 60,
-        damping: 5,
-        mass: 0.8,
+        stiffness: 120,
+        damping: 8,
+        mass: 1.5,
       }}
       style={{
         transformOrigin: "top center",
       }}
     >
-      <div className="absolute left-1/2 -top-[20px] -ml-10 w-[75px] h-[154px] flex items-center justify-center">
-        <Image src={keychain.svg} alt={keychain.name} width={75} height={154} />
+      <div className="flex justify-center">
+        <div
+          className={`w-[75px] h-[154px] ${keychain.marign}  flex items-center justify-center`}
+        >
+          <Image
+            src={keychain.svg}
+            alt={keychain.name}
+            width={75}
+            height={154}
+          />
+        </div>
       </div>
     </motion.div>
   );
 };
-
 const PortfolioPage = () => {
   const [activeSection, setActiveSection] = useState("primary");
   const [direction, setDirection] = useState("next");
@@ -321,8 +344,8 @@ const PortfolioPage = () => {
                 className="absolute inset-0"
               >
                 {activeSection === "primary" ? (
-                  <div className="space-y-16 pt-5">
-                    <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                  <div className="space-y-16 ">
+                    <div className="flex flex-wrap gap-6 justify-center">
                       {PRIMARY_CARDS.map((card, index) => (
                         <PrimaryCard key={index} card={card} />
                       ))}
@@ -371,9 +394,19 @@ const PortfolioPage = () => {
       </div>
 
       {/* Keychains Section */}
-      <div className="relative z-30 space-x-24 flex justify-center gap-8 md:gap-12 flex-wrap px-4 pb-40">
-        {KEYCHAINS.map((keychain) => (
-          <Keychain key={keychain.id} keychain={keychain} />
+      {/* Keychains Section */}
+      <div className="z-30 max-w-7xl mx-auto flex justify-center flex-wrap gap-x-20 gap-y-8 px-4 pb-10 relative">
+        {KEYCHAINS.map((keychain, i) => (
+          <div
+            key={keychain.id}
+            className={`flex flex-col items-center ${keychain.marign || ""}`}
+            style={{
+              marginTop: i % 2 === 0 ? "-12px" : "-27px", // aligns to dot rows visually
+            }}
+          >
+            {/* Keychain animation */}
+            <Keychain keychain={keychain} />
+          </div>
         ))}
       </div>
     </>

@@ -87,61 +87,70 @@ export default function ExperienceSection() {
             {/* Header */}
             <div
               onClick={() => toggleExpand(exp.id)}
-              className={`flex items-center gap-4 md:gap-6 py-6 cursor-pointer px-2 sm:px-4 
-              transition-all duration-500 ease-in-out 
-              ${isExpanded ? "bg-(--bg-active)" : "bg-transparent"}
-              hover:bg-(--hover-bg)`}
+              className={`flex justify-between items-center gap-4 md:gap-6 py-6 cursor-pointer px-2 sm:px-4 
+    transition-all duration-500 ease-in-out 
+    ${isExpanded ? "bg-(--bg-active)" : "bg-transparent"}
+    hover:bg-(--hover-bg)`}
             >
               {/* Indicator Box */}
               <div
                 className={`w-10 h-10 sm:w-12 sm:h-12 md:w-[50px] md:h-[50px] rounded-lg flex-shrink-0 
-                transition-all duration-500 ease-in-out
-                ${isExpanded ? "bg-(--text-color)" : "bg-(--gray-text-color)"}`}
+      transition-all duration-500 ease-in-out 
+      ${isExpanded ? "bg-(--text-color)" : "bg-(--gray-text-color)"}`}
               />
 
               {/* Company */}
               <h2
                 className={`flex-1 text-xl md:text-2xl font-bold uppercase truncate 
-                transition-all duration-500 ease-in-out
-                ${
-                  isExpanded
-                    ? "text-(--text-color)"
-                    : "text-(--gray-text-color)"
-                }`}
+      transition-all duration-500 ease-in-out
+      ${isExpanded ? "text-(--text-color)" : "text-(--gray-text-color)"}`}
               >
                 {exp.company}
               </h2>
 
-              {/* Role (hidden on mobile) */}
-              <p
-                className={`hidden md:block flex-1 text-xl font-bold uppercase  truncate
-                transition-all duration-500 ease-in-out
-                ${
-                  isExpanded
-                    ? "text-(--text-color)"
-                    : "text-(--gray-text-color)"
-                }`}
-              >
-                {exp.role}
-              </p>
+              {/* Role + Separator + Duration (desktop only) */}
+              <div className="hidden md:flex items-center gap-4 min-w-[380px]">
+                {/* Role */}
+                <p
+                  className="text-xl font-bold uppercase whitespace-nowrap transition-all duration-500 ease-in-out flex-1 text-left"
+                  style={{
+                    color: isExpanded
+                      ? "var(--text-color)"
+                      : "var(--gray-text-color)",
+                  }}
+                >
+                  {exp.role}
+                </p>
 
-              {/* Duration (hidden on small mobile) */}
-              <p
-                className={`hidden sm:block text-xl font-bold uppercase whitespace-nowrap
-                transition-all duration-500 ease-in-out
-                ${
-                  isExpanded
-                    ? "text-(--text-color)"
-                    : "text-(--gray-text-color)"
-                }`}
-              >
-                {exp.duration}
-              </p>
+                {/* Separator */}
+                <span
+                  className="text-xl font-bold transition-all duration-500 ease-in-out flex-shrink-0"
+                  style={{
+                    color: isExpanded
+                      ? "var(--text-color)"
+                      : "var(--gray-text-color)",
+                  }}
+                >
+                  |
+                </span>
+
+                {/* Duration */}
+                <p
+                  className="text-xl font-bold uppercase whitespace-nowrap transition-all duration-500 ease-in-out flex-1 text-right"
+                  style={{
+                    color: isExpanded
+                      ? "var(--text-color)"
+                      : "var(--gray-text-color)",
+                  }}
+                >
+                  {exp.duration}
+                </p>
+              </div>
 
               {/* Toggle Button */}
               <button
                 className="cursor-pointer w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center 
-               transition-transform duration-500 ease-in-out"
+      transition-transform duration-500 ease-in-out"
                 style={{
                   transform: isExpanded
                     ? "rotate(45deg) scale(1.1)"
@@ -149,17 +158,13 @@ export default function ExperienceSection() {
                 }}
                 aria-label={isExpanded ? "Collapse details" : "Expand details"}
               >
-                {/* <Image src={Plus} alt="Toggle" width={30} height={30} /> */}
                 <PlusIcon
                   alt="Toggle"
-                  className={`
-                  transition-transform duration-500 ease-in-out
-                  ${
+                  className={`transition-transform duration-500 ease-in-out ${
                     isExpanded
                       ? "text-(--text-color)"
                       : "text-(--gray-text-color)"
-                  }
-                  `}
+                  }`}
                   color="currentColor"
                 />
               </button>

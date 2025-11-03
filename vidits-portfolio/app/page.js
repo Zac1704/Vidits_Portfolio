@@ -1,3 +1,4 @@
+import LiquidGlassButton from "@/components/Footer/footerButton";
 import HeroSection from "@/components/HeroSection";
 import HoverRevealText from "@/components/HoverRevealText";
 import MyWork from "@/components/MyWork";

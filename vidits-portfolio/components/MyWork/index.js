@@ -45,17 +45,10 @@ const PortfolioCard = ({ img, title, shadow }) => {
       }}
       onMouseUp={(e) => {
         const card = e.currentTarget;
-        card.style.transition =
-          "transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        // 🧹 Removed spring bounce effect
+        card.style.transition = "transform 0.2s ease-out";
         card.style.transform =
-          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.05)";
-
-        setTimeout(() => {
-          card.style.transition = "transform 0.3s ease-out";
-          card.style.transform =
-            "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
-        }, 150);
-
+          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
         setIsPressed(false);
         console.log(`Clicked on ${title}`);
       }}
@@ -77,7 +70,7 @@ const PortfolioCard = ({ img, title, shadow }) => {
           width={380}
           height={300}
           draggable={false}
-          className="w-full h-full object-cover rounded-[32px] select-none pointer-events-none"
+          className="w-full h-full object-cover rounded-[28px] select-none pointer-events-none"
           style={{
             maskImage:
               "radial-gradient(ellipse 100% 100% at center, black 96%, transparent 100%)",
@@ -148,8 +141,8 @@ export default function MyWork() {
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 flex justify-center items-center">
-        <div className="flex flex-wrap gap-10 justify-center items-center">
+      <section className="px-4 py-8 flex justify-center items-center">
+        <div className="grid gap-10 sm:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}
