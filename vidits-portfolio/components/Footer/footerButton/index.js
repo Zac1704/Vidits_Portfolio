@@ -14,7 +14,7 @@ export default function LiquidGlassButton({ type, label, icon }) {
     transition-all duration-500 hover:shadow-[inset_3px_3px_8px_rgba(0,0,0,0.45),inset_-3px_-3px_8px_rgba(255,255,255,0.25),0_8px_24px_rgba(0,0,0,0.4)] hover:bg-[#3a3a3a]/50"
       >
         {/* Soft Highlight */}
-        <div className="absolute inset-0 rounded-full bg-[radial-gradient(at_25%_75%,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0.05)_35%,transparent_70%)]/20 mix-blend-screen pointer-events-none"></div>
+        <div className="absolute inset-0 rounded-full bg-[radial-gradient(at_25%_75%,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0.05)_35%,transparent_70%)]/30 mix-blend-screen pointer-events-none"></div>
 
         {/* Frosted Dispersion */}
         <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_210deg_at_50%_50%,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0.05)_25%,transparent_60%,rgba(255,255,255,0.15)_100%)] opacity-50 mix-blend-overlay blur-[2px] pointer-events-none"></div>

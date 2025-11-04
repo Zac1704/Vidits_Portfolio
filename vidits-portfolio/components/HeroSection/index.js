@@ -4,7 +4,7 @@ import Image from "next/image";
 import Buttons from "../Buttons";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import BouncyImageStack from "./ShakingPortfolioSection";
+import PortfolioRow from "./ShakingPortfolioSection";
 
 export default function HeroSection() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -149,60 +149,8 @@ export default function HeroSection() {
       </div>
 
       {/* Portfolio Images */}
-      <BouncyImageStack />
-      {/* <div className="w-full py-2">
-        <div className="flex justify-center items-center -space-x-20">
-          <div className="transform rotate-4 hover:rotate-0 hover:scale-105 hover:z-50 transition-all duration-300">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 bg-gradient-to-br from-amber-900 to-amber-700 rounded-lg shadow-2xl overflow-hidden">
-              <Image
-                width={200}
-                height={200}
-                src="/Images/heroSection/post1.webp"
-                alt="Atulyn K Design"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+      <PortfolioRow />
 
-          <div className="transform -rotate-4 hover:rotate-0 hover:scale-105 hover:z-50 transition-all duration-300 z-10 -mt-10">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 bg-gradient-to-br from-orange-500 to-orange-400 rounded-lg shadow-2xl overflow-hidden">
-              <Image
-                width={192}
-                height={192}
-                src="/Images/heroSection/post2.webp"
-                alt="Rollin & Purrin"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="transform rotate-4 hover:rotate-0 hover:scale-105 hover:z-50 transition-all duration-300 z-20">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 bg-black rounded-lg shadow-2xl overflow-hidden">
-              <Image
-                width={192}
-                height={192}
-                src="/Images/heroSection/post3.webp"
-                alt="The Eyes Collection"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="transform -rotate-4 hover:rotate-0 hover:scale-105 hover:z-50 transition-all duration-300 z-30 -mt-10">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg shadow-2xl overflow-hidden">
-              <Image
-                width={192}
-                height={192}
-                src="/Images/heroSection/post4.webp"
-                alt="Modern Typography"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      
       {/* Title */}
       <div className="text-center relative px-4 w-full mt-7">
         <h2 className="text-4xl sm:text-8xl font-black text-(--gray-text-color) tracking-tight leading-tight">

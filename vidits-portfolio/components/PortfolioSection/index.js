@@ -237,7 +237,7 @@ const Keychain = ({ keychain }) => {
     setRotation(angle);
 
     // Clear any pending timeout
-    clearTimeout(timeoutRef.current);
+    clearTimeout(timeoutRef.current); 
   };
 
   const handleMouseEnter = () => {
@@ -276,7 +276,7 @@ const Keychain = ({ keychain }) => {
     >
       <div className="flex justify-center">
         <div
-          className={`w-[75px] h-[154px] ${keychain.marign}  flex items-center justify-center`}
+          className={`w-[75px] h-[154px] ${keychain.marign} flex items-center justify-center`}
         >
           <Image
             src={keychain.svg}
@@ -308,7 +308,7 @@ const PortfolioPage = () => {
             style={{
               width: "1260px", // 42 * 30
               height: "900px", // 30 * 30
-              backgroundImage: `radial-gradient(circle, #c0c0c0 5px, transparent 5px)`,
+              backgroundImage: `radial-gradient(circle, #d9d9d9 5px, transparent 5px)`,
               backgroundSize: "30px 30px",
               backgroundPosition: "0 0",
             }}
