@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import Plus from "../../public/Images/svg/PlusSign.svg";
 import PlusIcon from "../SVG/PlusIcon";
 
 const experiences = [
@@ -69,141 +68,145 @@ export default function ExperienceSection() {
         Experience
       </h1>
 
-      {experiences.map((exp, index) => {
-        const isExpanded = expandedId === exp.id;
-        const textColor = isExpanded
-          ? "text-(--text-color)"
-          : "text-(--gray-text-color)";
-        const bgColor = isExpanded
-          ? "bg-(--text-color)"
-          : "bg-(--gray-text-color)";
-        const hasBorder = index !== experiences.length - 1;
+      <div className="w-full flex flex-col divide-y-4 divide-(--gray-text-color)">
+        {experiences.map((exp) => {
+          const isExpanded = expandedId === exp.id;
 
-        return (
-          <div
-            key={exp.id}
-            className={hasBorder ? "border-b-4 border-(--gray-text-color)" : ""}
-          >
-            {/* Header */}
-            <div
-              onClick={() => toggleExpand(exp.id)}
-              className={`flex justify-between items-center gap-4 md:gap-6 py-6 cursor-pointer px-2 sm:px-4 
-    transition-all duration-500 ease-in-out 
-    ${isExpanded ? "bg-(--bg-active)" : "bg-transparent"}
-    hover:bg-(--hover-bg)`}
-            >
-              {/* Indicator Box */}
+          return (
+            <div key={exp.id} className="w-full">
+              {/* Header Row */}
               <div
-                className={`w-10 h-10 sm:w-12 sm:h-12 md:w-[50px] md:h-[50px] rounded-lg flex-shrink-0 
-      transition-all duration-500 ease-in-out 
-      ${isExpanded ? "bg-(--text-color)" : "bg-(--gray-text-color)"}`}
-              />
-
-              {/* Company */}
-              <h2
-                className={`flex-1 text-xl md:text-2xl font-bold uppercase truncate 
-      transition-all duration-500 ease-in-out
-      ${isExpanded ? "text-(--text-color)" : "text-(--gray-text-color)"}`}
+                onClick={() => toggleExpand(exp.id)}
+                className={`grid grid-cols-[auto_1fr_auto] md:grid-cols-[auto_1fr_1fr_auto_0.4fr_auto] gap-4 items-center py-6 px-2 sm:px-4 cursor-pointer 
+                transition-all duration-500 ease-in-out 
+                ${
+                  isExpanded
+                    ? "bg-(--bg-active)"
+                    : "bg-transparent hover:bg-(--hover-bg)"
+                }`}
               >
-                {exp.company}
-              </h2>
+                {/* Indicator Box */}
+                <div
+                  className={`w-10 h-10 sm:w-12 sm:h-12 md:w-[50px] md:h-[50px] rounded-lg 
+                    transition-all duration-500 ease-in-out
+                    ${
+                      isExpanded
+                        ? "bg-(--text-color)"
+                        : "bg-(--gray-text-color)"
+                    }`}
+                />
 
-              {/* Role + Separator + Duration (desktop only) */}
-              <div className="hidden md:flex items-center gap-4 min-w-[380px]">
-                {/* Role */}
+                {/* Company */}
+                <h2
+                  className={`text-xl md:text-2xl font-bold uppercase truncate 
+                    transition-all duration-500 ease-in-out
+                    ${
+                      isExpanded
+                        ? "text-(--text-color)"
+                        : "text-(--gray-text-color)"
+                    }`}
+                >
+                  {exp.company}
+                </h2>
+
+                {/* Role (desktop only) */}
                 <p
-                  className="text-xl font-bold uppercase whitespace-nowrap transition-all duration-500 ease-in-out flex-1 text-left"
-                  style={{
-                    color: isExpanded
-                      ? "var(--text-color)"
-                      : "var(--gray-text-color)",
-                  }}
+                  className={`hidden md:block text-xl font-bold uppercase text-right 
+                    transition-all duration-500 ease-in-out
+                    ${
+                      isExpanded
+                        ? "text-(--text-color)"
+                        : "text-(--gray-text-color)"
+                    }`}
                 >
                   {exp.role}
                 </p>
 
-                {/* Separator */}
-                <span
-                  className="text-xl font-bold transition-all duration-500 ease-in-out flex-shrink-0"
+                {/* Vertical line (desktop only) */}
+                <div
+                  className={`hidden md:block w-[3px] h-5 bg-current mx-auto transition-all duration-500 ease-in-out
+    ${isExpanded ? "text-(--text-color)" : "text-(--gray-text-color)"}`}
                   style={{
-                    color: isExpanded
+                    backgroundColor: isExpanded
                       ? "var(--text-color)"
                       : "var(--gray-text-color)",
                   }}
-                >
-                  |
-                </span>
+                ></div>
 
-                {/* Duration */}
+                {/* Duration (desktop only) */}
                 <p
-                  className="text-xl font-bold uppercase whitespace-nowrap transition-all duration-500 ease-in-out flex-1 text-right"
-                  style={{
-                    color: isExpanded
-                      ? "var(--text-color)"
-                      : "var(--gray-text-color)",
-                  }}
+                  className={`hidden md:block text-xl font-bold uppercase text-left 
+                    transition-all duration-500 ease-in-out
+                    ${
+                      isExpanded
+                        ? "text-(--text-color)"
+                        : "text-(--gray-text-color)"
+                    }`}
                 >
                   {exp.duration}
                 </p>
+
+                {/* Toggle Icon */}
+                <button
+                  className="cursor-pointer w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center 
+                    transition-transform duration-500 ease-in-out"
+                  style={{
+                    transform: isExpanded
+                      ? "rotate(45deg) scale(1.1)"
+                      : "rotate(0deg) scale(1)",
+                  }}
+                  aria-label={
+                    isExpanded ? "Collapse details" : "Expand details"
+                  }
+                >
+                  <PlusIcon
+                    alt="Toggle"
+                    className={`transition-transform duration-500 ease-in-out ${
+                      isExpanded
+                        ? "text-(--text-color)"
+                        : "text-(--gray-text-color)"
+                    }`}
+                    color="currentColor"
+                  />
+                </button>
               </div>
 
-              {/* Toggle Button */}
-              <button
-                className="cursor-pointer w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center 
-      transition-transform duration-500 ease-in-out"
-                style={{
-                  transform: isExpanded
-                    ? "rotate(45deg) scale(1.1)"
-                    : "rotate(0deg) scale(1)",
-                }}
-                aria-label={isExpanded ? "Collapse details" : "Expand details"}
+              {/* Expanded Section */}
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out 
+                ${
+                  isExpanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                }`}
               >
-                <PlusIcon
-                  alt="Toggle"
-                  className={`transition-transform duration-500 ease-in-out ${
-                    isExpanded
-                      ? "text-(--text-color)"
-                      : "text-(--gray-text-color)"
-                  }`}
-                  color="currentColor"
-                />
-              </button>
-            </div>
+                <div className="px-2 sm:px-4 pb-8">
+                  {/* Mobile Role + Duration */}
+                  <div className="md:hidden mb-4 ml-14 sm:ml-16">
+                    <p className="text-sm sm:text-base font-bold text-(--text-color) uppercase mb-1">
+                      {exp.role}
+                    </p>
+                    <p className="text-xs sm:text-sm font-bold text-(--gray-text-color) uppercase">
+                      {exp.duration}
+                    </p>
+                  </div>
 
-            {/* Expanded Content */}
-            <div
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                isExpanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
-              }`}
-            >
-              <div className="px-2 sm:px-4 pb-8">
-                {/* Mobile Role + Duration */}
-                <div className="md:hidden mb-4 ml-14 sm:ml-16">
-                  <p className="text-sm sm:text-base font-bold text-gray-800 uppercase mb-1">
-                    {exp.role}
-                  </p>
-                  <p className="text-xs sm:text-sm font-bold text-gray-600 uppercase">
-                    {exp.duration}
-                  </p>
+                  {/* Details */}
+                  <ul className="space-y-3 sm:space-y-4 ml-0 md:ml-[60px]">
+                    {exp.details.map((detail, i) => (
+                      <li
+                        key={i}
+                        className="text-base sm:text-lg md:text-xl font-bold text-(--text-color) uppercase leading-relaxed flex items-start gap-3"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-(--text-color) mt-2 flex-shrink-0"></span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                {/* Details */}
-                <ul className="space-y-3 sm:space-y-4">
-                  {exp.details.map((detail, i) => (
-                    <li
-                      key={i}
-                      className="text-base sm:text-lg md:text-xl font-bold text-(--text-color) uppercase leading-relaxed flex items-start gap-3"
-                    >
-                      <span className="w-2 h-2 rounded-full bg-(--text-color) mt-2 flex-shrink-0"></span>
-                      <span className="flex-1">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </section>
   );
 }
