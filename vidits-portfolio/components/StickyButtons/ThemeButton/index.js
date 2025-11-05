@@ -32,14 +32,14 @@ export default function ThemeButton() {
                 const width = window.innerWidth;
 
                 if (width < 640) {
-                  radius = 44; // mobile radius
-                  spacingFactor = 0.8; // tighter cluster
+                  radius = 45; // mobile radius
+                  spacingFactor = 1; // tighter cluster
                 } else if (width >= 640 && width < 1024) {
-                  radius = 64; // tablet
+                  radius = 65; // tablet
                   spacingFactor = 1; // normal spacing
                 } else {
-                  radius = 64; // large screens
-                  spacingFactor = 1.2; // slightly wider spread
+                  radius = 65; // large screens
+                  spacingFactor = 1; // slightly wider spread
                 }
               }
 

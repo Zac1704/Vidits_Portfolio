@@ -26,13 +26,13 @@ const Aboutpage = () => {
         </p>
       </div>
 
-      {/* <ExperienceSection /> */}
+      <ExperienceSection />
 
-      {/* <PortfolioPage /> */}
+      <PortfolioPage />
 
-      {/* <Carousel title="Project Archive" /> */}
+      <Carousel title="Project Archive" />
 
-      {/* <HoverRevealText /> */}
+      <HoverRevealText />
     </div>
   );
 };
