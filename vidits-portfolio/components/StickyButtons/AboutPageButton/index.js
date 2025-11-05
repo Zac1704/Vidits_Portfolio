@@ -19,26 +19,28 @@ export default function AboutPageButton() {
   return (
     <button
       onClick={handleClick}
-      className="fixed top-5 right-5 z-50 cursor-pointer bg-gray-200 p-4 rounded-full shadow-lg transition-all duration-300 active:scale-95"
       aria-label="Toggle About/Home Page"
+      className="
+        fixed top-3 right-3 sm:top-5 sm:right-5 z-50 cursor-pointer 
+        rounded-full shadow-lg backdrop-blur-md 
+        bg-white/30 border border-white/20 
+        hover:bg-white/40 active:scale-95 
+        transition-all duration-300 
+        flex items-center justify-center
+        p-2 pl-[10px] pt-[10px] sm:p-3 md:p-4
+      "
     >
-      <svg
-        width="38"
-        height="40"
-        viewBox="0 0 38 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg fill="none" viewBox="0 0 37 40" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10">
         <path
-          d="M0.708206 14.7233H37.2891V22.6799C37.2891 33.9355 30.2058 40 19.1442 40C2.26071 40 0.708206 29.3751 0.708206 23.3591V14.7233ZM28.1681 24.6205H9.53807C9.58658 29.1325 15.2144 29.9087 18.659 29.9087C22.6373 29.9087 28.1681 29.1325 28.1681 24.6205Z"
+          d="M0.00117493 14.7233H36.582V22.6799C36.582 33.9355 29.4987 40 18.4372 40C1.55368 40 0.00117493 29.3751 0.00117493 23.3591V14.7233ZM27.4611 24.6205H8.83104C8.87955 29.1325 14.5074 29.9087 17.952 29.9087C21.9303 29.9087 27.4611 29.1325 27.4611 24.6205Z"
           fill="#363636"
         />
         <path
-          d="M32.3453 9.88982C29.6226 9.88982 27.4154 7.68262 27.4154 4.95991C27.4154 2.2372 29.6226 0.0300066 32.3453 0.0300066C35.068 0.0300066 37.2752 2.2372 37.2752 4.95991C37.2752 7.68262 35.068 9.88982 32.3453 9.88982Z"
+          d="M31.6383 9.88982C28.9156 9.88982 26.7084 7.68262 26.7084 4.95991C26.7084 2.2372 28.9156 0.0300066 31.6383 0.0300066C34.361 0.0300066 36.5682 2.2372 36.5682 4.95991C36.5682 7.68262 34.361 9.88982 31.6383 9.88982Z"
           fill="#363636"
         />
         <path
-          d="M23.4439 9.65728e-05V9.89692H0.721886V0L23.4439 9.65728e-05Z"
+          d="M22.7369 9.65728e-05V9.89692H0.0148544V0L22.7369 9.65728e-05Z"
           fill="#363636"
         />
       </svg>

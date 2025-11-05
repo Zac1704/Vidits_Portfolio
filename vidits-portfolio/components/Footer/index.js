@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
 
           {/* Right Content - Contact Buttons */}
-          <div className="flex flex-col gap-6 lg:min-w-[300px]">
+          <div className="flex flex-col gap-6 ">
             {/* Call Button */}
             <LiquidGlassButton type="+917869963454" label="Call" icon="/Images/svg/Footer/call.svg" />
 
