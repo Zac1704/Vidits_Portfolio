@@ -8,7 +8,7 @@ const PortfolioCard = ({ img, title, shadow }) => {
 
   return (
     <div
-      className="relative w-[380px] h-[300px] rounded-[32px] flex items-center justify-center bg-transparent transition-transform duration-300 cursor-pointer"
+      className="relative w-[160px] h-[130px] sm:w-[220px] sm:h-[180px] md:w-[260px] md:h-[210px] lg:w-[300px] lg:h-[240px] xl:w-[340px] xl:h-[270px] 2xl:w-[380px] 2xl:h-[300px] rounded-[24px] flex items-center justify-center bg-transparent transition-transform duration-300 cursor-pointer"
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
@@ -54,12 +54,11 @@ const PortfolioCard = ({ img, title, shadow }) => {
       }}
     >
       <div
-        className={`inner w-full h-full rounded-[32px] overflow-hidden border-[4px] border-white flex items-center justify-center bg-white transition-all duration-200 ${
+        className={`inner rounded-[24px] w-full h-full overflow-hidden border-[4px] border-white flex items-center justify-center bg-white transition-all duration-200 ${
           isPressed ? "brightness-95" : ""
         }`}
         style={{
           transform: "rotateX(0deg) rotateY(0deg)",
-          transformStyle: "preserve-3d",
           willChange: "transform, box-shadow",
           boxShadow: isPressed ? `${shadow.replace("22px", "12px")}` : shadow,
         }}
@@ -70,13 +69,7 @@ const PortfolioCard = ({ img, title, shadow }) => {
           width={380}
           height={300}
           draggable={false}
-          className="w-full h-full object-cover rounded-[28px] select-none pointer-events-none"
-          style={{
-            maskImage:
-              "radial-gradient(ellipse 100% 100% at center, black 96%, transparent 100%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 100% 100% at center, black 96%, transparent 100%)",
-          }}
+          className="w-full h-full object-cover rounded-[20px] select-none pointer-events-none"
         />
       </div>
     </div>
@@ -142,7 +135,7 @@ export default function MyWork() {
 
       {/* Portfolio Grid */}
       <section className="px-4 py-8 flex justify-center items-center">
-        <div className="grid gap-10 sm:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl">
+        <div className="grid gap-6 sm:gap-8 md:gap-10 lg:gap-12 grid-cols-2 md:grid-cols-3 max-w-7xl">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}

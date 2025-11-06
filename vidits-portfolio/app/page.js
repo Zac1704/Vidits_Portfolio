@@ -1,6 +1,6 @@
 "use client";
 
-import LiquidGlassButton from "@/components/Footer/footerButton";
+import Buttons from "@/components/Buttons";
 import HeroSection from "@/components/HeroSection";
 import HoverRevealText from "@/components/HoverRevealText";
 import MyWork from "@/components/MyWork";
@@ -11,6 +11,19 @@ export default function Home() {
   return (
     <div className="max-w-7xl space-y-10 mx-auto hide-scrollbar">
       <HeroSection />
+      {/* <motion.div
+        className="flex justify-center py-10"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 120,
+          damping: 20,
+          delay: 0.3,
+        }}
+      >
+        <Buttons ButtonName="resume" src="/Images/Button/star.svg" />
+      </motion.div> */}
       <ScrollReveal>
         <MyWork />
       </ScrollReveal>

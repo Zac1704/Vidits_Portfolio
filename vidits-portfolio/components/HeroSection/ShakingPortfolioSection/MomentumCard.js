@@ -38,7 +38,40 @@ export default function MomentumHoverCardsBase({
   const [isHovering, setIsHovering] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // detect mobile
+  // 🔹 Responsive card sizing
+  const [dimensions, setDimensions] = useState({
+    width: cardWidth,
+    height: cardHeight,
+  });
+
+  // 🔹 Responsive card sizing
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (typeof window !== "undefined") {
+        if (window.innerWidth < 640) {
+          setDimensions({ width: 100, height: 100 }); // Mobile
+        } else if (window.innerWidth < 1024) {
+          setDimensions({ width: 150, height: 150 }); // Tablet
+        } else {
+          setDimensions({ width: cardWidth, height: cardHeight }); // Desktop
+        }
+      }
+    };
+
+    updateDimensions();
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", updateDimensions);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", updateDimensions);
+      }
+    };
+  }, [cardWidth, cardHeight]);
+
+  // detect mobile (based on user agent or screen width)
   useEffect(() => {
     if (typeof window !== "undefined") {
       const checkMobile = () => {
@@ -126,8 +159,8 @@ export default function MomentumHoverCardsBase({
         mouseVX={mouseVX}
         mouseVY={mouseVY}
         isHovering={isHovering}
-        cardWidth={cardWidth}
-        cardHeight={cardHeight}
+        cardWidth={dimensions.width}
+        cardHeight={dimensions.height}
         intensity={intensity}
         maxRotation={maxRotation}
         cardBorderRadius={cardBorderRadius}
@@ -147,8 +180,7 @@ export default function MomentumHoverCardsBase({
     mouseVX,
     mouseVY,
     isHovering,
-    cardWidth,
-    cardHeight,
+    dimensions,
     intensity,
     maxRotation,
     cardBorderRadius,
@@ -167,8 +199,10 @@ export default function MomentumHoverCardsBase({
       style={{
         ...style,
         position: "relative",
-        width: `${cardWidth + (cards.length - 1) * cardWidth * overlap}px`,
-        height: `${cardHeight}px`,
+        width: `${
+          dimensions.width + (cards.length - 1) * dimensions.width * overlap
+        }px`,
+        height: `${dimensions.height}px`,
         overflow: "visible",
       }}
       onMouseMove={shouldDisableMotion ? undefined : handleMouseMove}
@@ -181,7 +215,7 @@ export default function MomentumHoverCardsBase({
           style={{
             position: "absolute",
             top: 0,
-            left: `${i * cardWidth * overlap}px`,
+            left: `${i * dimensions.width * overlap}px`,
             zIndex: i,
           }}
         >
