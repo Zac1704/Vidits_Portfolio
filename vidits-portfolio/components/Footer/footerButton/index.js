@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function LiquidGlassButton({ type, label, icon }) {
   return (
-    <Link href={`tel:${type}`} passHref className="block w-[188px] h-[62px] sm:w-[228px] sm:h-[76px]">
+    <Link href={`${type}`} passHref className="block w-[188px] h-[62px] sm:w-[228px] sm:h-[76px]">
       <div
         className="relative z-10 flex items-center justify-center space-x-4 w-full h-full rounded-full
     bg-[#363636]/45 backdrop-blur-[32px] text-white select-none cursor-pointer
