@@ -124,8 +124,8 @@ export default function MyWork() {
   return (
     <div className="uppercase bg-white">
       {/* Header */}
-      <header className="text-center pb-5 px-4">
-        <h1 className="text-5xl font-black text-(--text-color) mb-4">
+      <header className="text-center px-4">
+        <h1 className="text-[48px] font-black text-(--text-color)">
           MY WORK
         </h1>
         <p className="text-[#D6D6D6] text-sm md:text-lg">

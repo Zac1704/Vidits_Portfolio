@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function LiquidGlassButton({ type, label, icon }) {
   return (
-    <Link href={`tel:${type}`} passHref className="block w-[228px] h-[76px]">
+    <Link href={`tel:${type}`} passHref className="block w-[188px] h-[62px] sm:w-[228px] sm:h-[76px]">
       <div
         className="relative z-10 flex items-center justify-center space-x-4 w-full h-full rounded-full
     bg-[#363636]/45 backdrop-blur-[32px] text-white select-none cursor-pointer
@@ -28,9 +28,9 @@ export default function LiquidGlassButton({ type, label, icon }) {
           alt={label}
           width={30}
           height={30}
-          className="relative z-10 drop-shadow-[0_1px_2px_rgba(255,255,255,0.25)]"
+          className="h-[25px] w-[25px] sm:h-[30px] sm:w-[30px] relative z-10 drop-shadow-[0_1px_2px_rgba(255,255,255,0.25)]"
         />
-        <h1 className="text-2xl uppercase tracking-wide relative z-10 drop-shadow-[0_1px_2px_rgba(255,255,255,0.25)]">
+        <h1 className="text-xl sm:text-2xl uppercase tracking-wide relative z-10 drop-shadow-[0_1px_2px_rgba(255,255,255,0.25)]">
           {label}
         </h1>
       </div>

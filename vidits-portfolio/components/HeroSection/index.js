@@ -63,7 +63,7 @@ export default function HeroSection() {
   return (
     <div>
       <motion.div
-        className="w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-6 overflow-hidden"
+        className="w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-6 "
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ ...bounceSpring, duration: 0.6 }}
@@ -208,11 +208,14 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.5 }}
         >
-          <h2 className="text-[42px] sm:text-[72px] md:text-8xl font-black text-(--gray-text-color) tracking-tight leading-tight">
+          <h2 className="sm:block hidden text-[42px] sm:text-[64px] md:text-8xl font-black text-(--gray-text-color) tracking-tight leading-tight">
             GRAPHICS & UI/UX
           </h2>
-          <div className="flex items-center justify-center flex-wrap">
-            <h2 className="text-[42px] sm:text-[72px] md:text-8xl font-black text-(--gray-text-color) tracking-tight">
+          <h2 className="block sm:hidden text-[42px] sm:text-[64px] md:text-8xl font-black text-(--gray-text-color) tracking-tight leading-tight">
+            GRAPHICS & UI/UX  DESIGNE₹
+          </h2>
+          <div className="sm:flex hidden items-center justify-center flex-wrap">
+            <h2 className="text-[42px] sm:text-[64px] md:text-8xl font-black text-(--gray-text-color) tracking-tight">
               DESIGNE₹
             </h2>
           </div>

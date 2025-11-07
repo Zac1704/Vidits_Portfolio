@@ -9,10 +9,10 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   return (
-    <div className="max-w-7xl space-y-10 mx-auto hide-scrollbar">
+    <div className="max-w-7xl space-y-8 mx-auto hide-scrollbar overflow-hidden">
       <HeroSection />
-      {/* <motion.div
-        className="flex justify-center py-10"
+      <motion.div
+        className="flex justify-center mb-12"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -23,7 +23,7 @@ export default function Home() {
         }}
       >
         <Buttons ButtonName="resume" src="/Images/Button/star.svg" />
-      </motion.div> */}
+      </motion.div>
       <ScrollReveal>
         <MyWork />
       </ScrollReveal>

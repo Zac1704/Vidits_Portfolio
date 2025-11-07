@@ -32,7 +32,7 @@ export default function ThemeButton() {
                 const width = window.innerWidth;
 
                 if (width < 640) {
-                  radius = 45; // mobile radius
+                  radius = 55; // mobile radius
                   spacingFactor = 1; // tighter cluster
                 } else if (width >= 640 && width < 1024) {
                   radius = 65; // tablet

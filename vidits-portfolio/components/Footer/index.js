@@ -6,15 +6,15 @@ export default function Footer() {
       <div>
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
           {/* Left Content */}
-          <div className="flex-1 space-y-2">
-            <h3 className="text-(--gray-text-color) text-xl md:text-4xl font-bold">
+          <div className="flex-1 space-y-1 sm:space-y-2">
+            <h3 className="text-(--gray-text-color) text-[24px] md:text-4xl font-bold">
               LIKED MY WORK??
             </h3>
             <h2 className="text-white text-5xl md:text-6xl lg:text-8xl font-black leading-tight">
               LET&apos;S CONNECT
             </h2>
-            <p className="text-(--gray-text-color) text-4xl font-bold">
-              WHAT&apos;S YOUR POISON??
+            <p className="text-(--gray-text-color) text-[24px] md:text-4xl font-bold">
+              PICK YOUR POISON!!
             </p>
           </div>
 
