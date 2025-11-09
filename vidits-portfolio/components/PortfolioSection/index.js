@@ -3,8 +3,8 @@
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bgright } from "../SVG/Portfoliobackground/Bgright";
-import { Bgleft } from "../SVG/Portfoliobackground/Bgleft";
+// import { Bgright } from "../SVG/Portfoliobackground/Bgright";
+// import { Bgleft } from "../SVG/Portfoliobackground/Bgleft";
 import { PRIMARY_CARDS, SECONDARY_IMAGES, KEYCHAINS } from "./index.constant";
 import { BgCombined } from "../SVG/Portfoliobackground/Combined";
 
