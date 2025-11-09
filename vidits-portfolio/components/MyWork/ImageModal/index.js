@@ -102,8 +102,16 @@ const ImageModal = ({ img, title, onClose }) => {
               className="w-full h-full overflow-auto rounded-[20px] hide-scrollbar"
             >
               <div className="flex justify-center items-center min-w-full min-h-full">
-                <Image
+                {/* <Image
                   src={img || "/Images/image.jpg"}
+                  alt={title}
+                  width={2000}
+                  height={2000}
+                  className="object-contain select-none mx-auto"
+                  priority
+                /> */}
+                <Image
+                  src="/Images/image.jpg"
                   alt={title}
                   width={2000}
                   height={2000}
