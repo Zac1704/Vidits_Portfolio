@@ -98,7 +98,7 @@ export default function ExperienceSection() {
 
                 {/* Company */}
                 <h2
-                  className={`text-xl md:text-2xl font-bold uppercase truncate 
+                  className={`text-2xl font-bold uppercase truncate 
                     transition-all duration-500 ease-in-out
                     ${
                       isExpanded
@@ -181,10 +181,10 @@ export default function ExperienceSection() {
                 <div className="px-2 sm:px-4 pb-8">
                   {/* Mobile Role + Duration */}
                   <div className="md:hidden mb-4 ml-14 sm:ml-16">
-                    <p className="text-sm sm:text-base font-bold text-(--text-color) uppercase mb-1">
+                    <p className="text-base font-bold text-(--text-color) uppercase mb-1">
                       {exp.role}
                     </p>
-                    <p className="text-xs sm:text-sm font-bold text-(text-color) uppercase">
+                    <p className="text-base font-bold text-(--text-color) uppercase">
                       {exp.duration}
                     </p>
                   </div>

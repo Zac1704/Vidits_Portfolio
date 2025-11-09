@@ -94,7 +94,11 @@ export const BgCombined = ({ className, visible }) => (
     <circle cx="1085" cy="35" fill="#D9D9D9" r="5" />
     <circle cx="1115" cy="35" fill="#D9D9D9" r="5" />
     <circle cx="1145" cy="35" fill="#D9D9D9" r="5" />
-    <circle cx="1175" cy="35" fill="#363636" r="5" />
+    {visible ? (
+      <circle cx="1175" cy="35" fill="#D9D9D9" r="5" />
+    ) : (
+      <circle cx="1175" cy="35" fill="#363636" r="5" />
+    )}
     <circle cx="1205" cy="35" fill="#D9D9D9" r="5" />
     <circle cx="1235" cy="35" fill="#D9D9D9" r="5" />
     <circle cx="5" cy="65" fill="#D9D9D9" r="5" />
@@ -145,10 +149,21 @@ export const BgCombined = ({ className, visible }) => (
     <circle cx="1025" cy="65" fill="#D9D9D9" r="5" />
     <circle cx="1055" cy="65" fill="#D9D9D9" r="5" />
     <circle cx="1085" cy="65" fill="#D9D9D9" r="5" />
-    <circle cx="1115" cy="65" fill="#363636" r="5" />
-    <circle cx="1145" cy="65" fill="#363636" r="5" />
-    <circle cx="1175" cy="65" fill="#363636" r="5" />
-    <circle cx="1205" cy="65" fill="#363636" r="5" />
+    {visible ? (
+      <>
+        <circle cx="1115" cy="65" fill="#D9D9D9" r="5" />
+        <circle cx="1145" cy="65" fill="#D9D9D9" r="5" />
+        <circle cx="1175" cy="65" fill="#D9D9D9" r="5" />
+        <circle cx="1205" cy="65" fill="#D9D9D9" r="5" />
+      </>
+    ) : (
+      <>
+        <circle cx="1115" cy="65" fill="#363636" r="5" />
+        <circle cx="1145" cy="65" fill="#363636" r="5" />
+        <circle cx="1175" cy="65" fill="#363636" r="5" />
+        <circle cx="1205" cy="65" fill="#363636" r="5" />
+      </>
+    )}
     <circle cx="1235" cy="65" fill="#D9D9D9" r="5" />
     <circle cx="5" cy="95" fill="#D9D9D9" r="5" />
     <circle cx="35" cy="95" fill="#D9D9D9" r="5" />
@@ -193,7 +208,11 @@ export const BgCombined = ({ className, visible }) => (
     <circle cx="1085" cy="95" fill="#D9D9D9" r="5" />
     <circle cx="1115" cy="95" fill="#D9D9D9" r="5" />
     <circle cx="1145" cy="95" fill="#D9D9D9" r="5" />
-    <circle cx="1175" cy="95" fill="#363636" r="5" />
+    {visible ? (
+      <circle cx="1175" cy="95" fill="#D9D9D9" r="5" />
+    ) : (
+      <circle cx="1175" cy="95" fill="#363636" r="5" />
+    )}
     <circle cx="1205" cy="95" fill="#D9D9D9" r="5" />
     <circle cx="1235" cy="95" fill="#D9D9D9" r="5" />
     <circle cx="5" cy="125" fill="#D9D9D9" r="5" />
