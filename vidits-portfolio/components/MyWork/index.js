@@ -8,13 +8,13 @@ const PortfolioCard = ({ img, title, shadow }) => {
 
   return (
     <div
-      className="relative w-[160px] h-[130px] sm:w-[220px] sm:h-[180px] md:w-[260px] md:h-[210px] lg:w-[300px] lg:h-[240px] xl:w-[340px] xl:h-[270px] 2xl:w-[380px] 2xl:h-[300px] rounded-[24px] flex items-center justify-center bg-transparent transition-transform duration-300 cursor-pointer"
+      className="relative w-[150px] h-[120px] sm:w-[200px] sm:h-[160px] md:w-[230px] md:h-[190px] lg:w-[280px] lg:h-[230px] xl:w-[320px] xl:h-[260px] 2xl:w-[360px] 2xl:h-[280px] rounded-[24px] flex items-center justify-center bg-transparent transition-transform duration-300 cursor-pointer"
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
       }}
       onMouseMove={(e) => {
-        if (isPressed) return; // Disable tilt when pressed
+        if (isPressed) return;
 
         const card = e.currentTarget;
         const rect = card.getBoundingClientRect();
@@ -45,7 +45,6 @@ const PortfolioCard = ({ img, title, shadow }) => {
       }}
       onMouseUp={(e) => {
         const card = e.currentTarget;
-        // 🧹 Removed spring bounce effect
         card.style.transition = "transform 0.2s ease-out";
         card.style.transform =
           "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
@@ -125,17 +124,17 @@ export default function MyWork() {
     <div className="uppercase bg-white">
       {/* Header */}
       <header className="text-center px-4">
-        <h1 className="text-[48px] font-black text-(--text-color)">
+        <h1 className="text-[40px] sm:text-[48px] font-black text-(--text-color)">
           MY WORK
         </h1>
-        <p className="text-[#D6D6D6] text-sm md:text-lg">
+        <p className="text-[#D6D6D6] text-sm sm:text-base md:text-lg">
           Don&apos;t be shy, check my work all you want
         </p>
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 py-8 flex justify-center items-center">
-        <div className="grid gap-6 sm:gap-8 md:gap-10 lg:gap-12 grid-cols-2 md:grid-cols-3 max-w-7xl">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-20  py-10 flex justify-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 place-items-center max-w-[1400px] w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}

@@ -21,7 +21,7 @@ export default function AboutPageButton() {
       onClick={handleClick}
       aria-label="Toggle About/Home Page"
       className="
-        fixed top-3 right-3 sm:top-5 sm:right-5 z-50 cursor-pointer 
+        fixed top-3 right-3 sm:top-5 sm:right-5 z-[999] cursor-pointer 
         rounded-full shadow-lg backdrop-blur-md 
         bg-white/30 border border-white/20 
         hover:bg-white/40 active:scale-95 

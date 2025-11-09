@@ -1,13 +1,13 @@
-// Generated from SVG to Code Figma Plugin
 import React from "react";
 
-export const Group1321317730 = (props) => (
+export const Bgleft = (props) => (
   <svg
     height="670"
     width="1239"
     fill="none"
     viewBox="0 0 1239 670"
     xmlns="http://www.w3.org/2000/svg"
+	className=""
   >
     <circle cx="5" cy="5" fill="#D9D9D9" r="5" />
     <circle cx="34.9551" cy="5" fill="#D9D9D9" r="5" />
@@ -52,8 +52,8 @@ export const Group1321317730 = (props) => (
     <circle cx="1203.2" cy="5" fill="#D9D9D9" r="5" />
     <circle cx="1233.16" cy="5" fill="#D9D9D9" r="5" />
     <circle cx="5" cy="34.9551" fill="#D9D9D9" r="5" />
-    <circle cx="34.9551" cy="34.9551" fill="#D9D9D9" r="5" />
-    <circle cx="64.9102" cy="34.9551" fill="#D9D9D9" r="5" />
+    <circle cx="35" cy="34.9551" fill="#D9D9D9" r="5" />
+    <circle cx="65" cy="34.9551" fill="#363636" r="5" />
     <circle cx="94.8652" cy="34.9551" fill="#D9D9D9" r="5" />
     <circle cx="124.82" cy="34.9551" fill="#D9D9D9" r="5" />
     <circle cx="154.775" cy="34.9551" fill="#D9D9D9" r="5" />
@@ -90,14 +90,11 @@ export const Group1321317730 = (props) => (
     <circle cx="1083.38" cy="34.9551" fill="#D9D9D9" r="5" />
     <circle cx="1113.34" cy="34.9551" fill="#D9D9D9" r="5" />
     <circle cx="1143.29" cy="34.9551" fill="#D9D9D9" r="5" />
-    <circle cx="1173.25" cy="34.9551" fill="#363636" r="5" />
+    <circle cx="1173.25" cy="34.9551" fill="#D9D9D9" r="5" />
     <circle cx="1203.2" cy="34.9551" fill="#D9D9D9" r="5" />
     <circle cx="1233.16" cy="34.9551" fill="#D9D9D9" r="5" />
     <circle cx="5" cy="64.9102" fill="#D9D9D9" r="5" />
-    <circle cx="34.9551" cy="64.9102" fill="#D9D9D9" r="5" />
-    <circle cx="64.9102" cy="64.9102" fill="#D9D9D9" r="5" />
-    <circle cx="94.8652" cy="64.9102" fill="#D9D9D9" r="5" />
-    <circle cx="124.82" cy="64.9102" fill="#D9D9D9" r="5" />
+    
     <circle cx="154.775" cy="64.9102" fill="#D9D9D9" r="5" />
     <circle cx="184.73" cy="64.9102" fill="#D9D9D9" r="5" />
     <circle cx="214.686" cy="64.9102" fill="#D9D9D9" r="5" />
@@ -130,14 +127,14 @@ export const Group1321317730 = (props) => (
     <circle cx="1023.47" cy="64.9102" fill="#D9D9D9" r="5" />
     <circle cx="1053.43" cy="64.9102" fill="#D9D9D9" r="5" />
     <circle cx="1083.38" cy="64.9102" fill="#D9D9D9" r="5" />
-    <circle cx="1113.34" cy="64.9102" fill="#363636" r="5" />
-    <circle cx="1143.29" cy="64.9102" fill="#363636" r="5" />
-    <circle cx="1173.25" cy="64.9102" fill="#363636" r="5" />
-    <circle cx="1203.2" cy="64.9102" fill="#363636" r="5" />
+    <circle cx="1113.34" cy="64.9102" fill="#D9D9D9" r="5" />
+    <circle cx="1143.29" cy="64.9102" fill="#D9D9D9" r="5" />
+    <circle cx="1173.25" cy="64.9102" fill="#D9D9D9" r="5" />
+    <circle cx="1203.2" cy="64.9102" fill="#D9D9D9" r="5" />
     <circle cx="1233.16" cy="64.9102" fill="#D9D9D9" r="5" />
     <circle cx="5" cy="94.8652" fill="#D9D9D9" r="5" />
-    <circle cx="34.9551" cy="94.8652" fill="#D9D9D9" r="5" />
-    <circle cx="64.9102" cy="94.8652" fill="#D9D9D9" r="5" />
+    <circle cx="35" cy="94.8652" fill="#D9D9D9" r="5" />
+    <circle cx="65" cy="94.8652" fill="#363636" r="5" />
     <circle cx="94.8652" cy="94.8652" fill="#D9D9D9" r="5" />
     <circle cx="124.82" cy="94.8652" fill="#D9D9D9" r="5" />
     <circle cx="154.775" cy="94.8652" fill="#D9D9D9" r="5" />
@@ -174,7 +171,7 @@ export const Group1321317730 = (props) => (
     <circle cx="1083.38" cy="94.8652" fill="#D9D9D9" r="5" />
     <circle cx="1113.34" cy="94.8652" fill="#D9D9D9" r="5" />
     <circle cx="1143.29" cy="94.8652" fill="#D9D9D9" r="5" />
-    <circle cx="1173.25" cy="94.8652" fill="#363636" r="5" />
+    <circle cx="1173.25" cy="94.8652" fill="#D9D9D9" r="5" />
     <circle cx="1203.2" cy="94.8652" fill="#D9D9D9" r="5" />
     <circle cx="1233.16" cy="94.8652" fill="#D9D9D9" r="5" />
     <circle cx="5" cy="124.82" fill="#D9D9D9" r="5" />
@@ -975,29 +972,21 @@ export const Group1321317730 = (props) => (
     <circle cx="1173.25" cy="664.012" fill="#D9D9D9" r="5" />
     <circle cx="1203.2" cy="664.012" fill="#D9D9D9" r="5" />
     <circle cx="1233.16" cy="664.012" fill="#D9D9D9" r="5" />
-    <line
+    <path
+      d="M34.8301 65.3244C82.9796 65.3241 115.282 65.3243 125.414 65.3244"
       stroke="#363636"
-      strokeWidth="3"
-      x1="1113.34"
-      x2="1202.22"
-      y1="65.1152"
-      y2="65.1152"
+      strokeLinecap="round"
+      strokeWidth="4"
     />
-    <line
+    <path
+      d="M64.5898 95.6934L35.5107 66.6143"
       stroke="#363636"
-      strokeWidth="3"
-      x1="1173.31"
-      x2="1202.39"
-      y1="33.8944"
-      y2="62.9735"
+      strokeWidth="4"
     />
-    <line
+    <path
+      d="M64.5898 34.9551L35.5107 64.0342"
       stroke="#363636"
-      strokeWidth="3"
-      x1="1174.51"
-      x2="1203.58"
-      y1="94.6337"
-      y2="65.5546"
+      strokeWidth="4"
     />
   </svg>
 );

@@ -30,13 +30,13 @@ export default function MomentumHoverCardsBase({
   enableEntranceAnimation = true,
   entranceStaggerDelay = 0.1,
   respectMotionPreference = true,
-  disableMotionOnMobile = true,
   style,
   rotate,
+  height,
 }) {
   const containerRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
 
   // 🔹 Responsive card sizing
   const [dimensions, setDimensions] = useState({
@@ -44,14 +44,13 @@ export default function MomentumHoverCardsBase({
     height: cardHeight,
   });
 
-  // 🔹 Responsive card sizing
   useEffect(() => {
     const updateDimensions = () => {
       if (typeof window !== "undefined") {
         if (window.innerWidth < 640) {
-          setDimensions({ width: 100, height: 100 }); // Mobile
+          setDimensions({ width: 110, height: 110 }); // Mobile
         } else if (window.innerWidth < 1024) {
-          setDimensions({ width: 150, height: 150 }); // Tablet
+          setDimensions({ width: 160, height: 160 }); // Tablet
         } else {
           setDimensions({ width: cardWidth, height: cardHeight }); // Desktop
         }
@@ -59,11 +58,9 @@ export default function MomentumHoverCardsBase({
     };
 
     updateDimensions();
-
     if (typeof window !== "undefined") {
       window.addEventListener("resize", updateDimensions);
     }
-
     return () => {
       if (typeof window !== "undefined") {
         window.removeEventListener("resize", updateDimensions);
@@ -71,23 +68,6 @@ export default function MomentumHoverCardsBase({
     };
   }, [cardWidth, cardHeight]);
 
-  // detect mobile (based on user agent or screen width)
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const checkMobile = () => {
-        const mobile =
-          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-            navigator.userAgent
-          ) || window.innerWidth <= 768;
-        setIsMobile(mobile);
-      };
-      checkMobile();
-      window.addEventListener("resize", checkMobile);
-      return () => window.removeEventListener("resize", checkMobile);
-    }
-  }, []);
-
-  const shouldDisableMotion = disableMotionOnMobile && isMobile;
   const isInView = useInView(containerRef, { once: true, margin: "-10%" });
   const prefersReducedMotion =
     typeof window !== "undefined" &&
@@ -104,7 +84,7 @@ export default function MomentumHoverCardsBase({
     [enableEntranceAnimation, entranceStaggerDelay, prefersReducedMotion]
   );
 
-  // mouse tracking
+  // Mouse/touch motion
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const mouseVX = useMotionValue(0);
@@ -114,34 +94,60 @@ export default function MomentumHoverCardsBase({
   const lastTime = useRef(Date.now());
   const springConfig = { damping: dampening, stiffness: stiffness };
 
-  const handleMouseMove = useCallback(
-    (e) => {
+  const handlePointerMove = useCallback(
+    (x, y) => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const currentTime = Date.now();
       const deltaTime = currentTime - lastTime.current;
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+
+      const relX = x - rect.left;
+      const relY = y - rect.top;
 
       if (deltaTime > 0) {
-        const vx = ((x - prevMouseX.current) / deltaTime) * 1000;
-        const vy = ((y - prevMouseY.current) / deltaTime) * 1000;
+        const vx = ((relX - prevMouseX.current) / deltaTime) * 1000;
+        const vy = ((relY - prevMouseY.current) / deltaTime) * 1000;
         mouseVX.set(vx);
         mouseVY.set(vy);
       }
 
-      mouseX.set(x);
-      mouseY.set(y);
-      prevMouseX.current = x;
-      prevMouseY.current = y;
+      mouseX.set(relX);
+      mouseY.set(relY);
+      prevMouseX.current = relX;
+      prevMouseY.current = relY;
       lastTime.current = currentTime;
     },
     [mouseX, mouseY, mouseVX, mouseVY]
   );
 
+  const handleMouseMove = useCallback(
+    (e) => handlePointerMove(e.clientX, e.clientY),
+    [handlePointerMove]
+  );
+
+  const handleTouchMove = useCallback(
+    (e) => {
+      if (e.touches && e.touches.length > 0) {
+        const touch = e.touches[0];
+        handlePointerMove(touch.clientX, touch.clientY);
+      }
+    },
+    [handlePointerMove]
+  );
+
   const handleMouseEnter = useCallback(() => setIsHovering(true), []);
   const handleMouseLeave = useCallback(() => {
     setIsHovering(false);
+    mouseVX.set(0);
+    mouseVY.set(0);
+  }, [mouseVX, mouseVY]);
+
+  const handleTouchStart = useCallback(() => {
+    setIsTouching(true);
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    setIsTouching(false);
     mouseVX.set(0);
     mouseVY.set(0);
   }, [mouseVX, mouseVY]);
@@ -158,7 +164,7 @@ export default function MomentumHoverCardsBase({
         mouseY={mouseY}
         mouseVX={mouseVX}
         mouseVY={mouseVY}
-        isHovering={isHovering}
+        isHovering={isHovering || isTouching}
         cardWidth={dimensions.width}
         cardHeight={dimensions.height}
         intensity={intensity}
@@ -169,8 +175,8 @@ export default function MomentumHoverCardsBase({
         enableEntranceAnimation={enableEntranceAnimation}
         prefersReducedMotion={prefersReducedMotion}
         springConfig={springConfig}
-        shouldDisableMotion={shouldDisableMotion}
         rotate={rotate}
+        height={height}
       />
     ));
   }, [
@@ -180,6 +186,7 @@ export default function MomentumHoverCardsBase({
     mouseVX,
     mouseVY,
     isHovering,
+    isTouching,
     dimensions,
     intensity,
     maxRotation,
@@ -189,8 +196,8 @@ export default function MomentumHoverCardsBase({
     enableEntranceAnimation,
     prefersReducedMotion,
     springConfig,
-    shouldDisableMotion,
     rotate,
+    height,
   ]);
 
   return (
@@ -204,10 +211,14 @@ export default function MomentumHoverCardsBase({
         }px`,
         height: `${dimensions.height}px`,
         overflow: "visible",
+        touchAction: "none",
       }}
-      onMouseMove={shouldDisableMotion ? undefined : handleMouseMove}
-      onMouseEnter={shouldDisableMotion ? undefined : handleMouseEnter}
-      onMouseLeave={shouldDisableMotion ? undefined : handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       {renderedCards.map((card, i) => (
         <div
@@ -246,6 +257,7 @@ function MomentumCard({
   prefersReducedMotion,
   springConfig,
   rotate,
+  height,
 }) {
   const gapEstimate = 20;
   const cardCenterX = (index + 0.5) * (cardWidth + gapEstimate);
@@ -296,7 +308,7 @@ function MomentumCard({
   const springRotateY = useSpring(rotateY, springConfig);
   const springTranslateX = useSpring(translateX, springConfig);
   const springTranslateY = useSpring(translateY, springConfig);
-  const scale = useTransform(influence, [0, 1], [1.015, 1], { clamp: true });
+  const scale = useTransform(influence, [0, 1], [1.02, 1], { clamp: true });
   const springScale = useSpring(
     useTransform(scale, (s) => (isHovering ? s : 1)),
     springConfig
@@ -349,6 +361,7 @@ function MomentumCard({
           borderRadius: `${cardBorderRadius}px`,
           overflow: "hidden",
           position: "relative",
+          marginTop: `${height}px`,
         }}
       >
         <Image

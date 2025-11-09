@@ -184,7 +184,7 @@ export default function ExperienceSection() {
                     <p className="text-sm sm:text-base font-bold text-(--text-color) uppercase mb-1">
                       {exp.role}
                     </p>
-                    <p className="text-xs sm:text-sm font-bold text-(--gray-text-color) uppercase">
+                    <p className="text-xs sm:text-sm font-bold text-(text-color) uppercase">
                       {exp.duration}
                     </p>
                   </div>
@@ -194,7 +194,7 @@ export default function ExperienceSection() {
                     {exp.details.map((detail, i) => (
                       <li
                         key={i}
-                        className="text-base sm:text-lg md:text-xl font-bold text-(--text-color) uppercase leading-relaxed flex items-start gap-3"
+                        className="text-base ml-4 sm:-ml-4 sm:text-lg md:text-xl font-bold text-(--text-color) uppercase leading-relaxed flex items-start gap-3"
                       >
                         <span className="w-2 h-2 rounded-full bg-(--text-color) mt-2 flex-shrink-0"></span>
                         <span>{detail}</span>

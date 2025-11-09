@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function LiquidGlassButton({ type, label, icon }) {
   return (
-    <Link href={`tel:${type}`} passHref className="block w-[188px] h-[62px] sm:w-[228px] sm:h-[76px]">
+    <Link href={`${type}`} passHref className="block w-[188px] h-[62px] sm:w-[228px] sm:h-[76px]">
       <div
         className="relative z-10 flex items-center justify-center space-x-4 w-full h-full rounded-full
     bg-[#363636]/45 backdrop-blur-[32px] text-white select-none cursor-pointer
@@ -18,7 +18,7 @@ export default function LiquidGlassButton({ type, label, icon }) {
 
         {/* Frosted Dispersion */}
         <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_210deg_at_50%_50%,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0.05)_25%,transparent_60%,rgba(255,255,255,0.15)_100%)] opacity-50 mix-blend-overlay blur-[2px] pointer-events-none"></div>
-
+  
         {/* Edge Glow */}
         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-40 pointer-events-none mix-blend-soft-light"></div>
 

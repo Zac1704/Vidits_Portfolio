@@ -6,6 +6,7 @@ export default function CardTwo() {
     <MomentumHoverCards
       cards={[{ id: "2", src: "/Images/heroSection/post2.webp" }]}
       rotate="-rotate-4"
+      height="-17"
     />
   );
 }

@@ -6,6 +6,7 @@ export default function CardFour() {
     <MomentumHoverCards
       cards={[{ id: "4", src: "/Images/heroSection/post4.webp" }]}
       rotate="-rotate-4"
+      height="-17"
     />
   );
 }

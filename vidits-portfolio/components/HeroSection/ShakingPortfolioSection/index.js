@@ -6,7 +6,7 @@ import CardFour from "./cardFour";
 export default function PortfolioRow() {
   return (
     <div
-      className="flex justify-center -space-x-10 sm:-space-x-16 md:-space-x-18 lg:-space-x-24"
+      className="mt-5 sm:mt-2 flex justify-center -space-x-10 sm:-space-x-16 md:-space-x-18 lg:-space-x-24"
     >
       <CardOne />
       <CardTwo />
