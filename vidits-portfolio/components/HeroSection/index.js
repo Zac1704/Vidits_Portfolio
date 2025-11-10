@@ -54,9 +54,9 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="mt-20 sm:mt-0 relative w-full overflow-hidden">
       <motion.div
-        className="w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-6"
+        className="w-full  flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-6"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ ...bounceSpring, duration: 0.6 }}
@@ -83,7 +83,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.1 }}
         >
-          <h3 className="text-xs sm:text-sm md:text-base lg:text-[20px] font-bold text-gray-800 mb-2">
+          <h3 className="text-xs sm:text-sm md:text-base lg:text-[20px] font-bold text-(--text-color) mb-2">
             INDORE, INDIA
           </h3>
           <p className="text-(--gray-text-color) text-xs sm:text-sm md:text-base lg:text-[20px] font-bold">
@@ -100,8 +100,8 @@ export default function HeroSection() {
         >
           {/* Yellow Note */}
           <div
-            className="absolute z-10 top-1 sm:top-2.5 md:top-2 lg:top-[3px] 
-                       -left-[3.5%] sm:-left-[5%] md:-left-[5.5%] lg:-left-[5%] xl:-left-[2.1%] 
+            className="absolute z-10 top-[9px] sm:top-1.5 md:top-1 lg:top-[4px] 
+                       -left-[0%] sm:-left-[1.8%] md:-left-[2.3%] lg:-left-[2.3%] xl:-left-[2.1%] 
                        transition-all duration-500 ease-in-out"
             onMouseEnter={() => setShowCursor(true)}
             onMouseLeave={() => setShowCursor(false)}
@@ -115,9 +115,10 @@ export default function HeroSection() {
               <Image
                 src="/Images/svg/smallNote.svg"
                 alt="Note Background"
-                width={60}
-                height={60}
-                className="w-full h-auto pointer-events-none select-none"
+                width={0}
+                height={0}
+                sizes="100vw"
+                className=" h-auto w-8 sm:w-13 md:w-16 lg:w-20 xl:w-24 pointer-events-none select-none"
               />
             </div>
           </div>
@@ -183,7 +184,7 @@ export default function HeroSection() {
               alt="Note Background"
               width={70}
               height={70}
-              className="w-[250px] sm:w-[400px] md:w-full h-auto mx-auto"
+              className="w-[205px] sm:w-[400px] md:w-full h-auto mx-auto"
             />
           </motion.div>
         </motion.div>

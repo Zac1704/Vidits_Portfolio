@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${futura.variable} ${geistSans.variable} ${geistMono.variable} ${caveat.variable} select-none antialiased hide-scrollbar`}
+        className={`${futura.variable} ${geistSans.variable} ${geistMono.variable} ${caveat.variable} select-none antialiased hide-scrollbar bg-(--background)`}
       >
         {children}
         <Footer />

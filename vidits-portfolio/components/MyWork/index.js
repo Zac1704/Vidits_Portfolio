@@ -55,13 +55,19 @@ const PortfolioCard = ({ img, title, shadow, onClick }) => {
       onClick={() => onClick(img, title)}
     >
       <div
-        className={`inner rounded-[24px] w-full h-full overflow-hidden border-[4px] border-white flex items-center justify-center bg-white transition-all duration-200 ${
+        className={`inner rounded-[24px] w-full h-full overflow-hidden border-[3px] sm:border-[4px] border-white flex items-center justify-center bg-white transition-all duration-300 hover:brightness-105 ${
           isPressed ? "brightness-95" : ""
         }`}
         style={{
           transform: "rotateX(0deg) rotateY(0deg)",
           willChange: "transform, box-shadow",
-          boxShadow: isPressed ? `${shadow.replace("22px", "12px")}` : shadow,
+          boxShadow: isPressed ? `${shadow.replace("11px", "6px")}` : shadow,
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow = shadow.replace("22px", "12px");
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.boxShadow = shadow;
         }}
       >
         <Image
@@ -80,20 +86,20 @@ const PortfolioCard = ({ img, title, shadow, onClick }) => {
 // ✅ Main Component
 export default function MyWork({ onImageSelect }) {
   return (
-    <div className="uppercase bg-white">
+    <div className="uppercase">
       {/* Header */}
-      <header className="text-center px-4">
-        <h1 className="text-[40px] sm:text-[48px] font-black text-(--text-color)">
+      <header className="text-center px-4 sm:space-y-3">
+        <h1 className="text-[32px] md:text-[40px] lg:text-5xl font-black text-(--text-color)">
           MY WORK
         </h1>
-        <p className="text-[#D6D6D6] text-sm sm:text-base md:text-lg">
+        <p className="text-(--gray-text-color) text-sm sm:text-base md:text-lg">
           Don&apos;t be shy, check my work all you want
         </p>
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-20  py-10 flex justify-center">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 place-items-center max-w-[1400px] w-full">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 sm:py-10 flex justify-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8 md:gap-10 lg:gap-10 xl:gap-14 place-items-center max-w-[1400px] w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}

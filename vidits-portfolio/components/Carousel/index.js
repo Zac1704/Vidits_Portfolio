@@ -84,8 +84,8 @@ export default function Carousel({ title }) {
   };
 
   return (
-    <div className=" bg-white flex flex-col items-center justify-center p-4 md:p-8">
-      <h1 className="text-5xl font-black text-(--text-color) mb-8 md:mb-16 tracking-tight uppercase">
+    <div className="flex flex-col items-center justify-center p-4 md:p-8">
+      <h1 className="text-[32px] md:text-[40px] lg:text-5xl font-black text-(--text-color) mb-8 md:mb-16 tracking-tight uppercase">
         {title}
       </h1>
 

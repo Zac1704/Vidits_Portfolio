@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       {/* Main content constrained */}
-      <div className="max-w-7xl sm:space-y-8 mx-auto hide-scrollbar">
+      <div className=" max-w-7xl sm:space-y-8 mx-auto  hide-scrollbar">
         <HeroSection />
 
         <motion.div
@@ -42,9 +42,9 @@ export default function Home() {
           />
         </ScrollReveal>
 
-        {/* <ScrollReveal delay={0.2}>
+        <ScrollReveal delay={0.2}>
           <HoverRevealText />
-        </ScrollReveal> */}
+        </ScrollReveal>
       </div>
 
       {/* ✅ Modal rendered outside container */}

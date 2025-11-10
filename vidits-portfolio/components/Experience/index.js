@@ -64,11 +64,11 @@ export default function ExperienceSection() {
 
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
-      <h1 className="text-(--text-color) text-5xl font-bold text-center mb-10 uppercase tracking-tight">
+      <h1 className="text-(--text-color) text-[32px] md:text-[40px] lg:text-5xl font-bold text-center mb-10 uppercase tracking-tight">
         Experience
       </h1>
 
-      <div className="w-full flex flex-col divide-y-4 divide-(--gray-text-color)">
+      <div className="w-full flex flex-col divide-y-2 sm:divide-y-4 divide-(--gray-text-color)">
         {experiences.map((exp) => {
           const isExpanded = expandedId === exp.id;
 
@@ -77,7 +77,7 @@ export default function ExperienceSection() {
               {/* Header Row */}
               <div
                 onClick={() => toggleExpand(exp.id)}
-                className={`grid grid-cols-[auto_1fr_auto] md:grid-cols-[auto_1fr_1fr_auto_0.4fr_auto] gap-4 items-center py-6 px-2 sm:px-4 cursor-pointer 
+                className={`grid grid-cols-[auto_1fr_auto] md:grid-cols-[auto_1fr_1fr_auto_0.5fr_auto] gap-4 items-center py-4 sm:py-6 px-2 sm:px-4 cursor-pointer 
                 transition-all duration-500 ease-in-out 
                 ${
                   isExpanded
@@ -98,7 +98,7 @@ export default function ExperienceSection() {
 
                 {/* Company */}
                 <h2
-                  className={`text-2xl font-bold uppercase truncate 
+                  className={`text-[20px] sm:text-2xl font-bold uppercase truncate 
                     transition-all duration-500 ease-in-out
                     ${
                       isExpanded
@@ -111,7 +111,7 @@ export default function ExperienceSection() {
 
                 {/* Role (desktop only) */}
                 <p
-                  className={`hidden md:block text-xl font-bold uppercase text-right 
+                  className={`hidden md:block text-2xl font-bold uppercase text-right 
                     transition-all duration-500 ease-in-out
                     ${
                       isExpanded
@@ -135,7 +135,7 @@ export default function ExperienceSection() {
 
                 {/* Duration (desktop only) */}
                 <p
-                  className={`hidden md:block text-xl font-bold uppercase text-left 
+                  className={`hidden md:block text-2xl font-bold uppercase text-left 
                     transition-all duration-500 ease-in-out
                     ${
                       isExpanded
@@ -161,7 +161,7 @@ export default function ExperienceSection() {
                 >
                   <PlusIcon
                     alt="Toggle"
-                    className={`transition-transform duration-500 ease-in-out ${
+                    className={`w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 ease-in-out ${
                       isExpanded
                         ? "text-(--text-color)"
                         : "text-(--gray-text-color)"

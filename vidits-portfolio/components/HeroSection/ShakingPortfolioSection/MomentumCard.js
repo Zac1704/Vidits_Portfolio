@@ -47,7 +47,9 @@ export default function MomentumHoverCardsBase({
   useEffect(() => {
     const updateDimensions = () => {
       if (typeof window !== "undefined") {
-        if (window.innerWidth < 640) {
+        if(window.innerWidth < 375) {
+          setDimensions({ width: 100, height: 100 }); // smaller Mobile
+        }else if (window.innerWidth < 640) {
           setDimensions({ width: 110, height: 110 }); // Mobile
         } else if (window.innerWidth < 1024) {
           setDimensions({ width: 160, height: 160 }); // Tablet

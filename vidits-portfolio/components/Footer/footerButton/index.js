@@ -8,7 +8,7 @@ export default function LiquidGlassButton({ type, label, icon }) {
     <Link href={`${type}`} passHref className="block w-[188px] h-[62px] sm:w-[228px] sm:h-[76px]">
       <div
         className="relative z-10 flex items-center justify-center space-x-4 w-full h-full rounded-full
-    bg-[#363636]/45 backdrop-blur-[32px] text-white select-none cursor-pointer
+    bg-(--text-color)/45 backdrop-blur-[32px] text-white select-none cursor-pointer
     border border-white/20 overflow-hidden
     shadow-[inset_2px_2px_6px_rgba(0,0,0,0.4),inset_-2px_-2px_6px_rgba(255,255,255,0.2),0_6px_20px_rgba(0,0,0,0.3)]
     transition-all duration-500 hover:shadow-[inset_3px_3px_8px_rgba(0,0,0,0.45),inset_-3px_-3px_8px_rgba(255,255,255,0.25),0_8px_24px_rgba(0,0,0,0.4)] hover:bg-[#3a3a3a]/50"
