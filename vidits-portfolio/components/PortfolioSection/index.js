@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { Bgright } from "../SVG/Portfoliobackground/Bgright";
-// import { Bgleft } from "../SVG/Portfoliobackground/Bgleft";
 import { PRIMARY_CARDS, SECONDARY_IMAGES, KEYCHAINS } from "./index.constant";
 import { BgCombined } from "../SVG/Portfoliobackground/Combined";
 
@@ -22,39 +20,12 @@ const variants = {
   }),
 };
 
-// Extracted components
-const NavigationButton = ({ direction, onClick }) => (
-  <button
-    onClick={onClick}
-    className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
-  >
-    <svg
-      className="w-12 h-12"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2.5}
-        d={
-          direction === "left"
-            ? "M11 17l-5-5m0 0l5-5m-5 5h12"
-            : "M13 7l5 5m0 0l-5 5m5-5H6"
-        }
-      />
-    </svg>
-  </button>
-);
-
-const PrimaryCard = ({ card, index }) => (
+const PrimaryCard = ({ card }) => (
   <div
-    key={index}
-    className={`transform ${card.rotate} transition-transform duration-300 hover:rotate-0 hover:scale-105`}
+    className={`transform ${card.rotate} transition-transform duration-300 hover:rotate-0 hover:scale-105 w-full sm:w-auto`}
   >
     <div
-      className={`${card.color} ${card.margin} w-[270px] h-auto text-white p-5 shadow-xl transition-all duration-300`}
+      className={`${card.color} ${card.margin} w-full sm:w-[270px] h-auto text-white p-5 shadow-xl transition-all duration-300`}
     >
       <h3 className="font-bold text-xl mb-4 border-b-2 border-white pb-4 uppercase">
         {card.title}
@@ -65,16 +36,17 @@ const PrimaryCard = ({ card, index }) => (
 );
 
 const SecondaryImage = ({ image, index }) => (
-  <div className="relative">
+  <div className="w-full flex flex-col gap-4">
     <div className={image.note.className}>
       <p className="text-sm leading-relaxed">{image.note.text}</p>
     </div>
+
     <Image
       src={image.src}
       height={image.height}
       width={image.width}
       alt={`Secondary Research ${index + 1}`}
-      className={image.className}
+      className={`${image.className} max-w-full h-auto`}
     />
   </div>
 );
@@ -85,18 +57,12 @@ const Keychain = ({ keychain }) => {
   const timeoutRef = useRef(null);
 
   const handleMouseMove = (e) => {
-    if (!hovered) return; // Only follow mouse when hovered
-
+    if (!hovered) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const offsetX = e.clientX - centerX;
-
-    // Map offset to rotation (-180° to +180° for extreme swing)
     const angle = Math.max(-180, Math.min(180, offsetX / 2));
-
     setRotation(angle);
-
-    // Clear any pending timeout
     clearTimeout(timeoutRef.current);
   };
 
@@ -109,7 +75,6 @@ const Keychain = ({ keychain }) => {
     setHovered(false);
     clearTimeout(timeoutRef.current);
 
-    // Pendulum swing back with momentum
     timeoutRef.current = setTimeout(() => {
       setRotation(0);
     }, 50);
@@ -117,22 +82,18 @@ const Keychain = ({ keychain }) => {
 
   return (
     <motion.div
-      className="relative cursor-pointer origin-top"
+      className="relative cursor-pointer origin-top pointer-events-auto"
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      animate={{
-        rotate: rotation,
-      }}
+      animate={{ rotate: rotation }}
       transition={{
         type: "spring",
         stiffness: 120,
         damping: 8,
         mass: 1.5,
       }}
-      style={{
-        transformOrigin: "top center",
-      }}
+      style={{ transformOrigin: "top center" }}
     >
       <div className="flex justify-center">
         <div
@@ -149,6 +110,7 @@ const Keychain = ({ keychain }) => {
     </motion.div>
   );
 };
+
 const PortfolioPage = () => {
   const [activeSection, setActiveSection] = useState("primary");
   const [direction, setDirection] = useState("next");
@@ -161,114 +123,87 @@ const PortfolioPage = () => {
   };
 
   return (
-    <>
-      <div className="min-h-screen max-w-[1238px] mx-auto relative overflow-hidden">
-        <div className="relative z-10 container mx-auto ">
-          {/* Dotted Background Pattern */}
-          {/* <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              width: "1260px", // 42 * 30
-              height: "900px", // 30 * 30
-              backgroundImage: `radial-gradient(circle, #d9d9d9 5px, transparent 5px)`,
-              backgroundSize: "30px 30px",
-              backgroundPosition: "0 0",
-            }}
-          /> */}
+    <div className="relative min-h-screen w-full overflow-hidden">
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 w-full h-full z-20 pointer-events-auto flex justify-center">
+        <BgCombined
+          visible={visible}
+          className="w-full h-full flex items-center justify-center sm:max-w-7xl mx-auto"
+          onLeftClick={() => handleSectionChange("primary")}
+          onRightClick={() => handleSectionChange("secondary")}
+        />
+      </div>
 
-          <div>
-            <BgCombined
-              visible={visible}
-              className="w-[1238.16px] h-[669.01px]"
-            />
-          </div>
-
-          {/* Navigation Button */}
-          <div
-            className={`min-h-screen absolute top-8 z-20 ${
-              activeSection === "primary" ? "right-8" : "left-8"
-            }`}
-          >
-            <NavigationButton
-              direction={activeSection === "primary" ? "right" : "left"}
-              onClick={() =>
-                handleSectionChange(
-                  activeSection === "primary" ? "secondary" : "primary"
-                )
-              }
-            />
-          </div>
-
-          {/* Content Sections */}
-          <div className="w-full overflow-hidden">
-            <AnimatePresence custom={direction} mode="wait">
-              <motion.div
-                key={activeSection}
-                custom={direction}
-                variants={variants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={{ duration: 0.65, ease: "easeInOut" }}
-                className="absolute inset-0"
-              >
-                {activeSection === "primary" ? (
-                  <div className="space-y-16 ">
-                    <div className="flex flex-wrap gap-6 justify-center">
-                      {PRIMARY_CARDS.map((card, index) => (
-                        <PrimaryCard key={index} card={card} />
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="space-y-16">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                      {SECONDARY_IMAGES.map((image, index) => (
-                        <SecondaryImage
-                          key={index}
-                          image={image}
-                          index={index}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Animated Heading */}
-          <div className="relative flex justify-center -mt-40">
-            <div className="bg-[var(--background)] w-[700px] text-center overflow-hidden">
-              <AnimatePresence custom={direction} mode="wait">
-                <motion.div
-                  key={activeSection}
-                  custom={direction}
-                  variants={variants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  className="flex justify-center"
-                >
-                  <h2 className="text-[64px] font-black uppercase tracking-wider text-[var(--gray-text-color)]">
-                    {activeSection === "primary"
-                      ? "Primary Research"
-                      : "Secondary Research"}
-                  </h2>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+      {/* CONTENT */}
+      <div className="relative z-30 flex flex-col items-center justify-start pt-20 pointer-events-none">
+        <div className="w-full max-w-7xl overflow-visible pointer-events-auto">
+          <AnimatePresence custom={direction} mode="wait">
+            <motion.div
+              key={activeSection}
+              custom={direction}
+              variants={variants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.65, ease: "easeInOut" }}
+              className="w-full min-h-[450px] flex items-center justify-center"
+            >
+              {activeSection === "primary" ? (
+                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-6 justify-center items-center w-full">
+                  {PRIMARY_CARDS.map((card, index) => (
+                    <PrimaryCard key={index} card={card} />
+                  ))}
+                </div>
+              ) : (
+                <div className="flex flex-col sm:flex-row gap-16 sm:gap-20 justify-center items-start w-full">
+                  {SECONDARY_IMAGES.map((img, idx) => (
+                    <SecondaryImage key={idx} image={img} index={idx} />
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
-      {/* Keychains Section */}
-      <div className="z-30  space-x-[74.6px] flex justify-center -mt-27 flex-wrap pb-5">
+      {/* TITLE */}
+      <div className="z-30 relative flex justify-center mb-8 sm:mb-12 pointer-events-auto">
+        <div
+          className="
+          bg-[var(--background)]
+          w-full max-w-[90vw] sm:max-w-[500px] md:max-w-[730px]
+          text-center overflow-hidden px-4
+          h-[90px] 
+          flex items-center justify-center pt-3
+        "
+        >
+          <AnimatePresence custom={direction} mode="wait">
+            <motion.div
+              key={activeSection}
+              custom={direction}
+              variants={variants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="flex justify-center"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider text-[var(--gray-text-color)] py-5 px-6">
+                {activeSection === "primary"
+                  ? "Primary Research"
+                  : "Secondary Research"}
+              </h2>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* KEYCHAINS */}
+      <div className="relative z-30 flex justify-center items-center gap-6 sm:gap-12 md:gap-[75px] flex-wrap pb-10 px-4 pointer-events-auto">
         {KEYCHAINS.map((keychain) => (
           <Keychain key={keychain.id} keychain={keychain} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -7,7 +7,7 @@ export const PRIMARY_CARDS = [
     height: "310px",
     rotate: "rotate-5",
     position: "left-10 top-8",
-    margin: "mt-18",
+    margin: "",
   },
   {
     title: "I'M POROUS - I ABSORB PERSPECTIVES LIKE A SPONGE",
@@ -17,7 +17,7 @@ export const PRIMARY_CARDS = [
     height: "275px",
     rotate: "-rotate-[1.72deg]",
     position: "top-[120px] left-3",
-    margin: "mt-42",
+    margin: "",
   },
   {
     title: "I'LL LEARN IT, NO MATTER WHAT.",
@@ -27,7 +27,7 @@ export const PRIMARY_CARDS = [
     height: "320px",
     rotate: "rotate-[2.18deg]",
     position: "top-[30px] ",
-    margin: "mt-18",
+    margin: "",
   },
   {
     title: "I'M A COCONUT-TOUGH OUTSIDE, SOFT INSIDE.",
@@ -37,7 +37,7 @@ export const PRIMARY_CARDS = [
     height: "275px",
     rotate: "-rotate-[2.57deg]",
     position: "top-[116px] -left-5",
-    margin: "mt-42",
+    margin: "",
   },
 ];
 
@@ -99,44 +99,44 @@ export const SECONDARY_IMAGES = [
     src: "/Images/Portfolio/image1.png",
     width: 240,
     height: 288,
-    className: "absolute left-32 top-48",
+    className: "ml-32 -mt-28", // removed absolute
     note: {
       text: "Well not your average photogenic guy. I'm much more into mirror selfies...",
       className:
-        "absolute note tracking-wider left-16 top-36 w-[156px] h-[156px] bg-[#9B1B25] text-white p-3 shadow-xl z-10 max-w-xs ",
+        "z-40 ml-16 w-[156.83px] h-[156px] bg-[#9B1B25] text-white p-3 shadow-xl tracking-wider max-w-xs",
     },
   },
   {
     src: "/Images/Portfolio/image2.png",
     width: 189,
     height: 227,
-    className: "absolute top-19 left-10",
+    className: "-mt-90 ml-10", // removed absolute
     note: {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
       className:
-        "absolute top-64 left-36 bg-[#FFB629] text-white w-[143px] h-[178px] p-3 note tracking-wider shadow-xl max-w-xs",
+        "z-40 mt-30 ml-40  bg-[#FFB629] text-white w-[143px] h-[178px] p-3 tracking-wider shadow-xl max-w-xs",
     },
   },
   {
     src: "/Images/Portfolio/image3.png",
     width: 205,
     height: 205,
-    className: "absolute top-24",
+    className: "-mt-30 -ml-15", // removed absolute
     note: {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       className:
-        "absolute -left-20 top-24 w-[143px] h-[112px] p-3 note tracking-wider bg-[#276A96] text-white shadow-xl z-10 max-w-xs ",
+        "z-40 -mt-5 -ml-30 w-[143px] h-[112px] p-3 tracking-wider bg-[#276A96] text-white shadow-xl max-w-xs",
     },
   },
   {
     src: "/Images/Portfolio/image4.png",
     width: 262,
     height: 259,
-    className: "absolute right-24 top-14",
+    className: "-mt-90 -ml-40", // removed absolute
     note: {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem dolor sit amet.",
       className:
-        "absolute right-12 top-57 w-[143px] h-[156px] bg-[#0E7F01] text-white p-3 note tracking-wider shadow-xl z-10 max-w-xs ",
+        "z-40 mt-40 mr-12 w-[143px] h-[156px] bg-[#0E7F01] text-white p-3 tracking-wider shadow-xl max-w-xs",
     },
   },
 ];

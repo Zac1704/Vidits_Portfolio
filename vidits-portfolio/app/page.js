@@ -42,9 +42,9 @@ export default function Home() {
           />
         </ScrollReveal>
 
-        <ScrollReveal delay={0.2}>
+        {/* <ScrollReveal delay={0.2}>
           <HoverRevealText />
-        </ScrollReveal>
+        </ScrollReveal> */}
       </div>
 
       {/* ✅ Modal rendered outside container */}
