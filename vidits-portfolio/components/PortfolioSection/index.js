@@ -22,10 +22,23 @@ const variants = {
 
 const PrimaryCard = ({ card }) => (
   <div
-    className={`transform ${card.rotate} transition-transform duration-300 hover:rotate-0 hover:scale-105 w-full sm:w-auto`}
+    className={`
+      transform ${card.rotate}
+      transition-transform duration-300 hover:rotate-0 hover:scale-105
+      w-full sm:w-auto
+      flex justify-center
+      px-2 sm:px-0
+    `}
   >
     <div
-      className={`${card.color} ${card.margin} w-full sm:w-[270px] h-auto text-white p-5 shadow-xl transition-all duration-300`}
+      className={`
+        ${card.color} ${card.margin}
+        w-[250px] sm:w-[270px]
+        h-auto 
+        text-white
+        p-5 shadow-xl 
+        transition-all duration-300
+      `}
     >
       <h3 className="font-bold text-xl mb-4 border-b-2 border-white pb-4 uppercase">
         {card.title}
@@ -36,17 +49,25 @@ const PrimaryCard = ({ card }) => (
 );
 
 const SecondaryImage = ({ image, index }) => (
-  <div className="w-full flex flex-col gap-4">
+  <div
+    className="
+      flex flex-col 
+      items-center
+      w-full sm:w-auto 
+      px-2
+    
+    "
+  >
     <div className={image.note.className}>
-      <p className="text-sm leading-relaxed">{image.note.text}</p>
+      <p className="leading-relaxed note text-[15px]">{image.note.text}</p>
     </div>
 
     <Image
       src={image.src}
-      height={image.height}
-      width={image.width}
+      height={image.images.height}
+      width={image.images.width}
       alt={`Secondary Research ${index + 1}`}
-      className={`${image.className} max-w-full h-auto`}
+      className={`${image.images.className} max-w-full h-auto`}
     />
   </div>
 );
@@ -135,7 +156,21 @@ const PortfolioPage = () => {
       </div>
 
       {/* CONTENT */}
-      <div className="relative z-30 flex flex-col items-center justify-start pt-20 pointer-events-none">
+      <div
+        className="
+    relative z-30 
+    flex flex-col items-center 
+    w-full
+    pointer-events-none
+    overflow-y-auto lg:overflow-visible
+    pt-30 sm:pt-30 md:pt-20 lg:pt-20
+    max-h-[68vh]
+    lg:max-h-screen
+    px-4 mx-auto
+    mb-10 sm:mb-0 lg:mb-0
+    md:mt-10 lg:-mt-10 xl:mt-0
+  "
+      >
         <div className="w-full max-w-7xl overflow-visible pointer-events-auto">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
@@ -149,13 +184,37 @@ const PortfolioPage = () => {
               className="w-full min-h-[450px] flex items-center justify-center"
             >
               {activeSection === "primary" ? (
-                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-6 justify-center items-center w-full">
+                <div
+                  className="
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    lg:grid-cols-4
+    gap-y-10 gap-8
+    w-full
+    justify-items-center
+    items-start
+       /* ⭐ FIXED */
+   
+  "
+                >
                   {PRIMARY_CARDS.map((card, index) => (
                     <PrimaryCard key={index} card={card} />
                   ))}
                 </div>
               ) : (
-                <div className="flex flex-col sm:flex-row gap-16 sm:gap-20 justify-center items-start w-full">
+                <div
+                  className="
+      grid
+      grid-cols-1
+      sm:grid-cols-2
+      lg:grid-cols-4
+      
+      w-full
+      justify-items-center
+      items-start
+    "
+                >
                   {SECONDARY_IMAGES.map((img, idx) => (
                     <SecondaryImage key={idx} image={img} index={idx} />
                   ))}
@@ -172,9 +231,9 @@ const PortfolioPage = () => {
           className="
           bg-[var(--background)]
           w-full max-w-[90vw] sm:max-w-[500px] md:max-w-[730px]
-          text-center overflow-hidden px-4
-          h-[90px] 
-          flex items-center justify-center pt-3
+          text-center overflow-hidden
+          h-[100px]
+          flex items-center justify-center 
         "
         >
           <AnimatePresence custom={direction} mode="wait">
@@ -187,7 +246,7 @@ const PortfolioPage = () => {
               exit="exit"
               className="flex justify-center"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider text-[var(--gray-text-color)] py-5 px-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider text-[var(--gray-text-color)] ">
                 {activeSection === "primary"
                   ? "Primary Research"
                   : "Secondary Research"}

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export const BgCombined = ({
   className,
@@ -8,6 +9,15 @@ export const BgCombined = ({
   onRightClick,
 }) => {
   const [radius, setRadius] = useState(5);
+
+  const [arrowFade, setArrowFade] = useState(1);
+
+  const triggerFade = () => {
+    setArrowFade(0); // fade out
+    setTimeout(() => {
+      setArrowFade(1); // fade back in
+    }, 300);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -83,11 +93,17 @@ export const BgCombined = ({
           <circle cx="1235" cy="5" fill="#D9D9D9" r={radius} />
           <circle cx="5" cy="35" fill="#D9D9D9" r={radius} />
           <circle cx="35" cy="35" fill="#D9D9D9" r={radius} />
-          {visible ? (
-            <circle cx="65" cy="34.9551" fill="#363636" r={radius} />
-          ) : (
-            <circle cx="65" cy="35" fill="#D9D9D9" r={radius} />
-          )}
+          <motion.g
+            animate={{ opacity: arrowFade }}
+            transition={{ duration: 4, ease: "easeInOut" }}
+          >
+            {visible ? (
+              <circle cx="65" cy="34.9551" fill="#363636" r={radius} />
+            ) : (
+              <circle cx="65" cy="35" fill="#D9D9D9" r={radius} />
+            )}
+          </motion.g>
+
           <circle cx="95" cy="35" fill="#D9D9D9" r={radius} />
           <circle cx="125" cy="35" fill="#D9D9D9" r={radius} />
           <circle cx="155" cy="35" fill="#D9D9D9" r={radius} />
@@ -124,29 +140,40 @@ export const BgCombined = ({
           <circle cx="1085" cy="35" fill="#D9D9D9" r={radius} />
           <circle cx="1115" cy="35" fill="#D9D9D9" r={radius} />
           <circle cx="1145" cy="35" fill="#D9D9D9" r={radius} />
-          {visible ? (
-            <circle cx="1175" cy="35" fill="#D9D9D9" r={radius} />
-          ) : (
-            <circle cx="1175" cy="35" fill="#363636" r={radius} />
-          )}
+          <motion.g
+            animate={{ opacity: arrowFade }}
+            transition={{ duration: 4, ease: "easeInOut" }}
+          >
+            {visible ? (
+              <circle cx="1175" cy="35" fill="#D9D9D9" r={radius} />
+            ) : (
+              <circle cx="1175" cy="35" fill="#363636" r={radius} />
+            )}
+          </motion.g>
           <circle cx="1205" cy="35" fill="#D9D9D9" r={radius} />
           <circle cx="1235" cy="35" fill="#D9D9D9" r={radius} />
           <circle cx="5" cy="65" fill="#D9D9D9" r={radius} />
-          {visible ? (
-            <>
-              <circle cx="35" cy="64.9102" fill="#363636" r={radius} />
-              <circle cx="65" cy="64.9102" fill="#363636" r={radius} />
-              <circle cx="94.8652" cy="64.9102" fill="#363636" r={radius} />
-              <circle cx="124.82" cy="64.9102" fill="#363636" r={radius} />
-            </>
-          ) : (
-            <>
-              <circle cx="35" cy="65" fill="#D9D9D9" r={radius} />
-              <circle cx="65" cy="65" fill="#D9D9D9" r={radius} />
-              <circle cx="95" cy="65" fill="#D9D9D9" r={radius} />
-              <circle cx="125" cy="65" fill="#D9D9D9" r={radius} />
-            </>
-          )}
+          <motion.g
+            animate={{ opacity: arrowFade }}
+            transition={{ duration: 4, ease: "easeInOut" }}
+          >
+            {visible ? (
+              <>
+                <circle cx="35" cy="64.9102" fill="#363636" r={radius} />
+                <circle cx="65" cy="64.9102" fill="#363636" r={radius} />
+                <circle cx="94.8652" cy="64.9102" fill="#363636" r={radius} />
+                <circle cx="124.82" cy="64.9102" fill="#363636" r={radius} />
+              </>
+            ) : (
+              <>
+                <circle cx="35" cy="65" fill="#D9D9D9" r={radius} />
+                <circle cx="65" cy="65" fill="#D9D9D9" r={radius} />
+                <circle cx="95" cy="65" fill="#D9D9D9" r={radius} />
+                <circle cx="125" cy="65" fill="#D9D9D9" r={radius} />
+              </>
+            )}
+          </motion.g>
+
           <circle cx="155" cy="65" fill="#D9D9D9" r={radius} />
           <circle cx="185" cy="65" fill="#D9D9D9" r={radius} />
           <circle cx="215" cy="65" fill="#D9D9D9" r={radius} />
@@ -179,29 +206,41 @@ export const BgCombined = ({
           <circle cx="1025" cy="65" fill="#D9D9D9" r={radius} />
           <circle cx="1055" cy="65" fill="#D9D9D9" r={radius} />
           <circle cx="1085" cy="65" fill="#D9D9D9" r={radius} />
-          {visible ? (
-            <>
-              <circle cx="1115" cy="65" fill="#D9D9D9" r={radius} />
-              <circle cx="1145" cy="65" fill="#D9D9D9" r={radius} />
-              <circle cx="1175" cy="65" fill="#D9D9D9" r={radius} />
-              <circle cx="1205" cy="65" fill="#D9D9D9" r={radius} />
-            </>
-          ) : (
-            <>
-              <circle cx="1115" cy="65" fill="#363636" r={radius} />
-              <circle cx="1145" cy="65" fill="#363636" r={radius} />
-              <circle cx="1175" cy="65" fill="#363636" r={radius} />
-              <circle cx="1205" cy="65" fill="#363636" r={radius} />
-            </>
-          )}
+          <motion.g
+            animate={{ opacity: arrowFade }}
+            transition={{ duration: 4, ease: "easeInOut" }}
+          >
+            {visible ? (
+              <>
+                <circle cx="1115" cy="65" fill="#D9D9D9" r={radius} />
+                <circle cx="1145" cy="65" fill="#D9D9D9" r={radius} />
+                <circle cx="1175" cy="65" fill="#D9D9D9" r={radius} />
+                <circle cx="1205" cy="65" fill="#D9D9D9" r={radius} />
+              </>
+            ) : (
+              <>
+                <circle cx="1115" cy="65" fill="#363636" r={radius} />
+                <circle cx="1145" cy="65" fill="#363636" r={radius} />
+                <circle cx="1175" cy="65" fill="#363636" r={radius} />
+                <circle cx="1205" cy="65" fill="#363636" r={radius} />
+              </>
+            )}
+          </motion.g>
+
           <circle cx="1235" cy="65" fill="#D9D9D9" r={radius} />
           <circle cx="5" cy="95" fill="#D9D9D9" r={radius} />
           <circle cx="35" cy="95" fill="#D9D9D9" r={radius} />
-          {visible ? (
-            <circle cx="65" cy="94.8652" fill="#363636" r={radius} />
-          ) : (
-            <circle cx="65" cy="95" fill="#D9D9D9" r={radius} />
-          )}
+          <motion.g
+            animate={{ opacity: arrowFade }}
+            transition={{ duration: 4, ease: "easeInOut" }}
+          >
+            {visible ? (
+              <circle cx="65" cy="94.8652" fill="#363636" r={radius} />
+            ) : (
+              <circle cx="65" cy="95" fill="#D9D9D9" r={radius} />
+            )}
+          </motion.g>
+
           <circle cx="95" cy="95" fill="#D9D9D9" r={radius} />
           <circle cx="125" cy="95" fill="#D9D9D9" r={radius} />
           <circle cx="155" cy="95" fill="#D9D9D9" r={radius} />
@@ -238,11 +277,17 @@ export const BgCombined = ({
           <circle cx="1085" cy="95" fill="#D9D9D9" r={radius} />
           <circle cx="1115" cy="95" fill="#D9D9D9" r={radius} />
           <circle cx="1145" cy="95" fill="#D9D9D9" r={radius} />
-          {visible ? (
-            <circle cx="1175" cy="95" fill="#D9D9D9" r={radius} />
-          ) : (
-            <circle cx="1175" cy="95" fill="#363636" r={radius} />
-          )}
+          <motion.g
+            animate={{ opacity: arrowFade }}
+            transition={{ duration: 4, ease: "easeInOut" }}
+          >
+            {visible ? (
+              <circle cx="1175" cy="95" fill="#D9D9D9" r={radius} />
+            ) : (
+              <circle cx="1175" cy="95" fill="#363636" r={radius} />
+            )}
+          </motion.g>
+
           <circle cx="1205" cy="95" fill="#D9D9D9" r={radius} />
           <circle cx="1235" cy="95" fill="#D9D9D9" r={radius} />
           <circle cx="5" cy="125" fill="#D9D9D9" r={radius} />
@@ -1008,89 +1053,115 @@ export const BgCombined = ({
         preserveAspectRatio={visible ? "xMinYMin slice" : "xMaxYMin slice"}
         className="absolute inset-0 w-full h-full pointer-events-auto z-50"
       >
-        {visible ? (
-          <>
-            <rect
-              x="25"
-              y="25"
-              width="110"
-              height="80"
-              fill="transparent"
-              onClick={onLeftClick}
-              className="cursor-pointer"
-            />
-            {/* center horizontal line */}
-            <path
-              d="M34.8301 65.3244C82.9796 65.3241 115.282 65.3243 125.414 65.3244"
-              stroke="#363636"
-              strokeLinecap="round"
-              strokeWidth="4"
-              className="cursor-pointer"
-              onClick={onLeftClick}
-            />
+        <motion.g
+          animate={{ opacity: arrowFade }}
+          transition={{ duration: 4, ease: "easeInOut" }}
+        >
+          {visible ? (
+            <>
+              <rect
+                x="25"
+                y="25"
+                width="110"
+                height="80"
+                fill="transparent"
+                onClick={() => {
+                  triggerFade();
+                  onLeftClick();
+                }}
+                className="cursor-pointer"
+              />
 
-            {/* bottom-left arrow */}
-            <path
-              d="M64.5898 95.6934L35.5107 66.6143"
-              stroke="#363636"
-              strokeWidth="4"
-              className="cursor-pointer"
-              onClick={onLeftClick}
-            />
+              <path
+                d="M34.8301 65.3244C82.9796 65.3241 115.282 65.3243 125.414 65.3244"
+                stroke="#363636"
+                strokeLinecap="round"
+                strokeWidth="4"
+                className="cursor-pointer"
+                onClick={() => {
+                  triggerFade();
+                  onLeftClick();
+                }}
+              />
 
-            {/* top-left arrow */}
-            <path
-              d="M64.5898 34.9551L35.5107 64.0342"
-              stroke="#363636"
-              strokeWidth="4"
-              className="cursor-pointer"
-              onClick={onLeftClick}
-            />
-          </>
-        ) : (
-          <>
-            <rect
-              x="1110"
-              y="25"
-              width="100"
-              height="80"
-              fill="transparent"
-              onClick={onRightClick}
-              className="cursor-pointer"
-            />
-            <path
-              d="M1116 65.0059L1206 65.0059"
-              stroke="#363636"
-              strokeWidth="4"
-              className="cursor-pointer"
-              onClick={onRightClick}
-            />
+              <path
+                d="M64.5898 95.6934L35.5107 66.6143"
+                stroke="#363636"
+                strokeWidth="4"
+                className="cursor-pointer"
+                onClick={() => {
+                  triggerFade();
+                  onLeftClick();
+                }}
+              />
 
-            {/* top-right arrow */}
-            <line
-              stroke="#363636"
-              strokeWidth="4"
-              x1="1175.41"
-              x2="1205.41"
-              y1="33.5916"
-              y2="63.5916"
-              className="cursor-pointer"
-              onClick={onRightClick}
-            />
+              <path
+                d="M64.5898 34.9551L35.5107 64.0342"
+                stroke="#363636"
+                strokeWidth="4"
+                className="cursor-pointer"
+                onClick={() => {
+                  triggerFade();
+                  onLeftClick();
+                }}
+              />
+            </>
+          ) : (
+            <>
+              <rect
+                x="1110"
+                y="25"
+                width="100"
+                height="80"
+                fill="transparent"
+                onClick={() => {
+                  triggerFade();
+                  onRightClick();
+                }}
+                className="cursor-pointer"
+              />
 
-            {/* bottom-right arrow */}
-            <line
-              stroke="#363636"
-              strokeWidth="4"
-              transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 1174 95.0059)"
-              x2="42.4264"
-              y1="-2"
-              y2="-2"
-              className="cursor-pointer"
-              onClick={onRightClick}
-            />
-          </>
-        )}
+              <path
+                d="M1116 65.0059L1206 65.0059"
+                stroke="#363636"
+                strokeWidth="4"
+                className="cursor-pointer"
+                onClick={() => {
+                  triggerFade();
+                  onRightClick();
+                }}
+              />
+
+              <line
+                stroke="#363636"
+                strokeWidth="4"
+                x1="1175.41"
+                x2="1205.41"
+                y1="33.5916"
+                y2="63.5916"
+                className="cursor-pointer"
+                onClick={() => {
+                  triggerFade();
+                  onRightClick();
+                }}
+              />
+
+              <line
+                stroke="#363636"
+                strokeWidth="4"
+                transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 1174 95.0059)"
+                x2="42.4264"
+                y1="-2"
+                y2="-2"
+                className="cursor-pointer"
+                onClick={() => {
+                  triggerFade();
+                  onRightClick();
+                }}
+              />
+            </>
+          )}
+        </motion.g>
       </svg>
     </div>
   );

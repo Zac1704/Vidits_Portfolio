@@ -17,24 +17,23 @@ body {
 }
 
 .hide-scrollbar {
-  overflow: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE + Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
+/* Chrome, Safari */
 .hide-scrollbar::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  display: none;
 }
-
-.hide-scrollbar {
-  -webkit-overflow-scrolling: touch;
-}
-
 
 .glass-button {
   /* Glass Base */
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.05)
+  );
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 
@@ -44,9 +43,7 @@ body {
   border-left: 1px solid rgba(255, 255, 255, 0.6);
 
   /* Dispersion (color glow edges) */
-  box-shadow:
-    0 4px 30px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(0, 150, 255, 0.2),
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 150, 255, 0.2),
     0 0 20px rgba(255, 0, 200, 0.2);
 
   /* Light angle (135°) simulated via gradient direction */
@@ -67,8 +64,6 @@ body {
 
 .glass-button:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 8px 40px rgba(0, 0, 0, 0.25),
-    0 0 25px rgba(0, 150, 255, 0.25),
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25), 0 0 25px rgba(0, 150, 255, 0.25),
     0 0 25px rgba(255, 0, 200, 0.25);
 }
