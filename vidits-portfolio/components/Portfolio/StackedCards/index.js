@@ -4,11 +4,12 @@ const StackedCards = () => {
   return (
     <div
       className="
-        w-full h-full
-        overflow-y-scroll
-        px-4 py-10
-        relative
-      "
+    w-full h-full
+    overflow-y-scroll
+    overflow-x-hidden       
+    px-4 py-10
+    relative hide-scrollbar
+  "
     >
       {colors.map((color, index) => (
         <div
@@ -18,7 +19,7 @@ const StackedCards = () => {
             h-40 sm:h-48 md:h-100
             mx-auto rounded-xl shadow-xl
             sticky top-5
-            mb-[70px] sm:mb-[162px]
+            mb-[70px] sm:mb-[160px]
           "
           style={{
             backgroundColor: color,

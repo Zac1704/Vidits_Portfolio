@@ -16,15 +16,12 @@ body {
   font-optical-sizing: auto;
 }
 
-.hide-scrollbar {
-  overflow-y: auto;
-  -ms-overflow-style: none; /* IE + Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* Chrome, Safari */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
 }
 
 .glass-button {
