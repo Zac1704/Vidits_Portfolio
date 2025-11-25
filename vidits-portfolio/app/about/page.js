@@ -1,6 +1,7 @@
 import Carousel from "@/components/Carousel";
 import ExperienceSection from "@/components/Experience";
 import HoverRevealText from "@/components/HoverRevealText";
+import Portfolio from "@/components/Portfolio";
 import PortfolioPage from "@/components/PortfolioSection";
 
 const Aboutpage = () => {
@@ -28,7 +29,8 @@ const Aboutpage = () => {
 
       <ExperienceSection />
 
-      <PortfolioPage />
+      {/* <PortfolioPage /> */}
+      <Portfolio />
 
       <Carousel title="Project Archive" />
 

@@ -45,14 +45,14 @@ export const KEYCHAINS = [
     name: "Photoshop",
     bg: "#001E36",
     svg: "/Images/svg/keychain/svg1.svg",
-    marign: "-ml-[3px]",
+    marign: "",
   },
   {
     id: "ai",
     name: "Illustrator",
     bg: "#330000",
     svg: "/Images/svg/keychain/svg2.svg",
-    marign: "-ml-2",
+    marign: "ml-0.5",
   },
   {
     id: "figma",

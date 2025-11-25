@@ -123,8 +123,8 @@ const Keychain = ({ keychain }) => {
           <Image
             src={keychain.svg}
             alt={keychain.name}
-            width={75}
-            height={154}
+            width={65}
+            height={134}
           />
         </div>
       </div>
@@ -194,8 +194,7 @@ const PortfolioPage = () => {
     w-full
     justify-items-center
     items-start
-       /* ⭐ FIXED */
-   
+    mx-10
   "
                 >
                   {PRIMARY_CARDS.map((card, index) => (
@@ -226,7 +225,10 @@ const PortfolioPage = () => {
       </div>
 
       {/* TITLE */}
-      <div className="z-30 relative flex justify-center mb-8 sm:mb-12 pointer-events-auto">
+      <div
+        className="z-30 relative flex justify-center md:mb-7 
+       pointer-events-auto"
+      >
         <div
           className="
           bg-[var(--background)]
