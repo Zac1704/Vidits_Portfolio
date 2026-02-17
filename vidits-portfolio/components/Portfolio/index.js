@@ -1,11 +1,16 @@
+"use client";
+
+import { useRef } from "react";
 import DottedBackground from "./DottedBackground";
 import StackedCards from "./StackedCards";
 
 const Portfolio = () => {
+  const containerRef = useRef(null);
+
   return (
-    <div className="h-[49vh]  sm:h-[660px] hide-scrollbar flex justify-center items-center overflow-x-hidden ">
+    <div ref={containerRef} className="relative">
       <DottedBackground>
-        <StackedCards />
+        <StackedCards containerRef={containerRef} />
       </DottedBackground>
     </div>
   );

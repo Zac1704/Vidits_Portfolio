@@ -1,0 +1,520 @@
+/* Housitize Layout - Scoped CSS Module */
+/* All styles are nested under .housitizeContainer to prevent leakage */
+
+.housitizeContainer {
+  /* Color System - Dark Theme with Gold Accent */
+  --color-accent-50: #fef9e7;
+  --color-accent-100: #fdf3d0;
+  --color-accent-200: #fbe8a1;
+  --color-accent-300: #f9dc72;
+  --color-accent-400: #e7c873;
+  --color-accent-500: #d4a942;
+  --color-accent-600: #b8912a;
+  --color-accent-700: #8a6d1f;
+  --color-accent-800: #5c4815;
+  --color-accent-900: #2e240a;
+
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #1a1a1a;
+
+  /* Consistent Spacing System */
+  --spacing-section: 80px;
+  --spacing-large: 48px;
+  --spacing-medium: 32px;
+  --spacing-small: 24px;
+  --spacing-xs: 16px;
+
+  /* Typography */
+  --font-family-base:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  /* Apply scoped styles */
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e5e5e5;
+  background: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+.housitizeContainer {
+  body {
+    font-family: var(--font-family-base);
+    color: #e5e5e5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    letter-spacing: -0.02em;
+    color: #e7c873;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  h2 {
+    letter-spacing: -0.01em;
+    color: #fff;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  h5 {
+    color: #f5f5f5;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  h6 {
+    color: #d4d4d4;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  p {
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .caption {
+    color: #737373;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    color: #1a1a1a;
+    background-color: #e7c873;
+  }
+
+  @property --tw-scale-x {
+    syntax: "*";
+    inherits: false;
+    initial-value: 1;
+  }
+
+  @property --tw-scale-y {
+    syntax: "*";
+    inherits: false;
+    initial-value: 1;
+  }
+
+  @property --tw-scale-z {
+    syntax: "*";
+    inherits: false;
+    initial-value: 1;
+  }
+
+  @property --tw-rotate-x {
+    syntax: "*";
+    inherits: false;
+    initial-value: rotateX(0);
+  }
+
+  @property --tw-rotate-y {
+    syntax: "*";
+    inherits: false;
+    initial-value: rotateY(0);
+  }
+
+  @property --tw-rotate-z {
+    syntax: "*";
+    inherits: false;
+    initial-value: rotateZ(0);
+  }
+
+  @property --tw-skew-x {
+    syntax: "*";
+    inherits: false;
+    initial-value: skewX(0);
+  }
+
+  @property --tw-skew-y {
+    syntax: "*";
+    inherits: false;
+    initial-value: skewY(0);
+  }
+
+  @property --tw-space-y-reverse {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0;
+  }
+
+  @property --tw-border-style {
+    syntax: "*";
+    inherits: false;
+    initial-value: solid;
+  }
+
+  @property --tw-gradient-position {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-gradient-from {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000;
+  }
+
+  @property --tw-gradient-via {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000;
+  }
+
+  @property --tw-gradient-to {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000;
+  }
+
+  @property --tw-gradient-stops {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-gradient-via-stops {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-gradient-from-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 0%;
+  }
+
+  @property --tw-gradient-via-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 50%;
+  }
+
+  @property --tw-gradient-to-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 100%;
+  }
+
+  @property --tw-leading {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-font-weight {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+  }
+
+  @property --tw-shadow-color {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+  }
+
+  @property --tw-inset-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+  }
+
+  @property --tw-inset-shadow-color {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-inset-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+  }
+
+  @property --tw-ring-color {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-ring-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+  }
+
+  @property --tw-inset-ring-color {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-inset-ring-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+  }
+
+  @property --tw-ring-inset {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-ring-offset-width {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0;
+  }
+
+  @property --tw-ring-offset-color {
+    syntax: "*";
+    inherits: false;
+    initial-value: #fff;
+  }
+
+  @property --tw-ring-offset-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+  }
+
+  @property --tw-blur {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-brightness {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-contrast {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-grayscale {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-hue-rotate {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-invert {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-opacity {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-saturate {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-sepia {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-drop-shadow {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-drop-shadow-color {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-drop-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+  }
+
+  @property --tw-drop-shadow-size {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-blur {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-brightness {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-contrast {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-grayscale {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-hue-rotate {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-invert {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-opacity {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-saturate {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-backdrop-sepia {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-duration {
+    syntax: "*";
+    inherits: false;
+  }
+
+  @property --tw-ease {
+    syntax: "*";
+    inherits: false;
+  }
+}
+
+/* Typography Hierarchy - Scoped within housitizeContainer */
+.housitizeContainer h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #e7c873;
+}
+
+.housitizeContainer h2 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.housitizeContainer h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.housitizeContainer h4 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.housitizeContainer h5 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #f5f5f5;
+}
+
+.housitizeContainer h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #d4d4d4;
+}
+
+.housitizeContainer p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #a3a3a3;
+}
+
+.housitizeContainer .caption {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #737373;
+}
+
+/* Smooth Scroll - Scoped */
+.housitizeContainer {
+  scroll-behavior: smooth;
+}
+
+/* Selection - Scoped */
+.housitizeContainer ::selection {
+  background-color: #e7c873;
+  color: #1a1a1a;
+}
+

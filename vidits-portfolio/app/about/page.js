@@ -3,10 +3,9 @@ import ExperienceSection from "@/components/Experience";
 import HoverRevealText from "@/components/HoverRevealText";
 import Portfolio from "@/components/Portfolio";
 import PortfolioPage from "@/components/PortfolioSection";
-
 const Aboutpage = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-visible">
       <div className="text-(--text-color) text-[32px] md:text-[40px] lg:text-5xl my-8 text-center uppercase">
         <h1>About</h1>
       </div>
@@ -30,7 +29,7 @@ const Aboutpage = () => {
       <ExperienceSection />
 
       {/* <PortfolioPage /> */}
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto">
         <Portfolio />
       </div>
 

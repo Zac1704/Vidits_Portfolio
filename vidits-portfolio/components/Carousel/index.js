@@ -81,10 +81,6 @@ export default function Carousel({ title }) {
     restartAutoPlayAfterDelay();
   };
 
-  // -----------------------------
-  // ⭐ SWIPE HANDLERS
-  // -----------------------------
-
   const handleTouchStart = (e) => {
     setTouchStartX(e.touches[0].clientX);
     setIsAutoPlaying(false);

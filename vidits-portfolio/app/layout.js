@@ -1,9 +1,11 @@
 import { Geist, Geist_Mono, Caveat } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+
 import Footer from "@/components/Footer";
 import ThemeButton from "@/components/StickyButtons/ThemeButton";
 import AboutPageButton from "@/components/StickyButtons/AboutPageButton";
+import ClientRouteGate from "@/components/ClientRouteGate";
 
 const futura = localFont({
   src: "./fonts/Futura.otf",
@@ -20,7 +22,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// 👇 Add Caveat font
 const caveat = Caveat({
   variable: "--font-caveat",
   subsets: ["latin"],
@@ -34,14 +35,24 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${futura.variable} ${geistSans.variable} ${geistMono.variable} ${caveat.variable} select-none antialiased hide-scrollbar bg-(--background)`}
+        className={[
+          futura.variable,
+          geistSans.variable,
+          geistMono.variable,
+          caveat.variable,
+          "select-none antialiased hide-scrollbar bg-[var(--background)]",
+        ].join(" ")}
       >
         {children}
-        <Footer />
-        <ThemeButton />
-        <AboutPageButton />
+
+        {/* Client-only route aware UI */}
+        <ClientRouteGate>
+          <Footer />
+          <ThemeButton />
+          <AboutPageButton />
+        </ClientRouteGate>
       </body>
     </html>
   );
