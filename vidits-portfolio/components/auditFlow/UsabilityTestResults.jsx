@@ -9,7 +9,7 @@ const UsabilityTestResultsSection = () => {
         id="iterating-based-on-usability-testing"
         className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20"
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Iterating based on usability test results
           </h3>
@@ -43,14 +43,14 @@ const UsabilityTestResultsSection = () => {
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Red flag: Too much above the fold
             </h2>
           </div>
 
           <div className="flex flex-col md:flex-row gap-16 items-start">
             <div className="flex-1 space-y-8 text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
-              <p>
+              <p className="font-inter font-medium text-gray-900">
                 In the initial AuditFlow dashboard, I placed multiple
                 high-priority actions above the fold, assuming auditors needed
                 immediate access to everything important:
@@ -78,7 +78,7 @@ const UsabilityTestResultsSection = () => {
                 </li>
               </ul>
 
-              <p>
+              <p className="font-inter font-medium text-gray-900">
                 During usability testing, users’ first instinct was to scroll,
                 not act. The dense top section felt overwhelming and made it
                 difficult to identify what required attention first. Based on
@@ -94,37 +94,47 @@ const UsabilityTestResultsSection = () => {
         </div>
 
         <div>
-          {/* Section Title */}
-          <div className="flex items-center gap-4 mb-16">
-            <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Iterating based on usability test results
-            </h2>
-          </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+              {/* Left Content */}
+              <div className="flex-1">
+                {/* Section Title */}
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-1 h-10 bg-blue-600 rounded-full" />
+                  <h2 className="uppercase tracking-wide text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+                    Iterating Based on Usability Test Results
+                  </h2>
+                </div>
 
-          <div className="flex flex-col md:flex-row gap-16 items-center">
-            {/* Text Content */}
-            <div className="flex-1 space-y-8 text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
-              <p>
-                Usability testing revealed multiple opportunities for
-                improvement and use questions that led to new ideas. I sorted
-                the new ideas/issues based on their potential impact on the
-                product goals, frequency in usability testing, and estimated
-                effort required. While most users completed the tasks
-                successfully, I wanted to help users feel more confident by
-                improving overall clarity.
-              </p>
-            </div>
+                {/* Text Content */}
+                <div className="space-y-6 text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl">
+                  <p className="font-inter font-bold text-gray-900">
+                    Usability testing surfaced several improvement opportunities
+                    and uncovered new questions that led to additional solution
+                    ideas.
+                  </p>
 
-            {/* Image */}
-            <div className="md:w-1/3 flex items-center justify-center">
-              <Image
-                src="/Images/assets/83cb1c22ea629e47455f0258c53efb7f1c648418.png"
-                alt="Worried woman"
-                width={400}
-                height={400}
-                className="w-full h-auto"
-              />
+                  <p className="font-inter font-medium text-gray-900">
+                    I prioritized issues based on their impact on product goals,
+                    frequency during testing, and estimated implementation
+                    effort. Although most participants completed their tasks
+                    successfully, I focused on reducing friction and improving
+                    clarity to increase user confidence throughout the audit
+                    workflow.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Image */}
+              <div className="flex-1 max-w-sm w-full">
+                <Image
+                  src="/Images/assets/83cb1c22ea629e47455f0258c53efb7f1c648418.png"
+                  alt="User experiencing confusion during usability testing"
+                  width={400}
+                  height={400}
+                  className="w-full h-auto lg:h-90 object-contain "
+                />
+              </div>
             </div>
           </div>
 

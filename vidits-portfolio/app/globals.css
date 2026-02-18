@@ -1,6 +1,11 @@
 @import "tailwindcss";
 /* @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap'); */
 
+@theme {
+  /* This maps the CSS variable from Next.js to a Tailwind utility */
+  --font-inter: var(--font-inter);
+}
+
 :root {
   --background: #ffffff;
   --text-color: #363636;
@@ -40,7 +45,9 @@ body {
   border-left: 1px solid rgba(255, 255, 255, 0.6);
 
   /* Dispersion (color glow edges) */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 150, 255, 0.2),
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(0, 150, 255, 0.2),
     0 0 20px rgba(255, 0, 200, 0.2);
 
   /* Light angle (135°) simulated via gradient direction */
@@ -61,6 +68,8 @@ body {
 
 .glass-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25), 0 0 25px rgba(0, 150, 255, 0.25),
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(0, 150, 255, 0.25),
     0 0 25px rgba(255, 0, 200, 0.25);
 }

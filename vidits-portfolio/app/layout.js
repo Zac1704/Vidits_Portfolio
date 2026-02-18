@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Caveat } from "next/font/google";
+import { Geist, Geist_Mono, Caveat, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -6,6 +6,12 @@ import Footer from "@/components/Footer";
 import ThemeButton from "@/components/StickyButtons/ThemeButton";
 import AboutPageButton from "@/components/StickyButtons/AboutPageButton";
 import ClientRouteGate from "@/components/ClientRouteGate";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter", // This creates the CSS variable
+});
 
 const futura = localFont({
   src: "./fonts/Futura.otf",
@@ -42,6 +48,7 @@ export default function RootLayout({ children }) {
           geistSans.variable,
           geistMono.variable,
           caveat.variable,
+          inter.variable,
           "select-none antialiased hide-scrollbar bg-[var(--background)]",
         ].join(" ")}
       >

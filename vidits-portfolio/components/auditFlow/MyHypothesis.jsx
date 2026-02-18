@@ -6,7 +6,7 @@ const MyHypothesisSection = () => {
   return (
     <>
       <div className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             How do experienced auditors manage audits using existing tools?
           </h3>
@@ -16,46 +16,54 @@ const MyHypothesisSection = () => {
         className="max-w-6xl mx-auto px-6 py-18 space-y-20"
         id="how-do-experienced-auditors-manage-audits"
       >
-        <div>
-          {/* Title */}
-          <div className="flex items-center gap-4 mb-16">
-            <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              My hypothesis
-            </h2>
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center max-w-6xl mx-auto px-6 ">
+          {/* Left Content */}
+          <div className="flex-1">
+            {/* Title */}
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-1 h-12 bg-blue-600 rounded-full" />
+              <h2 className="uppercase text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+                My Hypothesis
+              </h2>
+            </div>
+
+            {/* Text */}
+            <div className="font-inter font-medium space-y-6 text-base md:text-lg text-gray-600 leading-relaxed">
+              <p>
+                I initially believed that experienced auditors already had
+                well-established systems and structured processes to manage
+                audits efficiently. I assumed most of their challenges stemmed
+                from tool limitations rather than workflow or communication
+                gaps.
+              </p>
+
+              <p>
+                My assumption was that with access to spreadsheets, shared
+                drives, and email, auditors could effectively track tasks,
+                evidence, and overall audit progress without significant
+                friction.
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-16 items-center">
-            <div className="flex-1 space-y-8 text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
-              <p>
-                I think that experienced auditors already have well-established
-                systems and processes in place to manage audits efficiently, and
-                that most challenges come from tool limitations rather than
-                workflow or communication issues.
-              </p>
-              <p>
-                I believed that as long as auditors had access to spreadsheets,
-                shared drives, and email, they were able to keep track of tasks,
-                evidence, and audit progress without major friction.
-              </p>
-            </div>
-
-            <div className="md:w-1/3">
-              <Image
-                src="/Images/assets/271519a0eb86ff10d34da8ace80680fb57b298ac.png"
-                alt="Auditor sitting"
-                width={500}
-                height={600}
-                className="w-full h-auto"
-              />
-            </div>
+          {/* Right Image */}
+          <div className="flex-1 max-w-md w-full">
+            <Image
+              src="/Images/assets/271519a0eb86ff10d34da8ace80680fb57b298ac.png"
+              alt="Experienced auditor reviewing documents at desk"
+              width={500}
+              height={500}
+              className="w-full h-auto lg:h-100  object-contain"
+              priority
+            />
           </div>
         </div>
+
         <div>
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Getting to know auditors through user interviews
             </h2>
           </div>
@@ -72,7 +80,7 @@ const MyHypothesisSection = () => {
                 Expected outcomes
               </h4>
 
-              <ul className="space-y-8 text-gray-700 font-bold">
+              <ul className="font-inter space-y-8 text-gray-700 font-bold">
                 <li className="flex gap-4 text-base md:text-lg lg:text-xl">
                   <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0 mt-1" />
                   Understand how auditors manage audits on a day-to-day basis
@@ -138,7 +146,7 @@ const MyHypothesisSection = () => {
                 What do auditors DO?
               </h4>
 
-              <ul className="space-y-6 text-base md:text-lg lg:text-xl text-gray-600 font-medium leading-relaxed">
+              <ul className="font-inter space-y-6 text-base md:text-lg lg:text-xl text-gray-600 font-medium leading-relaxed">
                 <li className="flex gap-4 items-start">
                   <span className="text-blue-400 mt-1 shrink-0">•</span>
                   5/5 auditors manage audits using spreadsheets, emails, and
@@ -162,7 +170,7 @@ const MyHypothesisSection = () => {
                 What do auditors WANT?
               </h4>
 
-              <ul className="space-y-6 text-base md:text-lg lg:text-xl text-gray-600 font-medium leading-relaxed">
+              <ul className="font-inter space-y-6 text-base md:text-lg lg:text-xl text-gray-600 font-medium leading-relaxed">
                 <li className="flex gap-4 items-start">
                   <span className="text-blue-400 mt-1 shrink-0">•</span>
                   5/5 auditors want a clear, real-time view of audit status.
@@ -187,11 +195,11 @@ const MyHypothesisSection = () => {
                 alt="Auditor"
                 width={400}
                 height={400}
-                className="w-full h-auto"
+                className="w-full h-auto lg:h-80 object-contain"
               />
             </div>
 
-            <div className="flex-1 space-y-8">
+            <div className="font-inter flex-1 space-y-8">
               <h4 className="font-bold leading-tight text-[18px] md:text-[20px]">
                 Is there a disconnect between how auditors want to manage audits
                 and how they actually do?

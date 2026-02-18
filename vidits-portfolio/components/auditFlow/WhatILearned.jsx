@@ -8,7 +8,7 @@ const WhatILearnedSection = () => {
         id="where-do-we-go-from-here"
         className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20"
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Where do we go from here
           </h3>
@@ -18,7 +18,7 @@ const WhatILearnedSection = () => {
         {/* Section Title */}
         <div className="flex items-center gap-4 mb-16">
           <div className="w-1 h-10 bg-blue-600" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
             What I learned
           </h2>
         </div>

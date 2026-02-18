@@ -35,13 +35,13 @@ export function DesignSystemSection() {
   return (
     <>
       {/* Color Palette */}
-      <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
-        <h3 className="text-xl mb-6 text-gray-900">Color Palette</h3>
+      <div className="bg-white p-6 md:p-8 rounded-xl border border-gray-200 shadow-sm">
+        <h3 className="uppercase text-xl mb-6 text-gray-900">Color Palette</h3>
 
         {/* Primary Colors */}
         <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-4">Primary Colors</p>
-          <div className="flex gap-4">
+          <p className="uppercase text-sm text-gray-600 mb-4">Primary Colors</p>
+          <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <div className="bg-[#06c] h-24 rounded-lg border border-gray-200 mb-3"></div>
               <p className="text-sm text-gray-900">Primary Blue</p>
@@ -62,24 +62,24 @@ export function DesignSystemSection() {
 
         {/* Semantic Colors */}
         <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-4">Semantic Colors</p>
-          <div className="flex gap-4">
-            <div className="flex-1">
+          <p className="uppercase text-sm text-gray-600 mb-4">Semantic Colors</p>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <div className="flex-1 min-w-[140px]">
               <div className="bg-[#10b981] h-24 rounded-lg border border-gray-200 mb-3"></div>
               <p className="text-sm text-gray-900">Success</p>
               <p className="text-sm text-gray-600">#00875A</p>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-[140px]">
               <div className="bg-[#f59e0b] h-24 rounded-lg border border-gray-200 mb-3"></div>
               <p className="text-sm text-gray-900">Warning</p>
               <p className="text-sm text-gray-600">#FF991F</p>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-[140px]">
               <div className="bg-[#ef4444] h-24 rounded-lg border border-gray-200 mb-3"></div>
               <p className="text-sm text-gray-900">Error</p>
               <p className="text-sm text-gray-600">#DE350B</p>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-[140px]">
               <div className="bg-[#0052CC] h-24 rounded-lg border border-gray-200 mb-3"></div>
               <p className="text-sm text-gray-900">Info</p>
               <p className="text-sm text-gray-600">#0052CC</p>
@@ -89,8 +89,8 @@ export function DesignSystemSection() {
 
         {/* Grayscale */}
         <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-4">Grayscale</p>
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-3 mb-3">
+          <p className="uppercase text-sm text-gray-600 mb-4">Grayscale</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-3 mb-3">
             <div>
               <div className="bg-white h-20 rounded-lg border border-gray-300 mb-2"></div>
               <p className="text-xs text-gray-900">White</p>
@@ -136,8 +136,8 @@ export function DesignSystemSection() {
 
         {/* UI Specific */}
         <div>
-          <p className="text-sm text-gray-600 mb-4">UI Specific</p>
-          <div className="flex gap-4">
+          <p className="uppercase text-sm text-gray-600 mb-4">UI Specific</p>
+          <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <div className="bg-[#2C3340] h-20 rounded-lg border border-gray-200 mb-3"></div>
               <p className="text-sm text-gray-900">Sidebar BG</p>
@@ -156,11 +156,11 @@ export function DesignSystemSection() {
 
       {/* Typography */}
       <div className="mt-8 bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
-        <h3 className="text-xl mb-6 text-gray-900">Typography</h3>
+        <h3 className="uppercase text-xl mb-6 text-gray-900">Typography</h3>
 
         {/* Font Families */}
         <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-4">Font Families</p>
+          <p className="uppercase text-sm text-gray-600 mb-4">Font Families</p>
           <div className="space-y-3">
             <div className="p-4 border border-gray-200 rounded-lg">
               <p className="text-sm text-gray-600 mb-2">Primary: Inter</p>
@@ -181,7 +181,7 @@ export function DesignSystemSection() {
 
         {/* Headings */}
         <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-4">Headings</p>
+          <p className="uppercase text-sm text-gray-600 mb-4">Headings</p>
           <div className="space-y-3">
             <div className="p-4 border border-gray-200 rounded-lg">
               <h1 className="text-3xl text-gray-900">Heading 1</h1>
@@ -206,7 +206,7 @@ export function DesignSystemSection() {
 
         {/* Body Text */}
         <div>
-          <p className="text-sm text-gray-600 mb-4">Body Text</p>
+          <p className="uppercase text-sm text-gray-600 mb-4">Body Text</p>
           <div className="space-y-3">
             <div className="p-4 border border-gray-200 rounded-lg">
               <p className="text-lg text-gray-900">
@@ -231,11 +231,11 @@ export function DesignSystemSection() {
 
       {/* Buttons */}
       <div className="mt-8 bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
-        <h3 className="text-xl mb-6 text-gray-900">Buttons</h3>
+        <h3 className="uppercase text-xl mb-6 text-gray-900">Buttons</h3>
 
         <div className="space-y-6">
           <div>
-            <p className="text-sm text-gray-600 mb-4">Button Variants</p>
+            <p className="uppercase text-sm text-gray-600 mb-4">Button Variants</p>
             <div className="flex flex-wrap gap-3">
               <button className="bg-[#06c] text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-[10px] md:text-sm">
                 Primary Button
@@ -253,7 +253,7 @@ export function DesignSystemSection() {
           </div>
 
           <div>
-            <p className="text-sm text-gray-600 mb-4">Button Sizes</p>
+            <p className="uppercase text-sm text-gray-600 mb-4">Button Sizes</p>
             <div className="flex flex-wrap items-center gap-3">
               <button className="bg-[#06c] text-white px-3 py-1.5 rounded text-[10px] md:text-xs">
                 Small
@@ -268,29 +268,29 @@ export function DesignSystemSection() {
           </div>
 
           <div>
-            <p className="text-sm text-gray-900 mb-3">Usage Guidelines</p>
-            <div className="bg-[#F7F8F9] p-4 rounded-lg space-y-2">
+            <p className="uppercase text-sm text-gray-900 mb-3">Usage Guidelines</p>
+            <div className="font-inter font-medium bg-[#F7F8F9] p-4 rounded-lg space-y-2">
               <div className="flex items-start gap-2">
                 <span className="text-gray-600 text-sm">•</span>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-900">
                   Use Primary for main actions (Create, Save, Submit)
                 </p>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-600 text-sm">•</span>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-900">
                   Use Secondary for supporting actions (Cancel, Back)
                 </p>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-600 text-sm">•</span>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-900">
                   Use Ghost for tertiary actions (View More, Details)
                 </p>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-gray-600 text-sm">•</span>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-900">
                   Use Danger for destructive actions (Delete, Remove)
                 </p>
               </div>
@@ -301,11 +301,11 @@ export function DesignSystemSection() {
 
       {/* Status Badges & Labels */}
       <div className="mt-8 bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
-        <h3 className="text-xl mb-6 text-gray-900">Status Badges & Labels</h3>
+        <h3 className="uppercase text-xl mb-6 text-gray-900">Status Badges & Labels</h3>
 
         <div className="space-y-6">
           <div>
-            <p className="text-sm text-gray-600 mb-4">Status Badges</p>
+            <p className="uppercase text-sm text-gray-600 mb-4">Status Badges</p>
             <div className="flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-100 text-green-600 rounded-full text-sm">
                 <span className="w-1.5 h-1.5 bg-green-600 rounded-full"></span>
@@ -327,7 +327,7 @@ export function DesignSystemSection() {
           </div>
 
           <div>
-            <p className="text-sm text-gray-600 mb-4">Priority Labels</p>
+            <p className="uppercase text-sm text-gray-600 mb-4">Priority Labels</p>
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1.5 bg-red-100 text-red-500 rounded text-sm">
                 High Priority
@@ -345,12 +345,12 @@ export function DesignSystemSection() {
 
       {/* Icons */}
       <div className="mt-8 bg-white p-4 md:p-8 rounded-xl border border-gray-200 shadow-sm p-[32px]">
-        <h3 className="text-xl mb-6 text-gray-900">Icons</h3>
+        <h3 className="uppercase text-xl mb-6 text-gray-900">Icons</h3>
 
         {/* Icon Library */}
         <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-2">Lucide React Icons</p>
-          <p className="text-sm text-gray-600 mb-5">
+          <p className="uppercase text-sm text-gray-600 mb-2">Lucide React Icons</p>
+          <p className="uppercase text-sm text-gray-600 mb-5">
             Primary icon library used throughout the application
           </p>
 
@@ -480,7 +480,7 @@ export function DesignSystemSection() {
 
         {/* Icon Sizes */}
         <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-4">Icon Sizes</p>
+          <p className="uppercase text-sm text-gray-600 mb-4">Icon Sizes</p>
           <div className="flex flex-wrap gap-4 md:gap-6 items-end">
             <div className="flex flex-col items-center gap-2">
               <FileText className="w-4 h-4 text-gray-900" />
@@ -503,7 +503,7 @@ export function DesignSystemSection() {
 
         {/* Icon Colors */}
         <div>
-          <p className="text-sm text-gray-600 mb-4">Icon Colors</p>
+          <p className="uppercase text-sm text-gray-600 mb-4">Icon Colors</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
@@ -531,11 +531,11 @@ export function DesignSystemSection() {
 
       {/* Spacing & Layout */}
       <div className="mt-8 bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
-        <h3 className="text-xl mb-6 text-gray-900">Spacing & Layout</h3>
+        <h3 className="uppercase text-xl mb-6 text-gray-900">Spacing & Layout</h3>
 
         {/* Border Radius */}
         <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-4">Border Radius</p>
+          <p className="uppercase text-sm text-gray-600 mb-4">Border Radius</p>
           <div className="grid grid-cols-4 gap-4">
             <div>
               <div className="bg-gray-200 h-16 rounded border border-gray-300"></div>
@@ -558,7 +558,7 @@ export function DesignSystemSection() {
 
         {/* Spacing Scale */}
         <div>
-          <p className="text-sm text-gray-600 mb-4">Spacing Scale (Tailwind)</p>
+          <p className="uppercase text-sm text-gray-600 mb-4">Spacing Scale (Tailwind)</p>
           <div className="space-y-2">
             <div className="flex items-center gap-4">
               <div className="bg-blue-600 h-8 w-1"></div>

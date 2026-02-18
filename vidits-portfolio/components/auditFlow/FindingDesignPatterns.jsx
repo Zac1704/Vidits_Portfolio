@@ -17,7 +17,7 @@ const FindingDesignPatternsSection = () => {
         id="finding-design-patterns"
         className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20"
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Finding design patterns for every element
           </h3>
@@ -33,12 +33,12 @@ const FindingDesignPatternsSection = () => {
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Interface patterns to best support users + product development
             </h2>
           </div>
 
-          <div className="max-w-3xl text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed space-y-8">
+          <div className="font-inter font-medium max-w-3xl text-base md:text-lg lg:text-xl text-gray-900 leading-relaxed space-y-8">
             <p>
               While designing the core user flows, I focused on creating
               consistent and repeatable interface patterns across audits, tasks,
@@ -84,7 +84,7 @@ const FindingDesignPatternsSection = () => {
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Inspiration to Prototype
             </h2>
           </div>
@@ -118,7 +118,7 @@ const FindingDesignPatternsSection = () => {
           </figure>
 
           {/* Text Content */}
-          <div className="max-w-3xl text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mt-16 space-y-8">
+          <div className="font-inter font-medium max-w-3xl text-base md:text-lg lg:text-xl text-gray-900 leading-relaxed mt-16 space-y-8">
             <p>
               I used Mobbin to find inspiration for specific pieces on every
               screen. Using existing design patterns will lessen the amount of
@@ -157,7 +157,7 @@ const FindingDesignPatternsSection = () => {
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Design System and Style Guide
             </h2>
           </div>
@@ -170,7 +170,7 @@ const FindingDesignPatternsSection = () => {
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Accessibility check
             </h2>
           </div>
@@ -182,8 +182,8 @@ const FindingDesignPatternsSection = () => {
                   <MousePointer2 className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="text-lg font-bold mb-2">Touch targets</h5>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h5 className="uppercase text-lg font-bold mb-2">Touch targets</h5>
+                  <p className="font-inter font-medium text-gray-900 leading-relaxed">
                     Interactive elements were designed with adequate target
                     sizes for both desktop and responsive breakpoints,
                     supporting mouse and touch interactions. Primary actions,
@@ -197,8 +197,8 @@ const FindingDesignPatternsSection = () => {
                   <Palette className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="text-lg font-bold mb-2">Color contrast</h5>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h5 className="uppercase text-lg font-bold mb-2">Color contrast</h5>
+                  <p className="font-inter font-medium text-gray-900leading-relaxed">
                     All interface color combinations were tested to meet WCAG
                     2.1 AA contrast ratios, particularly for text, tables, and
                     status indicators used in high-density audit views.
@@ -210,8 +210,8 @@ const FindingDesignPatternsSection = () => {
                   <Eye className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="text-lg font-bold mb-2">Color-blind safe</h5>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h5 className="uppercase text-lg font-bold mb-2">Color-blind safe</h5>
+                  <p className="font-inter font-medium text-gray-900 leading-relaxed">
                     The brand color palette was checked for possible color-blind
                     conflicts.
                   </p>
@@ -224,8 +224,8 @@ const FindingDesignPatternsSection = () => {
                   <Type className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="text-lg font-bold mb-2">Font selection</h5>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h5 className="uppercase text-lg font-bold mb-2">Font selection</h5>
+                  <p className="font-inter font-medium text-gray-900 leading-relaxed">
                     Quicksand was chosen as the body font based on multiple font
                     preference tests from 2 auditors.
                   </p>
@@ -236,8 +236,8 @@ const FindingDesignPatternsSection = () => {
                   <Layers className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="text-lg font-bold mb-2">Text sizing</h5>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h5 className="uppercase text-lg font-bold mb-2">Text sizing</h5>
+                  <p className="font-inter font-medium text-gray-900  leading-relaxed">
                     Longer paragraph text sizing is set at or above 14 px and
                     label text is set at or above 12 px bold. Line spacing was
                     set to 150% for easier readability.

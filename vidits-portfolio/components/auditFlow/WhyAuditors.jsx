@@ -4,7 +4,7 @@ const WhyAuditorsSection = () => {
   return (
     <>
       <div className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Designing an app for auditors
           </h3>
@@ -15,7 +15,7 @@ const WhyAuditorsSection = () => {
         {/* Title */}
         <div className="flex items-center gap-4 mb-16">
           <div className="w-1 h-10 bg-blue-600" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <h2 className="text-2xl md:text-3xl uppercase font-bold text-gray-900">
             Why auditors?
           </h2>
         </div>
@@ -27,18 +27,18 @@ const WhyAuditorsSection = () => {
               src="/Images/assets/3bdb9606f25fda15be111a9bf50a8f8f1e91aa40.png" 
               alt="Auditors discussion"
               width={600}
-              height={700}
-              className="w-full h-auto"
+              height={600}
+              className="w-full h-auto lg:h-150 object-contain rounded-lg "
             />
           </div>
 
           {/* Right Content */}
           <div className="flex-1 space-y-10">
-            <h4 className="text-lg md:text-xl font-bold text-gray-400 uppercase tracking-widest">
+            <h4 className="font-inter text-lg md:text-xl font-extrabold text-gray-900 uppercase tracking-widest">
               Based on a conversation with an old friend :
             </h4>
 
-            <ul className="space-y-8 text-base md:text-lg lg:text-xl text-gray-500 leading-relaxed ">
+            <ul className="font-inter space-y-8 text-base md:text-lg lg:text-xl text-gray-900 leading-relaxed ">
               <li className="flex gap-4">
                 <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-3 shrink-0" />
                 <p>

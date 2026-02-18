@@ -65,7 +65,7 @@ export default function AuditFlowSection() {
               AuditFlow
             </h1>
 
-            <p className="text-xl text-gray-600 leading-relaxed max-w-xl font-normal">
+            <p className="font-inter text-xl text-gray-600 leading-relaxed max-w-xl font-medium">
               AuditFlow is a web-based audit management platform designed to
               help internal audit teams manage audits more efficiently by
               centralizing tasks, evidence, and risk tracking in one system.
@@ -160,7 +160,7 @@ export default function AuditFlowSection() {
 
                   <button
                     onClick={() => handleScroll(slugMap[item])}
-                    className="text-left text-gray-700 text-base leading-relaxed font-medium underline decoration-blue-200 underline-offset-4 hover:text-blue-600 hover:decoration-blue-500 transition-all"
+                    className="font-inter text-left text-gray-700 text-base leading-relaxed font-medium underline decoration-blue-200 underline-offset-4 hover:text-blue-600 hover:decoration-blue-500 transition-all"
                   >
                     {item}
                   </button>

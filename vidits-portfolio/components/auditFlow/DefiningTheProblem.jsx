@@ -5,7 +5,7 @@ const DefiningTheProblemSection = () => {
   return (
     <>
       <div className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             My hypothesis was somewhat wrong!
           </h3>
@@ -18,7 +18,7 @@ const DefiningTheProblemSection = () => {
         {/* Section Title */}
         <div className="flex items-center gap-4 mb-16">
           <div className="w-1 h-10 bg-blue-600" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
             Defining the problem
           </h2>
         </div>
@@ -45,7 +45,7 @@ const DefiningTheProblemSection = () => {
 
           {/* Right Text Content */}
           <div className="flex-1 text-xl text-gray-600 leading-relaxed font-medium space-y-8">
-            <p>
+            <p className="font-inter text-gray-900">
               Internal auditors are managing audits alongside multiple tools and
               stakeholders. While audits follow a structured process, auditors
               are constantly concerned that missing context, unclear ownership,
@@ -54,7 +54,7 @@ const DefiningTheProblemSection = () => {
             </p>
 
             <div className="pt-10">
-              <h4 className="text-2xl font-bold text-gray-900 mb-6">
+              <h4 className="uppercase text-2xl font-bold text-gray-900 mb-6">
                 Rerouting the research
               </h4>
 
@@ -63,13 +63,13 @@ const DefiningTheProblemSection = () => {
                 internal audit teams
               </p>
 
-              <p>
+              <p className="font-inter font-medium text-gray-900">
                 Now that the problem space was more defined, there was more
                 research to be done. I approached my second round of research
                 with the following questions in mind:
               </p>
 
-              <ul className="space-y-6 mt-6 text-xl font-bold text-gray-700">
+              <ul className="font-inter font-medium space-y-6 mt-6 text-xl  text-gray-900">
                 <li className="flex gap-4 items-start">
                   <span className="text-blue-600 shrink-0 mt-1">•</span>
                   How do auditors currently track what is pending, completed,
@@ -105,11 +105,11 @@ const DefiningTheProblemSection = () => {
               <Book className="w-6 h-6 text-blue-600" />
             </div>
 
-            <h4 className="text-2xl font-black mb-6 text-gray-900 tracking-tight">
+            <h4 className="uppercase text-2xl font-black mb-6 text-gray-900 tracking-tight">
               Research for the Content
             </h4>
 
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+            <p className="font-inter font-medium text-lg text-gray-900 leading-relaxed mb-8">
               I needed{" "}
               <span className="text-gray-900 font-bold">
                 reliable references
@@ -133,7 +133,7 @@ const DefiningTheProblemSection = () => {
                 ].map((text, i) => (
                   <li key={i} className="flex gap-4 items-start">
                     <div className="mt-2 w-2 h-2 rounded-full bg-blue-600 shrink-0" />
-                    <span className="text-xl font-bold text-gray-800 leading-tight">
+                    <span className="font-inter font-medium text-xl text-gray-900 leading-tight">
                       {text}
                     </span>
                   </li>
@@ -153,11 +153,11 @@ const DefiningTheProblemSection = () => {
               <Target className="w-6 h-6 text-blue-600" />
             </div>
 
-            <h4 className="text-2xl font-black mb-6 text-gray-900 tracking-tight">
+            <h4 className="uppercase text-2xl font-black mb-6 text-gray-900 tracking-tight">
               Competitive Research
             </h4>
 
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+            <p className="font-inter font-medium text-lg text-gray-900 leading-relaxed mb-8">
               I reviewed{" "}
               <span className="text-gray-900 font-bold">
                 3 industry-standard audit tools
@@ -180,7 +180,7 @@ const DefiningTheProblemSection = () => {
                 ].map((text, i) => (
                   <li key={i} className="flex gap-4 items-start">
                     <div className="mt-2 w-2 h-2 rounded-full bg-blue-600 shrink-0" />
-                    <span className="text-xl font-bold text-gray-800 leading-tight">
+                    <span className="font-inter font-medium text-xl text-gray-900 leading-tight">
                       {text}
                     </span>
                   </li>

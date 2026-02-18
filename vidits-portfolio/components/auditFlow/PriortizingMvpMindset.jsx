@@ -8,7 +8,7 @@ const PriortizingMvpMindsetSection = () => {
         id="prioritizing-with-an-mvp-mindset"
         className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20"
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Prioritizing with an MVP mindset
           </h3>
@@ -19,7 +19,7 @@ const PriortizingMvpMindsetSection = () => {
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-16">
             <div className="w-1 h-10 bg-blue-600" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Where and how will the user achieve the product goals?
             </h2>
           </div>
@@ -29,7 +29,7 @@ const PriortizingMvpMindsetSection = () => {
               Which branches of the sitemap will we need for usability testing?
             </h4>
 
-            <p>
+            <p className="font-inter font-medium text-gray-900">
               I mapped the sitemap using the product goals and patterns observed
               in existing audit tools. To keep testing focused, I prioritized
               the core areas that directly support audit coordination, evidence
@@ -68,11 +68,11 @@ const PriortizingMvpMindsetSection = () => {
 
           <div className="mt-16 space-y-12">
             <div className="max-w-3xl">
-              <h4 className="text-2xl font-bold mb-6">
+              <h4 className="uppercase text-2xl font-bold mb-6">
                 Accounting for users’ existing routines
               </h4>
 
-              <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              <p className="font-inter font-medium text-xl text-gray-900 leading-relaxed mb-6">
                 User interviews showed that auditors already follow structured
                 audit routines, but manage them across multiple tools. Instead
                 of changing how auditors work, I designed AuditFlow to fit into
@@ -80,7 +80,7 @@ const PriortizingMvpMindsetSection = () => {
                 and status tracking—mirroring how audits are handled today.
               </p>
 
-              <p className="text-xl text-gray-600 leading-relaxed italic">
+              <p className="font-inter font-medium text-xl text-gray-900 leading-relaxed italic">
                 These flows were prioritized first, as they directly impact
                 clarity, ownership, and audit progress.
               </p>
@@ -128,7 +128,7 @@ const PriortizingMvpMindsetSection = () => {
             </div>
 
             <div className="flex-1">
-              <h4 className="text-3xl font-bold text-gray-900 mb-8">
+              <h4 className="uppercase text-3xl font-bold text-gray-900 mb-8">
                 Flows for Usability Testing
               </h4>
 
