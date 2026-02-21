@@ -7,7 +7,7 @@ import {
   Type,
 } from "lucide-react";
 import Image from "next/image";
-import { DesignSystemSection } from "./DesignSystemSection";
+import DesignSystemSection from "./DesignSystemSection/DesignSystemSection";
 import CarouselAuditflow from "./CarouselAuditflow";
 
 const FindingDesignPatternsSection = () => {
@@ -15,7 +15,7 @@ const FindingDesignPatternsSection = () => {
     <>
       <div
         id="finding-design-patterns"
-        className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20"
+        className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20"
       >
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
@@ -31,7 +31,7 @@ const FindingDesignPatternsSection = () => {
           // className="max-w-6xl mx-auto px-6 mb-24 flex flex-col scroll-mt-20"
         >
           {/* Section Title */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-10">
             <div className="w-1 h-10 bg-blue-600" />
             <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Interface patterns to best support users + product development
@@ -82,7 +82,7 @@ const FindingDesignPatternsSection = () => {
         {/* INSPIRATION TO PROTOTYPE */}
         <div className="flex flex-col scroll-mt-20">
           {/* Section Title */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-10">
             <div className="w-1 h-10 bg-blue-600" />
             <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Inspiration to Prototype
@@ -153,9 +153,9 @@ const FindingDesignPatternsSection = () => {
         </div>
 
         {/* DESIGN SYSTEM */}
-        <div className="max-w-6xl mx-auto px-6 mb-24 flex flex-col scroll-mt-20">
+        <div className="max-w-6xl mx-auto  mb-24 flex flex-col scroll-mt-20">
           {/* Section Title */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-10">
             <div className="w-1 h-10 bg-blue-600" />
             <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Design System and Style Guide
@@ -168,7 +168,7 @@ const FindingDesignPatternsSection = () => {
         {/* ACCESSIBILITY CHECK */}
         <div>
           {/* Section Title */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-10">
             <div className="w-1 h-10 bg-blue-600" />
             <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Accessibility check
@@ -182,7 +182,9 @@ const FindingDesignPatternsSection = () => {
                   <MousePointer2 className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="uppercase text-lg font-bold mb-2">Touch targets</h5>
+                  <h5 className="uppercase text-lg font-bold mb-2">
+                    Touch targets
+                  </h5>
                   <p className="font-inter font-medium text-gray-900 leading-relaxed">
                     Interactive elements were designed with adequate target
                     sizes for both desktop and responsive breakpoints,
@@ -197,7 +199,9 @@ const FindingDesignPatternsSection = () => {
                   <Palette className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="uppercase text-lg font-bold mb-2">Color contrast</h5>
+                  <h5 className="uppercase text-lg font-bold mb-2">
+                    Color contrast
+                  </h5>
                   <p className="font-inter font-medium text-gray-900leading-relaxed">
                     All interface color combinations were tested to meet WCAG
                     2.1 AA contrast ratios, particularly for text, tables, and
@@ -210,7 +214,9 @@ const FindingDesignPatternsSection = () => {
                   <Eye className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="uppercase text-lg font-bold mb-2">Color-blind safe</h5>
+                  <h5 className="uppercase text-lg font-bold mb-2">
+                    Color-blind safe
+                  </h5>
                   <p className="font-inter font-medium text-gray-900 leading-relaxed">
                     The brand color palette was checked for possible color-blind
                     conflicts.
@@ -224,7 +230,9 @@ const FindingDesignPatternsSection = () => {
                   <Type className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="uppercase text-lg font-bold mb-2">Font selection</h5>
+                  <h5 className="uppercase text-lg font-bold mb-2">
+                    Font selection
+                  </h5>
                   <p className="font-inter font-medium text-gray-900 leading-relaxed">
                     Quicksand was chosen as the body font based on multiple font
                     preference tests from 2 auditors.
@@ -236,7 +244,9 @@ const FindingDesignPatternsSection = () => {
                   <Layers className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h5 className="uppercase text-lg font-bold mb-2">Text sizing</h5>
+                  <h5 className="uppercase text-lg font-bold mb-2">
+                    Text sizing
+                  </h5>
                   <p className="font-inter font-medium text-gray-900  leading-relaxed">
                     Longer paragraph text sizing is set at or above 14 px and
                     label text is set at or above 12 px bold. Line spacing was

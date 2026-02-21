@@ -6,17 +6,17 @@ const WhatILearnedSection = () => {
     <>
       <div
         id="where-do-we-go-from-here"
-        className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20"
+        className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20"
       >
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
-            Where do we go from here
+            How This Project Reshaped My Design Thinking
           </h3>
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-6 py-24 flex flex-col">
         {/* Section Title */}
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex items-center gap-4 mb-10">
           <div className="w-1 h-10 bg-blue-600" />
           <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
             What I learned
@@ -36,7 +36,7 @@ const WhatILearnedSection = () => {
           </div>
 
           {/* Learnings */}
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-8 font-inter">
             <div className="flex gap-6">
               <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0">
                 <Lightbulb className="w-6 h-6 text-blue-600" />

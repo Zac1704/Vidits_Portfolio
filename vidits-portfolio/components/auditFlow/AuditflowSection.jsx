@@ -45,7 +45,7 @@ export default function AuditFlowSection() {
   return (
     <header className="max-w-6xl mx-auto px-6 py-20">
       {/* HERO SECTION */}
-      <div className="flex flex-col lg:flex-row gap-16 items-center">
+      <div className="flex flex-col lg:flex-row md:gap-16 items-center">
         {/* LEFT CONTENT */}
         <div className="lg:w-1/2">
           <motion.div
@@ -79,7 +79,7 @@ export default function AuditFlowSection() {
           animate={{ opacity: 1, x: 0 }}
           className="lg:w-1/2 w-full"
         >
-          <div className="relative w-full h-[320px] md:h-[380px] lg:h-[300px]">
+          <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[5/2]">
             <Image
               src="/Images/assets/92be70cd9b78da0c1357c1a3ebf376f2e7b0b7ee.png"
               alt="AuditFlow Dashboard"
@@ -96,7 +96,7 @@ export default function AuditFlowSection() {
       </div>
 
       {/* META SECTION */}
-      <div className="my-16 py-5">
+      <div className="md:my-16 py-5">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-12 py-8 border-y border-gray-200">
           <MetaItem title="PROJECT TYPE" value="Concept project" />
           <MetaItem title="TIMELINE" value="8 weeks" />

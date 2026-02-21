@@ -6,7 +6,7 @@ const PriortizingMvpMindsetSection = () => {
     <>
       <div
         id="prioritizing-with-an-mvp-mindset"
-        className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20"
+        className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20"
       >
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
@@ -17,7 +17,7 @@ const PriortizingMvpMindsetSection = () => {
       <div className="max-w-6xl mx-auto px-6 py-18 space-y-20">
         <div>
           {/* Section Title */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-10">
             <div className="w-1 h-10 bg-blue-600" />
             <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Where and how will the user achieve the product goals?
@@ -116,10 +116,10 @@ const PriortizingMvpMindsetSection = () => {
         </div>
 
         <div>
-          <div className="flex flex-col md:flex-row gap-16 items-center p-12 bg-gray-50 rounded-[4rem] border border-gray-100">
+          <div className="flex flex-col md:flex-row gap-16 items-center p-5 md:p-12 bg-gray-50 rounded-[4rem] border border-gray-100">
             <div className="md:w-1/4">
               <Image
-                src="/Images/assets/2066313c778aef6edde4ec33ea8aada7f73acbc3.png" 
+                src="/Images/assets/2066313c778aef6edde4ec33ea8aada7f73acbc3.png"
                 alt="Auditor standing"
                 width={300}
                 height={400}
@@ -132,13 +132,13 @@ const PriortizingMvpMindsetSection = () => {
                 Flows for Usability Testing
               </h4>
 
-              <p className="text-lg text-gray-600 mb-8 font-medium">
+              <p className="text-lg text-gray-600 mb-8 font-medium font-inter">
                 The following were defined as the primary flows required to test
                 whether AuditFlow meets its product goals of clarity,
                 coordination, and visibility across audits:
               </p>
 
-              <ul className="space-y-6 text-xl font-bold text-blue-600 leading-relaxed">
+              <ul className="space-y-6 text-xl font-bold text-blue-600 leading-relaxed font-inter">
                 <li className="flex gap-4 items-start">
                   <span className="shrink-0 mt-1">•</span>
                   Create and set up an audit to establish scope, structure, and

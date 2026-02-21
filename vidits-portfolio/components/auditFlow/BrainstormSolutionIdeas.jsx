@@ -5,7 +5,7 @@ const BrainstormSolutionIdeasSection = () => {
     <>
       <div
         id="how-might-we-help-internal-auditors"
-        className=" bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20"
+        className=" bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20"
       >
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
@@ -19,7 +19,7 @@ const BrainstormSolutionIdeasSection = () => {
           {/* Left Content */}
           <div>
             {/* Section Title */}
-            <div className="flex items-center gap-4 mb-16">
+            <div className="flex items-center gap-4 mb-10">
               <div className="w-1 h-10 bg-blue-600" />
               <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
                 Brainstorming solution ideas

@@ -5,7 +5,7 @@ import Link from "next/link";
 const MyHypothesisSection = () => {
   return (
     <>
-      <div className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-mt-20">
+      <div className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             How do experienced auditors manage audits using existing tools?
@@ -16,7 +16,7 @@ const MyHypothesisSection = () => {
         className="max-w-6xl mx-auto px-6 py-18 space-y-20"
         id="how-do-experienced-auditors-manage-audits"
       >
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center max-w-6xl mx-auto px-6 ">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
           {/* Left Content */}
           <div className="flex-1">
             {/* Title */}
@@ -61,7 +61,7 @@ const MyHypothesisSection = () => {
 
         <div>
           {/* Section Title */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-10">
             <div className="w-1 h-10 bg-blue-600" />
             <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
               Getting to know auditors through user interviews
@@ -143,7 +143,7 @@ const MyHypothesisSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-20">
             <div className="bg-gray-50 p-6 md:p-10 rounded-[3rem] border border-gray-100">
               <h4 className="text-base md:text-lg font-black uppercase tracking-widest text-blue-600 mb-8">
-                What do auditors DO?
+                The Behavioral Audit Loop
               </h4>
 
               <ul className="font-inter space-y-6 text-base md:text-lg lg:text-xl text-gray-600 font-medium leading-relaxed">
@@ -167,7 +167,7 @@ const MyHypothesisSection = () => {
 
             <div className="bg-gray-50 p-6 md:p-10 rounded-[3rem] border border-gray-100">
               <h4 className="text-base md:text-lg font-black uppercase tracking-widest text-blue-600 mb-8">
-                What do auditors WANT?
+                Unmet User Expectation
               </h4>
 
               <ul className="font-inter space-y-6 text-base md:text-lg lg:text-xl text-gray-600 font-medium leading-relaxed">

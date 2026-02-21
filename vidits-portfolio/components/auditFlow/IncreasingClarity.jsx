@@ -7,7 +7,7 @@ const IncreasingClaritySection = () => {
     <>
       <div
         id="increasing-clarity-and-coordination"
-        className="bg-blue-600 py-24 px-6 overflow-hidden relative scroll-my-20"
+        className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-my-20"
       >
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
@@ -17,7 +17,7 @@ const IncreasingClaritySection = () => {
       </div>
       <div className="max-w-6xl mx-auto px-6 py-24 flex flex-col ">
         {/* Section Title */}
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex items-center gap-4 mb-10">
           <div className="w-1 h-10 bg-blue-600" />
           <h2 className="uppercase text-2xl md:text-3xl font-bold text-gray-900">
             How does the AuditFlow app address user needs?
