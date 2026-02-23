@@ -133,95 +133,112 @@ export const PortfolioCard = ({
 
   return (
     <div
-      className="relative 
-        w-full max-w-[360px] sm:max-w-[400px]
-        aspect-[3/4] sm:aspect-[4/5]
-        rounded-[28px] cursor-pointer 
-        transition-transform duration-300 bg-transparent"
-      style={{
-        perspective: "1000px",
-        transformStyle: "preserve-3d",
-      }}
+      className="
+  relative
+  min-w-[82%] sm:min-w-[85%] md:w-full
+  h-auto
+  aspect-[3/4] sm:aspect-[4/5]
+  rounded-[28px] cursor-pointer
+  bg-transparent
+  select-none
+  will-change-transform
+  snap-center shrink-0
+"
+      style={{ perspective: "1000px" }}
       onMouseMove={(e) => {
         if (isPressed) return;
 
-        const card = e.currentTarget;
-        const rect = card.getBoundingClientRect();
+        const wrapper = e.currentTarget.querySelector(".tilt-wrapper");
+        const rect = wrapper.getBoundingClientRect();
+
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
+
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
         const rotateX = ((y - centerY) / centerY) * -12;
         const rotateY = ((x - centerX) / centerX) * 12;
 
-        card.style.transition = "transform 0.1s ease-out";
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
       }}
       onMouseLeave={(e) => {
-        const card = e.currentTarget;
-        card.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-        card.style.transform =
-          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+        const wrapper = e.currentTarget.querySelector(".tilt-wrapper");
+        wrapper.style.transition = "transform 0.4s ease-out";
+        wrapper.style.transform = "rotateX(0) rotateY(0) scale(1)";
         setIsPressed(false);
       }}
       onMouseDown={(e) => {
+        const wrapper = e.currentTarget.querySelector(".tilt-wrapper");
         setIsPressed(true);
-        const card = e.currentTarget;
-        card.style.transition = "transform 0.1s ease-out";
-        card.style.transform =
-          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(0.97)";
+        wrapper.style.transition = "transform 0.1s ease-out";
+        wrapper.style.transform = "rotateX(0) rotateY(0) scale(0.97)";
       }}
       onMouseUp={(e) => {
-        const card = e.currentTarget;
-        card.style.transition = "transform 0.2s ease-out";
-        card.style.transform =
-          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+        const wrapper = e.currentTarget.querySelector(".tilt-wrapper");
+        wrapper.style.transition = "transform 0.15s ease-out";
+        wrapper.style.transform = "rotateX(0) rotateY(0) scale(1)";
         setIsPressed(false);
       }}
       onClick={() => onClick(img, title)}
     >
-      {/* Inner Layer (preserves tilt) */}
+      {/* Inner wrapper (gets animated, outer stays fixed) */}
       <div
-        className="inner group relative h-full w-full overflow-hidden rounded-[32px] bg-zinc-900"
+        className="tilt-wrapper h-full w-full rounded-[32px] overflow-hidden"
         style={{
-          transform: "rotateX(0deg) rotateY(0deg)",
-          willChange: "transform, box-shadow",
-          boxShadow: isPressed ? shadow.replace("11px", "6px") : shadow,
+          transformStyle: "preserve-3d",
+          transition: "transform 0.15s ease-out",
+          boxShadow: shadow,
         }}
       >
-        {/* Background Image */}
-        <Image
-          src={img}
-          alt={title}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="absolute inset-0 h-full w-full object-cover object-left transition-transform duration-700 ease-out group-hover:scale-110"
-          draggable={false}
-        />
+        {/* Card Content */}
+        <div className="relative h-full w-full border-4 border-white bg-zinc-900 rounded-[32px] overflow-hidden">
+          <Image
+            src={img}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover object-left transition-transform duration-700 group-hover:scale-110"
+            draggable={false}
+          />
 
-        {/* Scrim Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-        {/* Content Layer */}
-        <div className="absolute inset-x-0 bottom-0 flex flex-col p-5">
-          <span className="mb-1 text-sm font-medium text-white/70">
-            {subtitle}
-          </span>
+          <div className="absolute inset-x-0 bottom-0 flex flex-col p-5">
+            <span className="font-inter mb-1 text-base font-medium text-white/70">
+              {subtitle}
+            </span>
 
-          <h2 className="mb-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            {title}
-          </h2>
+            <h2 className="mb-2 text-[24px] sm:text-[28px] lg:text-[32px] font-bold text-white">
+              {title}
+            </h2>
 
-          <p className="max-w-[90%] text-sm leading-snug text-white/80 sm:text-base">
-            {description}
-          </p>
+            <p className="font-inter max-w-[90%] text-lg leading-snug text-white/80">
+              {description}
+            </p>
 
-          {/* THE BUTTON: Styled like image_3d8f00.png */}
-          <div className="mt-6">
-            <button className="font-inter inline-flex items-center justify-center rounded-full bg-[#D9D9D9] px-6 py-2.5 text-sm font-semibold text-zinc-900 transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer">
-              Our Approach
-            </button>
+            <div className="mt-6">
+              <button
+                className="
+    font-inter 
+    inline-flex items-center justify-center
+    rounded-full 
+    bg-[#D9D9D9] 
+    text-zinc-900 
+    font-semibold 
+    transition-all
+    hover:bg-white hover:scale-105 active:scale-95 
+    cursor-pointer
+
+    /* Responsive sizes */
+    px-4 py-2 text-xs        /* mobile */
+    sm:px-5 sm:py-2.5 sm:text-sm   /* tablets */
+    md:px-6 md:py-3 md:text-base   /* desktops */
+  "
+              >
+                Our Approach
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -232,7 +249,7 @@ export const PortfolioCard = ({
 // ✅ Main Component
 export default function MyWork({ onImageSelect }) {
   return (
-    <div className="uppercase">
+    <div className=" uppercase">
       {/* Header */}
       <header className="text-center px-4 sm:space-y-3">
         <h1 className="text-[32px] md:text-[40px] lg:text-5xl font-black text-(--text-color)">
@@ -244,8 +261,8 @@ export default function MyWork({ onImageSelect }) {
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 sm:py-10 flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 xl:gap-16 place-items-center max-w-[1400px] w-full">
+      <section className="px-4 sm:px-6 md:px-10 py-6 sm:py-10 flex justify-center">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 xl:grid-cols-3 md:overflow-visible md:place-items-center w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}

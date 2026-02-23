@@ -7,7 +7,7 @@ export default function HoverRevealText() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="flex justify-center items-center px-5 sm:px-0">
+    <div className="flex justify-center items-center px-5 sm:px-0 w-full overflow-hidden">
       <div className="relative w-full max-w-6xl aspect-[16/5] cursor-pointer select-none">
         {/* Base SVG - Slightly Larger */}
         <div className="absolute inset-0 scale-[1.05] flex items-center justify-center transition-transform duration-500 ease-in-out">

@@ -93,7 +93,7 @@ export default function HeroSection() {
 
         {/* Name Section */}
         <motion.div
-          className="relative mb-5 sm:mb-10 px-4 z-[100]"
+          className="relative mb-5 px-4 z-[100]"
           initial={{ opacity: 0, scale: 0.8, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.2 }}
@@ -191,7 +191,7 @@ export default function HeroSection() {
 
         {/* Bio Text */}
         <motion.p
-          className="will-change-transform text-[24px] text-(--gray-text-color) max-w-2xl text-center mb-8 px-4 leading-relaxed"
+          className="font-inter will-change-transform text-[24px] text-(--gray-text-color) max-w-2xl text-center mb-8 px-4 leading-relaxed"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.35 }}
@@ -203,7 +203,7 @@ export default function HeroSection() {
 
         {/* Resume Button */}
         <motion.div
-          className="flex justify-center mb-12 mt-5 sm:mt-0"
+          className="flex justify-center mb-5 mt-5 sm:mt-0"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{

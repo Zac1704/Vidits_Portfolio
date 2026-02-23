@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       {/* Main content constrained */}
-      <div className="max-w-7xl space-y-8 mx-auto">
+      <div className="space-y-8 ">
         <HeroSection />
 
         {/* Portfolio */}
