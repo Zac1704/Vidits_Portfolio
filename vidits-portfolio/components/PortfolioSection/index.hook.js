@@ -1,5 +1,5 @@
 // index.hook.js
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 export const useKeychainPhysics = (keychains, hoveredKeychain) => {
   const keychainStates = useRef({});
@@ -13,7 +13,7 @@ export const useKeychainPhysics = (keychains, hoveredKeychain) => {
         targetAngle: 0,
       };
     });
-  }, []);
+  }, [keychains]);
 
   const handleMouseMove = (e, keychainId) => {
     const element = document.getElementById(`keychain-${keychainId}`);
@@ -41,7 +41,7 @@ export const useKeychainPhysics = (keychains, hoveredKeychain) => {
     }
   };
 
-  const animatePendulum = () => {
+  const animatePendulum = useCallback(() => {
     keychains.forEach((keychain) => {
       const state = keychainStates.current[keychain.id];
       const element = document.getElementById(`keychain-chain-${keychain.id}`);
@@ -72,16 +72,17 @@ export const useKeychainPhysics = (keychains, hoveredKeychain) => {
     });
 
     animationFrames.current.main = requestAnimationFrame(animatePendulum);
-  };
+  }, [keychains, hoveredKeychain]);
 
   useEffect(() => {
     animatePendulum();
+    const frames = animationFrames.current;
     return () => {
-      if (animationFrames.current.main) {
-        cancelAnimationFrame(animationFrames.current.main);
+      if (frames.main) {
+        cancelAnimationFrame(frames.main);
       }
     };
-  }, [hoveredKeychain]);
+  }, [animatePendulum]);
 
   useEffect(() => {
     const handleGlobalMouseMove = (e) => {
@@ -90,7 +91,7 @@ export const useKeychainPhysics = (keychains, hoveredKeychain) => {
 
     window.addEventListener("mousemove", handleGlobalMouseMove);
     return () => window.removeEventListener("mousemove", handleGlobalMouseMove);
-  }, []);
+  }, [keychains]);
 
   return { keychainStates };
 };

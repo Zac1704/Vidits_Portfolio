@@ -1,3 +1,5 @@
+"use client";
+
 import LiquidGlassButton from "./footerButton";
 
 export default function Footer() {
@@ -19,7 +21,7 @@ export default function Footer() {
           </div>
 
           {/* Right Content - Contact Buttons */}
-          <div className="flex flex-col gap-6 ">
+          <div className="flex flex-col gap-6">
             <LiquidGlassButton
               type="tel:+917869963454"
               label="Call"
@@ -43,13 +45,13 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="mt-12 pt-5 border-t-[2px] border-[#D2D2D2]/50 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-gray-300 text-sm md:text-2xl font-bold">
-            © 2025 VIDIT SHAH | ALL RIGHTS RESERVED
+            &copy; {new Date().getFullYear()} VIDIT SHAH | ALL RIGHTS RESERVED
           </p>
 
           {/* Social Icons */}
           <div className="flex gap-4">
             <a
-              href="https://www.behance.net/"
+              href="https://www.behance.net/viditshah"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-gradient-to-t from-[#0059f4] to-[#0046ad] rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
@@ -64,7 +66,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/viditshah"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-[#0a66c2] rounded-lg flex items-center justify-center transition-colors"

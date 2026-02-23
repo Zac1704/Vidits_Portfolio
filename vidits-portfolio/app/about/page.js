@@ -2,7 +2,13 @@ import Carousel from "@/components/Carousel";
 import ExperienceSection from "@/components/Experience";
 import HoverRevealText from "@/components/HoverRevealText";
 import Portfolio from "@/components/Portfolio";
-import PortfolioPage from "@/components/PortfolioSection";
+
+export const metadata = {
+  title: "About — Vidit Shah",
+  description:
+    "Learn more about Vidit Shah, a self-taught Graphics & UI/UX Designer based in Indore, India with nearly 2 years of experience.",
+};
+
 const Aboutpage = () => {
   return (
     <div className="overflow-visible">
@@ -10,12 +16,12 @@ const Aboutpage = () => {
         <h1>About</h1>
       </div>
 
-      <div className="space-y-8 text-[24px] md:text-[30px] tracking-[-0.32px] sm:tracking-[-1.28px] leading-[32px] sm:leading-[40px] px-13 lg:px-0 lg:leading-[52px] xl:leading-[60px] lg:text-4xl max-w-[970px]  uppercase mx-auto text-center text-(--gray-text-color)">
+      <div className="space-y-8 text-[24px] md:text-[30px] tracking-[-0.32px] sm:tracking-[-1.28px] leading-[32px] sm:leading-[40px] px-13 lg:px-0 lg:leading-[52px] xl:leading-[60px] lg:text-4xl max-w-[970px] uppercase mx-auto text-center text-(--gray-text-color)">
         <p className="transition-colors duration-500 ease-out hover:text-black">
-          I&apos;m a self-taught GRAPHICS & UI/UX Designer with ALMOST 2 years
+          I&apos;m a self-taught GRAPHICS &amp; UI/UX Designer with ALMOST 2 years
           of experience HERE AND THERE. I blend aesthetic appeal with intuitive
           usability, making the digital world more engaging. I&apos;M VERY
-          Passionate TO LEARN NEW THINGS & NEW DESIGN STYLES.
+          Passionate TO LEARN NEW THINGS &amp; NEW DESIGN STYLES.
         </p>
 
         <p className="transition-colors duration-500 ease-out hover:text-black">
@@ -28,7 +34,6 @@ const Aboutpage = () => {
 
       <ExperienceSection />
 
-      {/* <PortfolioPage /> */}
       <div className="mx-auto">
         <Portfolio />
       </div>

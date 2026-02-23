@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import PortfolioRow from "./ShakingPortfolioSection";
+import Buttons from "../Buttons";
 
 export default function HeroSection() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -54,9 +54,9 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="mt-20 sm:mt-0 relative w-full overflow-hidden">
+    <div className="mt-20 sm:mt-0 pb-10 sm:pb-0 relative w-full overflow-hidden">
       <motion.div
-        className="w-full  flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-6"
+        className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-6"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ ...bounceSpring, duration: 0.6 }}
@@ -100,25 +100,25 @@ export default function HeroSection() {
         >
           {/* Yellow Note */}
           <div
-            className="absolute z-10 top-[9px] sm:top-1.5 md:top-1 lg:top-[4px] 
-                       -left-[0%] sm:-left-[1.8%] md:-left-[2.3%] lg:-left-[2.3%] xl:-left-[2.1%] 
+            className="absolute z-10 top-[9px] sm:top-1.5 md:top-1 lg:top-[4px]
+                       -left-[0%] sm:-left-[1.8%] md:-left-[2.3%] lg:-left-[2.3%] xl:-left-[2.1%]
                        transition-all duration-500 ease-in-out"
             onMouseEnter={() => setShowCursor(true)}
             onMouseLeave={() => setShowCursor(false)}
             onClick={handleOpen}
           >
             <div
-              className="relative w-[70px] sm:w-[65px] md:w-[60px] inline-block origin-top 
-                         transition-transform duration-500 ease-[cubic-bezier(0.25,1.25,0.5,1)] 
+              className="cursor-none relative w-[70px] sm:w-[65px] md:w-[60px] inline-block origin-top
+                         transition-transform duration-500 ease-[cubic-bezier(0.25,1.25,0.5,1)]
                          rotate-[24deg] hover:rotate-[34deg] hover:scale-[1.4]"
             >
               <Image
                 src="/Images/svg/smallNote.svg"
-                alt="Note Background"
+                alt="Sticky note hint"
                 width={0}
                 height={0}
                 sizes="100vw"
-                className=" h-auto w-8 sm:w-13 md:w-16 lg:w-20 xl:w-24 pointer-events-none select-none"
+                className="h-auto w-8 sm:w-13 md:w-16 lg:w-20 xl:w-24 pointer-events-none select-none"
               />
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function HeroSection() {
                       alt="Popup Note"
                       width={500}
                       height={500}
-                      className="w-[260px] sm:w-[340px] md:w-[480px] lg:w-[500px] 
+                      className="w-[260px] sm:w-[340px] md:w-[480px] lg:w-[500px]
                                  h-auto select-none drop-shadow-2xl"
                     />
                   </motion.div>
@@ -172,8 +172,8 @@ export default function HeroSection() {
 
           {/* Name */}
           <motion.div
-            className="relative z-50 text-center font-black text-gray-900 
-                       tracking-[-0.025em] leading-none 
+            className="relative z-50 text-center font-black text-gray-900
+                       tracking-[-0.025em] leading-none
                        text-[40px] sm:text-[60px] md:text-8xl"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -181,7 +181,7 @@ export default function HeroSection() {
           >
             <Image
               src="/Images/svg/name.svg"
-              alt="Note Background"
+              alt="Vidit Shah"
               width={70}
               height={70}
               className="w-[205px] sm:w-[400px] md:w-full h-auto mx-auto"
@@ -189,33 +189,31 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* Portfolio */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 50 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ ...bounceSpring, delay: 0.4 }}
+        {/* Bio Text */}
+        <motion.p
+          className="will-change-transform text-[24px] text-(--gray-text-color) max-w-2xl text-center mb-8 px-4 leading-relaxed"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...bounceSpring, delay: 0.35 }}
         >
-          <PortfolioRow />
-        </motion.div>
+          A self-taught Graphics &amp; UI/UX Designer blending aesthetic appeal with
+          intuitive usability, making the digital world more engaging and
+          delightful.
+        </motion.p>
 
-        {/* Title Section */}
+        {/* Resume Button */}
         <motion.div
-          className="text-center relative sm:px-4 w-full mt-7"
-          initial={{ opacity: 0, scale: 0.85, y: 60 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ ...bounceSpring, delay: 0.5 }}
+          className="flex justify-center mb-12 mt-5 sm:mt-0"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 120,
+            damping: 20,
+            delay: 0.3,
+          }}
         >
-          <h2 className="hidden sm:block text-[42px] sm:text-[64px] md:text-8xl font-black text-(--gray-text-color) tracking-tight leading-tight">
-            GRAPHICS & UI/UX
-          </h2>
-          <h2 className="block sm:hidden text-[42px] sm:text-[64px] md:text-8xl font-black text-(--gray-text-color) tracking-tight leading-tight">
-            GRAPHICS & UI/UX DESIGNE₹
-          </h2>
-          <div className="hidden sm:flex items-center justify-center flex-wrap">
-            <h2 className="text-[42px] sm:text-[64px] md:text-8xl font-black text-(--gray-text-color) tracking-tight">
-              DESIGNE₹
-            </h2>
-          </div>
+          <Buttons ButtonName="resume" src="/Images/Button/star.svg" />
         </motion.div>
       </motion.div>
     </div>

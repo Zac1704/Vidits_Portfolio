@@ -15,7 +15,7 @@ export default function Buttons({ ButtonName, src }) {
             height={24}
             className="relative z-10"
           />
-          <h2 className="uppercase text-2xl md:text-3xl font-black text-black tracking-wide relative z-10">
+          <h2 className="uppercase text-2xl  font-black text-black tracking-wide relative z-10">
             {ButtonName}
           </h2>
         </div>

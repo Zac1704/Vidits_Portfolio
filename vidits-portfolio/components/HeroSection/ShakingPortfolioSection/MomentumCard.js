@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useEffect,
 } from "react";
+
 import {
   motion,
   useMotionValue,
@@ -14,6 +15,7 @@ import {
   useTransform,
   useInView,
 } from "framer-motion";
+
 import Image from "next/image";
 
 // 🔹 Base component
@@ -47,9 +49,9 @@ export default function MomentumHoverCardsBase({
   useEffect(() => {
     const updateDimensions = () => {
       if (typeof window !== "undefined") {
-        if(window.innerWidth < 375) {
+        if (window.innerWidth < 375) {
           setDimensions({ width: 100, height: 100 }); // smaller Mobile
-        }else if (window.innerWidth < 640) {
+        } else if (window.innerWidth < 640) {
           setDimensions({ width: 110, height: 110 }); // Mobile
         } else if (window.innerWidth < 1024) {
           setDimensions({ width: 160, height: 160 }); // Tablet
@@ -83,7 +85,7 @@ export default function MomentumHoverCardsBase({
       const dist = Math.abs(index - center);
       return dist * entranceStaggerDelay;
     },
-    [enableEntranceAnimation, entranceStaggerDelay, prefersReducedMotion]
+    [enableEntranceAnimation, entranceStaggerDelay, prefersReducedMotion],
   );
 
   // Mouse/touch motion
@@ -94,7 +96,13 @@ export default function MomentumHoverCardsBase({
   const prevMouseX = useRef(0);
   const prevMouseY = useRef(0);
   const lastTime = useRef(Date.now());
-  const springConfig = { damping: dampening, stiffness: stiffness };
+  const springConfig = useMemo(
+    () => ({
+      damping: dampening,
+      stiffness: stiffness,
+    }),
+    [dampening, stiffness],
+  );
 
   const handlePointerMove = useCallback(
     (x, y) => {
@@ -119,12 +127,12 @@ export default function MomentumHoverCardsBase({
       prevMouseY.current = relY;
       lastTime.current = currentTime;
     },
-    [mouseX, mouseY, mouseVX, mouseVY]
+    [mouseX, mouseY, mouseVX, mouseVY],
   );
 
   const handleMouseMove = useCallback(
     (e) => handlePointerMove(e.clientX, e.clientY),
-    [handlePointerMove]
+    [handlePointerMove],
   );
 
   const handleTouchMove = useCallback(
@@ -134,7 +142,7 @@ export default function MomentumHoverCardsBase({
         handlePointerMove(touch.clientX, touch.clientY);
       }
     },
-    [handlePointerMove]
+    [handlePointerMove],
   );
 
   const handleMouseEnter = useCallback(() => setIsHovering(true), []);
@@ -268,7 +276,7 @@ function MomentumCard({
   const relativeX = useTransform(mouseX, (x) => x - cardCenterX);
   const relativeY = useTransform(mouseY, (y) => y - cardCenterY);
   const distance = useTransform([relativeX, relativeY], ([x, y]) =>
-    Math.sqrt(x * x + y * y)
+    Math.sqrt(x * x + y * y),
   );
   const influence = useTransform(distance, [0, 200], [1, 0], { clamp: true });
 
@@ -280,7 +288,7 @@ function MomentumCard({
         : -(
             (y / 100) * maxRotation * inf +
             (vy / 1000) * maxRotation * intensity * inf
-          )
+          ),
   );
   const rotateY = useTransform(
     [relativeX, mouseVX, influence],
@@ -288,7 +296,7 @@ function MomentumCard({
       !isHovering
         ? 0
         : (x / 100) * maxRotation * inf +
-          (vx / 1000) * maxRotation * intensity * inf
+          (vx / 1000) * maxRotation * intensity * inf,
   );
 
   const translateX = useTransform(
@@ -296,14 +304,14 @@ function MomentumCard({
     ([x, vx, inf]) =>
       !isHovering
         ? 0
-        : ((x / 50) * intensity * inf + (vx / 100) * intensity * inf) * 10
+        : ((x / 50) * intensity * inf + (vx / 100) * intensity * inf) * 10,
   );
   const translateY = useTransform(
     [relativeY, mouseVY, influence],
     ([y, vy, inf]) =>
       !isHovering
         ? 0
-        : ((y / 50) * intensity * inf + (vy / 100) * intensity * inf) * 10
+        : ((y / 50) * intensity * inf + (vy / 100) * intensity * inf) * 10,
   );
 
   const springRotateX = useSpring(rotateX, springConfig);
@@ -313,7 +321,7 @@ function MomentumCard({
   const scale = useTransform(influence, [0, 1], [1.02, 1], { clamp: true });
   const springScale = useSpring(
     useTransform(scale, (s) => (isHovering ? s : 1)),
-    springConfig
+    springConfig,
   );
 
   const entranceVariants = {
@@ -373,6 +381,7 @@ function MomentumCard({
           style={{
             objectFit: "cover",
             borderRadius: `${cardBorderRadius}px`,
+            border: "4px solid #ffffff",
           }}
         />
       </motion.div>
