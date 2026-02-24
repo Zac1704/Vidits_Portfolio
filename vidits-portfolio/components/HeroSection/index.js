@@ -86,7 +86,7 @@ export default function HeroSection() {
           <h3 className="text-xs sm:text-sm md:text-base lg:text-[20px] font-bold text-(--text-color) mb-2">
             INDORE, INDIA
           </h3>
-          <p className="text-(--gray-text-color) text-xs sm:text-sm md:text-base lg:text-[20px] font-bold">
+          <p className="text-(--dark-gray-color) text-xs sm:text-sm md:text-base lg:text-[20px] font-bold">
             VIDITSHAH2019@GMAIL.COM
           </p>
         </motion.div>
@@ -161,8 +161,7 @@ export default function HeroSection() {
                       alt="Popup Note"
                       width={500}
                       height={500}
-                      className="w-[260px] sm:w-[340px] md:w-[480px] lg:w-[500px]
-                                 h-auto select-none drop-shadow-2xl"
+                      className="w-[260px] sm:w-[340px] md:w-[480px] lg:w-[500px] h-auto select-none drop-shadow-2xl"
                     />
                   </motion.div>
                 </motion.div>
@@ -172,32 +171,33 @@ export default function HeroSection() {
 
           {/* Name */}
           <motion.div
-            className="relative z-50 text-center font-black text-gray-900
+            className="relative z-50 text-center font-bold text-gray-900
                        tracking-[-0.025em] leading-none
                        text-[40px] sm:text-[60px] md:text-8xl"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ ...bounceSpring, delay: 0.3 }}
           >
-            <Image
+            {/* <Image
               src="/Images/svg/name.svg"
               alt="Vidit Shah"
               width={70}
               height={70}
               className="w-[205px] sm:w-[400px] md:w-full h-auto mx-auto"
-            />
+            /> */}
+            <h1 className="text-(--text-color)">Vidit Shah</h1>
           </motion.div>
         </motion.div>
 
         {/* Bio Text */}
         <motion.p
-          className="font-inter will-change-transform text-[24px] text-(--gray-text-color) max-w-2xl text-center mb-8 px-4 leading-relaxed"
+          className=" will-change-transform text-[24px] text-[#1a1a1aA6] max-w-2xl text-center mb-8 px-4 leading-relaxed"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.35 }}
         >
-          A self-taught Graphics &amp; UI/UX Designer blending aesthetic appeal with
-          intuitive usability, making the digital world more engaging and
+          A self-taught Graphics &amp; UI/UX Designer blending aesthetic appeal
+          with intuitive usability, making the digital world more engaging and
           delightful.
         </motion.p>
 

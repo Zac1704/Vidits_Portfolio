@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import Footer from "@/components/Footer";
-import AppleDock from "@/components/AppleDock";
 import ClientRouteGate from "@/components/ClientRouteGate";
+import AppleDockClientWrapper from "@/components/AppleDock/AppleDockClientWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,7 +37,13 @@ export const metadata = {
   title: "Vidit Shah — Graphics & UI/UX Designer",
   description:
     "Portfolio of Vidit Shah, a self-taught Graphics & UI/UX Designer based in Indore, India. Explore creative projects, case studies, and design work.",
-  keywords: ["Vidit Shah", "UI/UX Designer", "Graphics Designer", "Portfolio", "Indore"],
+  keywords: [
+    "Vidit Shah",
+    "UI/UX Designer",
+    "Graphics Designer",
+    "Portfolio",
+    "Indore",
+  ],
   authors: [{ name: "Vidit Shah" }],
 };
 
@@ -60,10 +66,9 @@ export default function RootLayout({ children }) {
         {/* Client-only route aware UI */}
         <ClientRouteGate>
           <Footer />
-          <AppleDock />
+          <AppleDockClientWrapper />
         </ClientRouteGate>
       </body>
     </html>
   );
 }
-

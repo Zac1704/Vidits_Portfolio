@@ -269,6 +269,7 @@ function MomentumCard({
   rotate,
   height,
 }) {
+  const [isLoaded, setIsLoaded] = useState(false);
   const gapEstimate = 20;
   const cardCenterX = (index + 0.5) * (cardWidth + gapEstimate);
   const cardCenterY = cardHeight / 2;
@@ -374,14 +375,39 @@ function MomentumCard({
           marginTop: `${height}px`,
         }}
       >
+        {/* Skeleton Loader */}
+        {!isLoaded && (
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "#e5e7eb",
+              borderRadius: `${cardBorderRadius}px`,
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(110deg, #e5e7eb 0%, #f4f4f4 50%, #e5e7eb 100%)",
+                backgroundSize: "200% 100%",
+                animation: "shimmer 1.5s infinite",
+              }}
+            />
+          </div>
+        )}
+
         <Image
           src={card.src}
           alt={`Card ${index + 1}`}
           fill
+          onLoadingComplete={() => setIsLoaded(true)}
           style={{
             objectFit: "cover",
             borderRadius: `${cardBorderRadius}px`,
-            border: "4px solid #ffffff",
+            border: "4px solid #fff",
+            opacity: isLoaded ? 1 : 0,
+            transition: "opacity 0.4s ease",
           }}
         />
       </motion.div>

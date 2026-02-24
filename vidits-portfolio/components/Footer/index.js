@@ -4,7 +4,7 @@ import LiquidGlassButton from "./footerButton";
 
 export default function Footer() {
   return (
-    <section className="bg-(--text-color) text-white py-12 px-6 md:px-12 lg:px-25">
+    <section className="bg-(--text-color) text-white py-12 px-6 md:px-12 lg:px-25 pb-28 sm:pb-40">
       <div>
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
           {/* Left Content */}
@@ -44,7 +44,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="mt-12 pt-5 border-t-[2px] border-[#D2D2D2]/50 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-gray-300 text-sm md:text-2xl font-bold">
+          <p className="text-gray-300 text-sm md:text-2xl font-bold text-center">
             &copy; {new Date().getFullYear()} VIDIT SHAH | ALL RIGHTS RESERVED
           </p>
 

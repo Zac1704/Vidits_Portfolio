@@ -5,15 +5,25 @@
   --font-inter: var(--font-inter);
 }
 
-
 :root {
   --background: #ffffff;
   --text-color: #363636;
   --gray-text-color: #d2d2d2;
+  --dark-gray-color: #1a1a1aa6;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 body {
-  font-family: var(--font-futura), sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+  /* font-family: var(--font-futura), sans-serif; */
 }
 
 .note {
@@ -31,9 +41,11 @@ body {
 
 .glass-button {
   /* Glass Base */
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.25),
-      rgba(255, 255, 255, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.05)
+  );
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 
