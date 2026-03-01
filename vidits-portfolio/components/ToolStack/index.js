@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useSpring } from "framer-motion";
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaTiktok, FaTelegram } from "react-icons/fa";
 import { SiThreads } from "react-icons/si";
@@ -117,27 +117,39 @@ const MagneticIcon = ({ icon: Icon, color, badgeCount, delay, top, left, size, i
 };
 
 export default function ToolStack() {
+    // -------------------------
+    // Mobile Detection
+    // -------------------------
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize(); // trigger once on mount
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const iconsData = [
         // Top Left: Instagram
-        { id: 'instagram', icon: FaInstagram, color: "#E4405F", badgeCount: 17, delay: 0.4, top: "30%", left: "20%", size: 100 },
+        { id: 'instagram', icon: FaInstagram, color: "#E4405F", badgeCount: 17, delay: 0.4, top: isMobile ? "25%" : "30%", left: isMobile ? "15%" : "20%", size: isMobile ? 65 : 100 },
         // Top Center-Left: Facebook
-        { id: 'facebook', icon: FaFacebook, color: "#1877F2", badgeCount: 13, delay: 0, top: "15%", left: "42%", size: 110 },
+        { id: 'facebook', icon: FaFacebook, color: "#1877F2", badgeCount: 13, delay: 0, top: isMobile ? "10%" : "15%", left: isMobile ? "45%" : "42%", size: isMobile ? 75 : 110 },
         // Top Right: YouTube
-        { id: 'youtube', icon: FaYoutube, color: "#FF0000", badgeCount: 39, delay: 0.2, top: "18%", left: "62%", size: 115 },
+        { id: 'youtube', icon: FaYoutube, color: "#FF0000", badgeCount: 39, delay: 0.2, top: isMobile ? "22%" : "18%", left: isMobile ? "80%" : "62%", size: isMobile ? 70 : 115 },
         // Mid Right: LinkedIn
-        { id: 'linkedin', icon: FaLinkedin, color: "#0A66C2", badgeCount: 21, delay: 0.6, top: "35%", left: "78%", size: 110 },
+        { id: 'linkedin', icon: FaLinkedin, color: "#0A66C2", badgeCount: 21, delay: 0.6, top: isMobile ? "45%" : "35%", left: isMobile ? "85%" : "78%", size: isMobile ? 60 : 110 },
         // Bottom Left: TikTok
-        { id: 'tiktok', icon: FaTiktok, color: "#000000", badgeCount: 76, delay: 0.8, top: "72%", left: "30%", size: 105 },
+        { id: 'tiktok', icon: FaTiktok, color: "#000000", badgeCount: 76, delay: 0.8, top: isMobile ? "65%" : "72%", left: isMobile ? "18%" : "30%", size: isMobile ? 65 : 105 },
         // Bottom Center: Telegram
-        { id: 'telegram', icon: FaTelegram, color: "#229ED9", badgeCount: 18, delay: 1.0, top: "82%", left: "50%", size: 115 },
+        { id: 'telegram', icon: FaTelegram, color: "#229ED9", badgeCount: 18, delay: 1.0, top: isMobile ? "75%" : "82%", left: isMobile ? "50%" : "50%", size: isMobile ? 80 : 115 },
         // Bottom Right: Threads
-        { id: 'threads', icon: SiThreads, color: "#000000", badgeCount: 11, delay: 1.2, top: "72%", left: "70%", size: 110 },
+        { id: 'threads', icon: SiThreads, color: "#000000", badgeCount: 11, delay: 1.2, top: isMobile ? "62%" : "72%", left: isMobile ? "78%" : "70%", size: isMobile ? 65 : 110 },
     ];
 
     return (
-        <div className="relative w-full h-[600px] md:h-[800px] flex items-center justify-center overflow-hidden bg-transparent font-sans">
+        <div className="relative w-full h-[450px] md:h-[600px] lg:h-[800px] flex items-center justify-center overflow-hidden bg-transparent font-sans">
             {/* Center Text matching image style */}
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-[#111111] dark:text-white z-0" style={{ letterSpacing: "-0.04em" }}>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-[#111111] dark:text-white z-0" style={{ letterSpacing: "-0.04em" }}>
                 Tool Stack
             </h2>
 
@@ -151,7 +163,7 @@ export default function ToolStack() {
             </div>
 
             {/* Decorative SVGs Matching the Image precisely */}
-            <div className="absolute inset-0 max-w-[1200px] mx-auto pointer-events-none z-[-1]">
+            <div className="hidden sm:block absolute inset-0 max-w-[1200px] mx-auto pointer-events-none z-[-1]">
                 {/* 1. Swoosh Arrow between Instagram and Center */}
                 <svg className="absolute top-[32%] left-[28%] w-24 h-24 text-gray-300 dark:text-gray-600 opacity-80" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
                     {/* Curved line towards center */}
