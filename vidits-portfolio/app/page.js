@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import HoverRevealText from "@/components/HoverRevealText";
 import MyWork from "@/components/MyWork";
 import ToolStack from "@/components/ToolStack";
+import Skills from "@/components/Skills";
 import ExperienceJourney from "@/components/ExperienceJourney";
 import MyStory from "@/components/MyStory";
 import { motion } from "framer-motion";
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <>
       {/* Main content constrained */}
-      <div className="space-y-41">
+      <div className="space-y-30">
         <HeroSection />
 
         {/* Portfolio */}
@@ -41,13 +42,6 @@ export default function Home() {
         </motion.div>
 
         <ScrollReveal>
-          <ToolStack />
-        </ScrollReveal>
-
-        <ExperienceJourney />
-        <MyStory />
-
-        <ScrollReveal>
           <MyWork
             onImageSelect={(img, title) => {
               setSelectedImg(img);
@@ -55,9 +49,22 @@ export default function Home() {
             }}
           />
         </ScrollReveal>
-        {/* <ScrollReveal delay={0.2}>
+
+        <ScrollReveal>
+          <ToolStack />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Skills />
+        </ScrollReveal>
+
+        <ExperienceJourney />
+        
+        <MyStory />
+        
+        <ScrollReveal delay={0.2}>
           <HoverRevealText />
-        </ScrollReveal> */}
+        </ScrollReveal>
       </div>
 
       {/* Modal rendered outside container */}

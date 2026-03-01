@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { motion } from "framer-motion";
 
 const Card = ({ title, subtitle, features, color, index, rotation }) => {
@@ -29,7 +28,7 @@ const Card = ({ title, subtitle, features, color, index, rotation }) => {
                     </p>
 
                     <div>
-                        <h3 className="text-sm uppercase tracking-widest font-bold opacity-80 mb-4">What you'll learn</h3>
+                        <h3 className="text-sm uppercase tracking-widest font-bold opacity-80 mb-4">What you&apos;ll learn</h3>
                         <div className="space-y-2 max-w-lg">
                             {features.map((feature, i) => (
                                 <div key={i} className="flex gap-3 text-sm md:text-[17px] font-medium leading-tight">

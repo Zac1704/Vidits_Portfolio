@@ -246,6 +246,8 @@ import {
   useMotionValue,
   AnimatePresence,
   useReducedMotion,
+  useScroll,
+  useMotionValueEvent,
 } from "framer-motion";
 import Image from "next/image";
 
@@ -254,22 +256,29 @@ import Image from "next/image";
 // ------------------------------------------
 const DEFAULT_ITEMS = [
   {
-    title: "Affinity",
-    image:
-      "https://framerusercontent.com/assets/V5BKLcbfzRlTkbAdA5GRKt0qf0.svg",
-    link: "https://affinity.serif.com/",
+    title: "Home",
+    image: "/images/dockIcon/homepage.webp",
+    link: "/",
   },
   {
-    title: "Figma",
-    image:
-      "https://framerusercontent.com/assets/hpC9jcWNkUqJrxvk42hUicZhblc.svg",
-    link: "https://www.figma.com/",
+    title: "About",
+    image: "/images/dockIcon/about.webp",
+    link: "/about",
   },
   {
-    title: "Spotify",
-    image:
-      "https://framerusercontent.com/assets/npxAXuymNHQUSYbSpzQbQnVzlI.svg",
-    link: "https://open.spotify.com/",
+    title: "Work",
+    image: "/images/dockIcon/work.webp",
+    link: "/work",
+  },
+  {
+    title: "Resume",
+    image: "/images/dockIcon/resume.webp",
+    link: "/resume",
+  },
+  {
+    title: "Contact",
+    image: "/images/dockIcon/mail.webp",
+    link: "/contact",
   },
 ];
 
@@ -324,49 +333,53 @@ const AppleDock = ({ items = DEFAULT_ITEMS, borderRadius = 20, hoverText }) => {
   const mouseX = useMotionValue(Infinity);
   const finalItems = useMemo(() => items ?? DEFAULT_ITEMS, [items]);
 
-  // -------------------------
-  // ✅ Make width reactive
-  // -------------------------
-  const [screenWidth, setScreenWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1600,
-  );
+  // Handle scroll hide/show
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
 
-  // update width on resize (mobile rotations, responsive changes)
-  useEffect(() => {
-    const updateSize = () => setScreenWidth(window.innerWidth);
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
-  // -------------------------
-  // Responsive values update dynamically
-  // -------------------------
-  const { baseSize, magnification, gap, distance, paddingX, paddingY } =
-    responsiveConfig(screenWidth);
-
-  const isMobile = screenWidth < 480;
+  const baseSize = 58;
+  const magnification = 1.3;
+  const distance = 140;
 
   return (
-    <div className="flex justify-center fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999] w-full">
+    <motion.div
+      className="flex justify-center fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999]"
+      variants={{
+        visible: { y: 0, opacity: 1 },
+        hidden: { y: 100, opacity: 0 }
+      }}
+      initial="visible"
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.4, ease: "easeInOut", type: "spring", stiffness: 200, damping: 20 }}
+    >
       <motion.nav
-        className="rounded-2xl bg-white/20 backdrop-blur-2xl border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)]"
+        className="rounded-2xl bg-white/20 backdrop-blur-2xl border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] inline-flex"
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         style={{
-          padding: `${paddingY}px ${paddingX}px`,
-          minHeight: baseSize + 20,
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "8px 10px",
         }}
       >
         <ul
           style={{
             display: "flex",
             listStyle: "none",
-            gap,
+            gap: 10,
             margin: 0,
             padding: 0,
-            alignItems: "flex-end",
+            alignItems: "center",
           }}
         >
           {finalItems.map((item, i) => (
@@ -378,7 +391,7 @@ const AppleDock = ({ items = DEFAULT_ITEMS, borderRadius = 20, hoverText }) => {
               magnification={magnification}
               distance={distance}
               borderRadius={borderRadius}
-              isMobile={isMobile}
+              isMobile={false}
               hoverText={
                 hoverText || {
                   bgColor: "rgba(0,0,0,0.75)",
@@ -391,7 +404,7 @@ const AppleDock = ({ items = DEFAULT_ITEMS, borderRadius = 20, hoverText }) => {
           ))}
         </ul>
       </motion.nav>
-    </div>
+    </motion.div>
   );
 };
 
