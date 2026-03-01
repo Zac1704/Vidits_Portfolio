@@ -183,7 +183,7 @@ export default function HeroSection() {
 
         {/* Bio Text */}
         <motion.p
-          className="sm:text-[24px]  font-medium text-[#1a1a1aA6] text-center tracking-tight max-w-xs sm:max-w-lg mb-3 sm:mb-8 px-4"
+          className="sm:text-[24px] font-medium text-[#1a1a1aA6] text-center tracking-tight max-w-xs sm:max-w-lg mb-3 sm:mb-8 px-4"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.35 }}
