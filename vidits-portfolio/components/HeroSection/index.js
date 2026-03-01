@@ -78,15 +78,15 @@ export default function HeroSection() {
 
         {/* Header */}
         <motion.div
-          className="text-center mb-6 sm:mb-8 select-none"
+          className="text-center mb-6 sm:mb-16 select-none border"
           initial={{ opacity: 0, scale: 0.8, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.1 }}
         >
-          <h3 className="text-xs sm:text-sm md:text-base lg:text-[20px] font-bold text-(--text-color) mb-2">
-            INDORE, INDIA
+          <h3 className="text-xs sm:text-sm md:text-base lg:text-[24px] font-medium text-gray-800/65 mb-3">
+            Bhopal, INDIA
           </h3>
-          <p className="text-(--dark-gray-color) text-xs sm:text-sm md:text-base lg:text-[20px] font-bold">
+          <p className="lowercase text-gray-800/65 text-xs sm:text-sm md:text-base lg:text-[24px] font-medium">
             VIDITSHAH2019@GMAIL.COM
           </p>
         </motion.div>
@@ -100,18 +100,12 @@ export default function HeroSection() {
         >
           {/* Yellow Note */}
           <div
-            className="absolute z-10 top-[9px] sm:top-1.5 md:top-1 lg:top-[4px]
-                       -left-[0%] sm:-left-[1.8%] md:-left-[2.3%] lg:-left-[2.3%] xl:-left-[2.1%]
-                       transition-all duration-500 ease-in-out"
+            className="absolute z-10 top-[12px] xs:top-[5px] sm:top-[12px] md:top-[9px] lg:top-[9px] left-[0.2%] xs:-left-[1%] sm:-left-[1.5%] md:-left-[2%] lg:-left-[2%] xl:-left-[2%] transition-all duration-500 ease-in-out"
             onMouseEnter={() => setShowCursor(true)}
             onMouseLeave={() => setShowCursor(false)}
             onClick={handleOpen}
           >
-            <div
-              className="cursor-none relative w-[70px] sm:w-[65px] md:w-[60px] inline-block origin-top
-                         transition-transform duration-500 ease-[cubic-bezier(0.25,1.25,0.5,1)]
-                         rotate-[24deg] hover:rotate-[34deg] hover:scale-[1.4]"
-            >
+            <div className="cursor-none relative w-[70px] sm:w-[65px] md:w-[60px] inline-block origin-top transition-transform duration-500 ease-[cubic-bezier(0.25,1.25,0.5,1)] rotate-[24deg] hover:rotate-[34deg] hover:scale-[1.4]">
               <Image
                 src="/Images/svg/smallNote.svg"
                 alt="Sticky note hint"
@@ -171,9 +165,7 @@ export default function HeroSection() {
 
           {/* Name */}
           <motion.div
-            className="relative z-50 text-center font-bold text-gray-900
-                       tracking-[-0.025em] leading-none
-                       text-[40px] sm:text-[60px] md:text-8xl"
+            className="relative z-50 text-center font-bold text-gray-900 tracking-[-0.025em] leading-none text-[40px] sm:text-[60px] md:text-8xl mb-3 border"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ ...bounceSpring, delay: 0.3 }}
@@ -185,25 +177,23 @@ export default function HeroSection() {
               height={70}
               className="w-[205px] sm:w-[400px] md:w-full h-auto mx-auto"
             /> */}
-            <h1 className="text-(--text-color)">Vidit Shah</h1>
+            <h1 className="text-5xl xs:text-7xl sm:text-8xl text-(--text-color)">ViDit SHaH</h1>
           </motion.div>
         </motion.div>
 
         {/* Bio Text */}
         <motion.p
-          className=" will-change-transform text-[24px] text-[#1a1a1aA6] max-w-2xl text-center mb-8 px-4 leading-relaxed"
+          className="sm:text-[24px] border font-medium text-[#1a1a1aA6] text-center tracking-tight max-w-xs sm:max-w-lg mb-3 sm:mb-8 px-4"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.35 }}
         >
-          A self-taught Graphics &amp; UI/UX Designer blending aesthetic appeal
-          with intuitive usability, making the digital world more engaging and
-          delightful.
+          Unlock the content tactics creators use to blow up fast and stay at the top of the feed.
         </motion.p>
 
         {/* Resume Button */}
         <motion.div
-          className="flex justify-center mb-5 mt-5 sm:mt-0"
+          className="flex justify-center sm:mb-6  mt-5 sm:mt-0"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -213,7 +203,7 @@ export default function HeroSection() {
             delay: 0.3,
           }}
         >
-          <Buttons ButtonName="resume" src="/Images/Button/star.svg" />
+          <Buttons ButtonName="Check out my Resume" src="/Images/Button/star.svg" />
         </motion.div>
       </motion.div>
     </div>

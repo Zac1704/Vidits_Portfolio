@@ -4,6 +4,8 @@ import Buttons from "@/components/Buttons";
 import HeroSection from "@/components/HeroSection";
 import HoverRevealText from "@/components/HoverRevealText";
 import MyWork from "@/components/MyWork";
+import ToolStack from "@/components/ToolStack";
+import ExperienceJourney from "@/components/ExperienceJourney";
 import { motion } from "framer-motion";
 import ScrollReveal from "../hooks/ScrollRevealHooks";
 import { useState } from "react";
@@ -32,10 +34,15 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.4 }}
-          className="mb-20"
+          className="mb-20 mt-10"
         >
           <PortfolioRow />
         </motion.div>
+
+        <ScrollReveal>
+          <ToolStack />
+        </ScrollReveal>
+
 
         <ScrollReveal>
           <MyWork
@@ -46,9 +53,11 @@ export default function Home() {
           />
         </ScrollReveal>
 
-        <ScrollReveal delay={0.2}>
+        <ExperienceJourney />
+
+        {/* <ScrollReveal delay={0.2}>
           <HoverRevealText />
-        </ScrollReveal>
+        </ScrollReveal> */}
       </div>
 
       {/* Modal rendered outside container */}

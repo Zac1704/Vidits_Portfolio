@@ -9,6 +9,7 @@
   --background: #ffffff;
   --text-color: #363636;
   --gray-text-color: #d2d2d2;
+  --button-color: #1a1a1a;
   --dark-gray-color: #1a1a1aa6;
 }
 
@@ -24,6 +25,10 @@
 body {
   font-family: var(--font-geist-sans), sans-serif;
   /* font-family: var(--font-futura), sans-serif; */
+}
+
+h1 {
+  font-family: var(--font-futura), sans-serif;
 }
 
 .note {
