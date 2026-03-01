@@ -6,6 +6,7 @@ import HoverRevealText from "@/components/HoverRevealText";
 import MyWork from "@/components/MyWork";
 import ToolStack from "@/components/ToolStack";
 import ExperienceJourney from "@/components/ExperienceJourney";
+import MyStory from "@/components/MyStory";
 import { motion } from "framer-motion";
 import ScrollReveal from "../hooks/ScrollRevealHooks";
 import { useState } from "react";
@@ -26,7 +27,7 @@ export default function Home() {
   return (
     <>
       {/* Main content constrained */}
-      <div className="space-y-8 ">
+      <div className="space-y-41">
         <HeroSection />
 
         {/* Portfolio */}
@@ -34,7 +35,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.4 }}
-          className="mb-20 mt-10"
+          className="-mt-[84px]"
         >
           <PortfolioRow />
         </motion.div>
@@ -43,6 +44,8 @@ export default function Home() {
           <ToolStack />
         </ScrollReveal>
 
+        <ExperienceJourney />
+        <MyStory />
 
         <ScrollReveal>
           <MyWork
@@ -52,9 +55,6 @@ export default function Home() {
             }}
           />
         </ScrollReveal>
-
-        <ExperienceJourney />
-
         {/* <ScrollReveal delay={0.2}>
           <HoverRevealText />
         </ScrollReveal> */}

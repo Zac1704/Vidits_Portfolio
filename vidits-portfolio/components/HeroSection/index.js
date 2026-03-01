@@ -78,7 +78,7 @@ export default function HeroSection() {
 
         {/* Header */}
         <motion.div
-          className="text-center mb-6 sm:mb-16 select-none border"
+          className="text-center mb-6 sm:mb-16 select-none "
           initial={{ opacity: 0, scale: 0.8, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.1 }}
@@ -165,7 +165,7 @@ export default function HeroSection() {
 
           {/* Name */}
           <motion.div
-            className="relative z-50 text-center font-bold text-gray-900 tracking-[-0.025em] leading-none text-[40px] sm:text-[60px] md:text-8xl mb-3 border"
+            className="relative z-50 text-center font-bold text-gray-900 tracking-[-0.025em] leading-none text-[40px] sm:text-[60px] md:text-8xl mb-3 "
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ ...bounceSpring, delay: 0.3 }}
@@ -183,7 +183,7 @@ export default function HeroSection() {
 
         {/* Bio Text */}
         <motion.p
-          className="sm:text-[24px] border font-medium text-[#1a1a1aA6] text-center tracking-tight max-w-xs sm:max-w-lg mb-3 sm:mb-8 px-4"
+          className="sm:text-[24px]  font-medium text-[#1a1a1aA6] text-center tracking-tight max-w-xs sm:max-w-lg mb-3 sm:mb-8 px-4"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.35 }}
@@ -203,7 +203,7 @@ export default function HeroSection() {
             delay: 0.3,
           }}
         >
-          <Buttons ButtonName="Check out my Resume" src="/Images/Button/star.svg" />
+          <Buttons ButtonName="View Resume" src="/Images/Button/star.svg" />
         </motion.div>
       </motion.div>
     </div>
