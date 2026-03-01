@@ -24,7 +24,7 @@ const Card = ({ title, subtitle, features, color, index, rotation }) => {
                     <h2 className="text-4xl md:text-[54px] font-bold mb-3 tracking-tight">
                         {title}
                     </h2>
-                    <p className="text-lg md:text-xl opacity-90 mb-8 max-w-xl font-medium leading-relaxed shadow-sm">
+                    <p className="text-lg md:text-xl opacity-90 mb-8 max-w-xl font-medium leading-relaxed">
                         {subtitle}
                     </p>
 
