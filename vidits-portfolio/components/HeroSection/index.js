@@ -54,7 +54,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="mt-20 sm:mt-0 pb-10 sm:pb-0 relative w-full overflow-hidden">
+    <div className="mt-16 sm:mt-0 pb-10 sm:pb-0 relative w-full overflow-hidden">
       <motion.div
         className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-6"
         initial={{ opacity: 0, scale: 0.9 }}

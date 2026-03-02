@@ -76,7 +76,7 @@ export default function StoryContent() {
 
                 <div className="space-y-6 text-lg md:text-xl text-[#363636] dark:text-[#d2d2d2] opacity-90 leading-relaxed font-medium">
                     <motion.p variants={itemVariants}>
-                        I created Tokko after years of trying to stay consistent, figure out what to post, and understand why some content worked while other posts didn't. Over time, that process became a system built from real experience and testing.
+                        I created Tokko after years of trying to stay consistent, figure out what to post, and understand why some content worked while other posts didn&apos;t. Over time, that process became a system built from real experience and testing.
                     </motion.p>
                     <motion.p variants={itemVariants}>
                         This course is everything I wish I had earlier – a practical framework that brings structure to content, removes guesswork, and makes growth simpler to sustain.

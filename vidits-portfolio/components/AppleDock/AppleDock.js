@@ -87,60 +87,70 @@ const AppleDock = ({ items = DEFAULT_ITEMS, borderRadius = 20, hoverText }) => {
   const isMobile = screenWidth < 480;
 
   return (
-    <motion.div
-      className="flex justify-center fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999]"
-      variants={{
-        visible: { y: 0, opacity: 1 },
-        hidden: { y: 100, opacity: 0 }
-      }}
-      initial="visible"
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.4, ease: "easeInOut", type: "spring", stiffness: 200, damping: 20 }}
-    >
-      <motion.nav
-        className="rounded-2xl bg-white/20 backdrop-blur-2xl border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] inline-flex"
-        onMouseMove={(e) => mouseX.set(e.pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: `${paddingY}px ${paddingX}px`,
+    <>
+      <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
+        <filter id="glass-distortion">
+          <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="25" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
+      <motion.div
+        className="flex justify-center fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999]"
+        variants={{
+          visible: { y: 0, opacity: 1 },
+          hidden: { y: 100, opacity: 0 }
         }}
+        initial="visible"
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.4, ease: "easeInOut", type: "spring", stiffness: 200, damping: 20 }}
       >
-        <ul
+        <motion.nav
+          className="rounded-2xl bg-gradient-to-br from-white/20 to-white/5 border border-white/20 shadow-[0_28px_100px_rgba(0,0,0,0.2),inset_1px_1px_0_rgba(255,255,255,0.8),inset_-1px_-1px_0_rgba(255,255,255,0.1)] inline-flex"
+          onMouseMove={(e) => mouseX.set(e.pageX)}
+          onMouseLeave={() => mouseX.set(Infinity)}
           style={{
             display: "flex",
-            listStyle: "none",
-            gap: gap,
-            margin: 0,
-            padding: 0,
             alignItems: "center",
+            justifyContent: "center",
+            padding: `${paddingY}px ${paddingX}px`,
+            backdropFilter: "url(#glass-distortion) saturate(120%)",
+            WebkitBackdropFilter: "url(#glass-distortion) saturate(120%)",
           }}
         >
-          {finalItems.map((item, i) => (
-            <DockIcon
-              key={i}
-              item={item}
-              mouseX={mouseX}
-              baseSize={baseSize}
-              magnification={magnification}
-              distance={distance}
-              borderRadius={borderRadius}
-              isMobile={false}
-              hoverText={
-                hoverText || {
-                  bgColor: "rgba(0,0,0,0.75)",
-                  textColor: "#fff",
-                  size: 14,
-                  padding: 6,
+          <ul
+            style={{
+              display: "flex",
+              listStyle: "none",
+              gap: gap,
+              margin: 0,
+              padding: 0,
+              alignItems: "center",
+            }}
+          >
+            {finalItems.map((item, i) => (
+              <DockIcon
+                key={i}
+                item={item}
+                mouseX={mouseX}
+                baseSize={baseSize}
+                magnification={magnification}
+                distance={distance}
+                borderRadius={borderRadius}
+                isMobile={false}
+                hoverText={
+                  hoverText || {
+                    bgColor: "rgba(0,0,0,0.75)",
+                    textColor: "#fff",
+                    size: 14,
+                    padding: 6,
+                  }
                 }
-              }
-            />
-          ))}
-        </ul>
-      </motion.nav>
-    </motion.div>
+              />
+            ))}
+          </ul>
+        </motion.nav>
+      </motion.div>
+    </>
   );
 };
 

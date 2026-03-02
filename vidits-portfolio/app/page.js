@@ -13,6 +13,7 @@ import ScrollReveal from "../hooks/ScrollRevealHooks";
 import { useState } from "react";
 import ImageModal from "../components/MyWork/ImageModal";
 import PortfolioRow from "@/components/HeroSection/ShakingPortfolioSection";
+import ProjectArchieve from "@/components/ProjectArchieve";
 
 export default function Home() {
   const [selectedImg, setSelectedImg] = useState(null);
@@ -28,7 +29,7 @@ export default function Home() {
   return (
     <>
       {/* Main content constrained */}
-      <div className="space-y-30">
+      <div className="flex flex-col gap-24 sm:gap-32 overflow-clip">
         <HeroSection />
 
         {/* Portfolio */}
@@ -36,7 +37,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.4 }}
-          className="-mt-[84px]"
+          className="w-full flex justify-center"
         >
           <PortfolioRow />
         </motion.div>
@@ -59,9 +60,11 @@ export default function Home() {
         </ScrollReveal>
 
         <ExperienceJourney />
-        
+
         <MyStory />
-        
+
+        <ProjectArchieve />
+
         <ScrollReveal delay={0.2}>
           <HoverRevealText />
         </ScrollReveal>

@@ -22,7 +22,7 @@ export default function SkillsList() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-x-6 md:gap-y-6 max-w-5xl mx-auto"
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-x-6 md:gap-y-6 max-w-7xl mx-auto"
         >
             {skillsData.map((skill) => (
                 <SkillBadge key={skill.id} icon={skill.icon} text={skill.text} />
