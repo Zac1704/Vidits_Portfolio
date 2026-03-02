@@ -26,10 +26,10 @@ body {
   font-family: var(--font-geist-sans), sans-serif;
   /* font-family: var(--font-futura), sans-serif; */
 }
-/* 
+
 h1 {
   font-family: var(--font-futura), sans-serif;
-} */
+}
 
 .note {
   font-family: var(--font-caveat);

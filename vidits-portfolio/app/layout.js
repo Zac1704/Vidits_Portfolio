@@ -61,6 +61,12 @@ export default function RootLayout({ children }) {
           "select-none antialiased hide-scrollbar bg-[var(--background)]",
         ].join(" ")}
       >
+        <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
+          <filter id="glass-distortion">
+            <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="25" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </svg>
         {children}
 
         {/* Client-only route aware UI */}

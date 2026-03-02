@@ -88,12 +88,7 @@ const AppleDock = ({ items = DEFAULT_ITEMS, borderRadius = 20, hoverText }) => {
 
   return (
     <>
-      <svg style={{ position: "absolute", width: 0, height: 0 }} aria-hidden="true">
-        <filter id="glass-distortion">
-          <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="25" xChannelSelector="R" yChannelSelector="G" />
-        </filter>
-      </svg>
+
       <motion.div
         className="flex justify-center fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[999]"
         variants={{
@@ -115,8 +110,12 @@ const AppleDock = ({ items = DEFAULT_ITEMS, borderRadius = 20, hoverText }) => {
             padding: `${paddingY}px ${paddingX}px`,
             backdropFilter: "url(#glass-distortion) saturate(120%)",
             WebkitBackdropFilter: "url(#glass-distortion) saturate(120%)",
+            // Hardware acceleration hints for the backdrop-filter
+            transform: "translateZ(0)",
+            willChange: "transform, backdrop-filter",
           }}
         >
+
           <ul
             style={{
               display: "flex",

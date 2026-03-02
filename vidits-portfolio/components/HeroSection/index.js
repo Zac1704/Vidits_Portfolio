@@ -177,7 +177,7 @@ export default function HeroSection() {
               height={70}
               className="w-[205px] sm:w-[400px] md:w-full h-auto mx-auto"
             /> */}
-            <h1 className="text-5xl xs:text-7xl sm:text-8xl text-(--text-color)">ViDiT SHaH</h1>
+            <h1 className="text-5xl xs:text-7xl sm:text-8xl text-(--text-color) font-(--font-futura)">ViDiT SHaH</h1>
           </motion.div>
         </motion.div>
 
