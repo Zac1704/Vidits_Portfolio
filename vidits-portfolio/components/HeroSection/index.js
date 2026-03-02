@@ -93,7 +93,7 @@ export default function HeroSection() {
 
         {/* Name Section */}
         <motion.div
-          className="relative mb-5 px-4 z-[100]"
+          className="relative px-4 z-[100]"
           initial={{ opacity: 0, scale: 0.8, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.2 }}
@@ -165,7 +165,7 @@ export default function HeroSection() {
 
           {/* Name */}
           <motion.div
-            className="relative z-50 text-center font-bold text-gray-900 tracking-[-0.025em] leading-none text-[40px] sm:text-[60px] md:text-8xl mb-3 "
+            className="relative z-50 text-center font-bold text-gray-900 tracking-[-0.025em] leading-none text-[40px] sm:text-[60px] md:text-8xl mb-3"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ ...bounceSpring, delay: 0.3 }}

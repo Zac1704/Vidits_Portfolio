@@ -126,8 +126,8 @@ export default function MyWork({ onImageSelect }) {
     <div className="">
       {/* Header */}
       <header className="text-center px-4 sm:space-y-3 ">
-        <h2 className="text-[32px] md:text-[40px] lg:text-5xl font-semibold text-gray-900">
-          Project Archive
+        <h2 className="text-[32px] md:text-[40px] lg:text-5xl font-semibold text-black">
+          Some of my Recent works
         </h2>
         {/* <p className="text-(--dark-gray-color) text-sm sm:text-base md:text-lg">
           Don&apos;t be shy, check my work all you want
@@ -135,8 +135,8 @@ export default function MyWork({ onImageSelect }) {
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 sm:px-6 md:px-10 py-6 sm:py-10 flex justify-center">
-        <div className="py-12 px-4 -my-12 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 xl:grid-cols-3 md:overflow-visible md:place-items-center w-full">
+      <section className="px-4 sm:px-6 md:px-8 py-6 sm:py-10 flex justify-center">
+        <div className="py-12 -my-12 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 xl:grid-cols-3 md:overflow-visible md:place-items-center w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}

@@ -12,12 +12,12 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--text-color)] mb-8 md:mb-16 text-center"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-black mb-8 md:mb-16 text-center"
             >
                 Skills
             </motion.h2>
 
-            <div className="w-full max-w-[100vw] overflow-hidden px-2">
+            <div className="w-full max-w-[100vw] overflow-visible px-2">
                 <SkillsList />
             </div>
         </div>

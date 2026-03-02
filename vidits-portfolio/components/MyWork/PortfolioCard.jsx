@@ -84,12 +84,12 @@ export const PortfolioCard = ({
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-          <div className="absolute inset-x-0 bottom-0 flex flex-col p-5">
-            <span className=" mb-1 text-base font-medium text-white/65">
+          <div className="absolute inset-x-0 bottom-0 flex flex-col px-7 py-9">
+            <span className="text-base font-medium text-white/65">
               {subtitle}
             </span>
 
-            <h2 className="mb-2 text-[24px] sm:text-[28px] lg:text-[32px] font-bold text-(--background)">
+            <h2 className="mb-1 text-[24px] sm:text-[28px] lg:text-[32px] font-bold text-(--background)">
               {title}
             </h2>
 
@@ -97,7 +97,7 @@ export const PortfolioCard = ({
               {description}
             </p>
 
-            <div className="mt-6">
+            <div className="block sm:hidden mt-6">
               <button className="inline-flex items-center justify-center rounded-full bg-[#D9D9D9] text-zinc-900 font-semibold transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm md:px-6 md:py-3 md:text-base">
                 Our Approach
               </button>

@@ -105,7 +105,7 @@ export default function ExperienceJourney() {
     return (
         <div className="relative z-20 bg-transparent w-full">
             <div className="text-center py-20 pb-10">
-                <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-(--text-color) mb-4 leading-tight">
+                <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-black mb-4 leading-tight">
                     Experience<br />& Journey
                 </h2>
             </div>
