@@ -125,13 +125,12 @@ export default function MyWork({ onImageSelect }) {
   return (
     <div className="">
       {/* Header */}
-      <header className="text-center px-4 sm:space-y-3 ">
-        <h2 className="text-[32px] md:text-[40px] lg:text-5xl font-semibold text-black">
-          Some of my Recent works
+      <header className="text-center px-4">
+        <h2 className="text-[32px] md:text-[40px] lg:text-[72px] font-semibold text-black leading-[72px]">
+          Some of my
+          <br /> Recent works
         </h2>
-        {/* <p className="text-(--dark-gray-color) text-sm sm:text-base md:text-lg">
-          Don&apos;t be shy, check my work all you want
-        </p> */}
+        
       </header>
 
       {/* Portfolio Grid */}

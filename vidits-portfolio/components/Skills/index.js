@@ -12,7 +12,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-black mb-8 md:mb-16 text-center"
+                className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-black mb-8 md:mb-16 text-center"
             >
                 Skills
             </motion.h2>
