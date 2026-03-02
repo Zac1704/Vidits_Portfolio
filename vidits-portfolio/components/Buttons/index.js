@@ -29,7 +29,7 @@ import Image from "next/image";
 export default function Buttons({ ButtonName }) {
   return (
     <div>
-      <button className="border-2 border-(--button-color) rounded-full p-3 bg-(--button-color) text-white">
+      <button className="border-2 border-(--button-color) rounded-full py-3 px-5 bg-(--button-color) text-white">
         {ButtonName}
       </button>
     </div>

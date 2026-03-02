@@ -77,7 +77,7 @@ export default function HeroSection() {
         )}
 
         {/* Header */}
-        <motion.div
+        {/* <motion.div
           className="text-center mb-6 sm:mb-16 select-none "
           initial={{ opacity: 0, scale: 0.8, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -89,18 +89,18 @@ export default function HeroSection() {
           <p className="lowercase text-gray-800/65 text-xs sm:text-sm md:text-base lg:text-[24px] font-medium">
             VIDITSHAH2019@GMAIL.COM
           </p>
-        </motion.div>
+        </motion.div> */}
 
         {/* Name Section */}
         <motion.div
-          className="relative px-4 z-[100]"
+          className="relative px-4 z-[100] mt-[76px]"
           initial={{ opacity: 0, scale: 0.8, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.2 }}
         >
           {/* Yellow Note */}
           <div
-            className="absolute z-10 top-[12px] xs:top-[5px] sm:top-[12px] md:top-[9px] lg:top-[9px] left-[0.2%] xs:-left-[1%] sm:-left-[1.5%] md:-left-[2%] lg:-left-[2%] xl:-left-[2%] transition-all duration-500 ease-in-out"
+            className="absolute z-10 top-[12px] xs:top-[5px] sm:top-[12px] md:top-[9px] lg:top-[8px] left-[0.2%] xs:-left-[1%] sm:-left-[1.5%] md:-left-[2%] lg:-left-[2%] xl:-left-[2.2%] transition-all duration-500 ease-in-out"
             onMouseEnter={() => setShowCursor(true)}
             onMouseLeave={() => setShowCursor(false)}
             onClick={handleOpen}

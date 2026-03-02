@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Skills() {
     return (
-        <div className="w-full flex flex-col items-center justify-center py-10 md:py-20 px-4 mt-8 md:mt-16 bg-transparent relative z-10 overflow-hidden">
+        <div className="w-full flex flex-col items-center justify-center py-10 bg-transparent relative z-10 overflow-hidden">
             {/* Center Text */}
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}

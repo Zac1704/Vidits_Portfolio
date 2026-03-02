@@ -27,7 +27,7 @@ export default function SkillBadge({ icon: Icon, text }) {
             <div className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 bg-[#2f68ff] rounded-full text-white shadow-md">
                 <Icon className="text-lg md:text-2xl" />
             </div>
-            <span className="text-gray-800 font-semibold text-sm md:text-xl tracking-tight">
+            <span className="text-gray-800 font-semibold text-sm md:text-[28px] tracking-tight">
                 {text}
             </span>
         </motion.div>
