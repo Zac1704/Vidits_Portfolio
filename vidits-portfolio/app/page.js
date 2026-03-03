@@ -37,7 +37,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.4 }}
-          className="w-full flex justify-center"
+          className="w-full flex justify-center -mt-20"
         >
           <PortfolioRow />
         </motion.div>

@@ -87,7 +87,7 @@ export default function StoryContent() {
                 </div>
             </div>
 
-            <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-gray-200 dark:border-white/10 relative">
+            <motion.div variants={itemVariants} className="mt-8 pt-8 border-t border-gray-200 dark:border-white/10 relative">
                 <span className="text-sm font-semibold text-[#a3a3a3] mb-4 block">Total followers</span>
 
                 <div className="flex flex-wrap items-center gap-6 md:gap-10">

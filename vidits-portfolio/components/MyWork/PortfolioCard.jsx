@@ -37,10 +37,10 @@ export const PortfolioCard = ({
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * -12;
-        const rotateY = ((x - centerX) / centerX) * 12;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
 
-        wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
       }}
       onMouseLeave={(e) => {
         const wrapper = e.currentTarget.querySelector(".tilt-wrapper");
