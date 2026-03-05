@@ -20,8 +20,8 @@ export default function ParallaxImage() {
     return (
         <div ref={containerRef} className="relative w-full h-full min-h-[400px] md:min-h-full overflow-hidden rounded-[24px] md:rounded-[32px]">
             <motion.div
-                style={{ scale, y }}
-                className="absolute inset-[-10%] w-[120%] h-[120%]"
+                style={{ scale, y, willChange: "transform" }}
+                className="absolute inset-[0%] w-[120%] h-[120%]"
             >
                 {/* Replace src with a real image or the user's specific image path. Using a high-quality abstract placeholder for now. */}
                 <Image

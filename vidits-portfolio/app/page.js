@@ -16,8 +16,8 @@ import PortfolioRow from "@/components/HeroSection/ShakingPortfolioSection";
 import ProjectArchieve from "@/components/ProjectArchieve";
 
 export default function Home() {
-  const [selectedImg, setSelectedImg] = useState(null);
-  const [selectedTitle, setSelectedTitle] = useState("");
+  const [carouselData, setCarouselData] = useState([]);
+  const [carouselIndex, setCarouselIndex] = useState(-1);
 
   const bounceSpring = {
     type: "spring",
@@ -44,9 +44,9 @@ export default function Home() {
 
         <ScrollReveal>
           <MyWork
-            onImageSelect={(img, title) => {
-              setSelectedImg(img);
-              setSelectedTitle(title);
+            onImageSelect={(items, index) => {
+              setCarouselData(items);
+              setCarouselIndex(index);
             }}
           />
         </ScrollReveal>
@@ -63,7 +63,12 @@ export default function Home() {
 
         <MyStory />
 
-        <ProjectArchieve />
+        <ProjectArchieve
+          onImageSelect={(items, index) => {
+            setCarouselData(items);
+            setCarouselIndex(index);
+          }}
+        />
 
         <ScrollReveal delay={0.2}>
           <HoverRevealText />
@@ -72,9 +77,12 @@ export default function Home() {
 
       {/* Modal rendered outside container */}
       <ImageModal
-        img={selectedImg}
-        title={selectedTitle}
-        onClose={() => setSelectedImg(null)}
+        items={carouselData}
+        initialIndex={carouselIndex}
+        onClose={() => {
+          setCarouselData([]);
+          setCarouselIndex(-1);
+        }}
       />
     </>
   );

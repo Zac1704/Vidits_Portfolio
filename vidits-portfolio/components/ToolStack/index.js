@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, useSpring } from "framer-motion";
 import {
   FaFacebook,
@@ -97,6 +98,9 @@ const MagneticIcon = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       animate={isHovered ? {} : floatingAnimation}
+      tabIndex={0}
+      role="button"
+      aria-label={`${id} tool icon`}
     >
       {/* The white card container matching the image */}
       <div
@@ -259,6 +263,7 @@ export default function ToolStack() {
       {/* Decorative SVGs Matching the Image precisely */}
       <div className="hidden sm:block absolute inset-0 max-w-[1200px] mx-auto pointer-events-none z-[-1]">
         {/* 1. Swoosh Arrow between Instagram and Center */}
+        {/*
         <svg
           className="absolute top-[32%] left-[28%] w-24 h-24 text-gray-300 dark:text-gray-600 opacity-80"
           viewBox="0 0 100 100"
@@ -266,17 +271,24 @@ export default function ToolStack() {
           stroke="currentColor"
           strokeWidth="2"
         >
-          {/* Curved line towards center */}
           <path d="M 0 0 Q 60 50 85 80" strokeDasharray="6 6" />
-          {/* Arrowhead */}
           <path
             d="M 85 80 L 70 75 L 80 65 Z"
             fill="currentColor"
             stroke="none"
           />
         </svg>
+        */}
+        <Image
+          src="/Images/svg/toolstack/Scribble 2.svg"
+          alt="Scribble 2"
+          width={96}
+          height={96}
+          className="absolute top-[32%] left-[28%] w-24 h-24 opacity-80"
+        />
 
         {/* 2. Dotted loop between YouTube and LinkedIn */}
+        {/*
         <svg
           className="absolute top-[28%] right-[22%] w-32 h-32 text-gray-300 dark:text-gray-600 opacity-80"
           viewBox="0 0 100 100"
@@ -284,14 +296,22 @@ export default function ToolStack() {
           stroke="currentColor"
           strokeWidth="1.5"
         >
-          {/* Looping path */}
           <path
             d="M 10 0 C 80 -10, 110 60, 50 80 C 0 100, -20 40, 20 20"
             strokeDasharray="5 5"
           />
         </svg>
+        */}
+        <Image
+          src="/Images/svg/toolstack/Container.svg"
+          alt="Container"
+          width={128}
+          height={128}
+          className="absolute top-[28%] right-[22%] w-32 h-32 opacity-80"
+        />
 
         {/* 3. Three Spark Lines above Telegram */}
+        {/*
         <svg
           className="absolute bottom-[28%] left-[45%] w-24 h-24 text-gray-300 dark:text-gray-600 opacity-80"
           viewBox="0 0 100 100"
@@ -299,13 +319,18 @@ export default function ToolStack() {
           strokeWidth="2"
           strokeLinecap="round"
         >
-          {/* Left line */}
           <line x1="30" y1="50" x2="15" y2="25" />
-          {/* Center line */}
           <line x1="50" y1="40" x2="50" y2="10" />
-          {/* Right line */}
           <line x1="70" y1="50" x2="85" y2="25" />
         </svg>
+        */}
+        <Image
+          src="/Images/svg/toolstack/Scribble 1.svg"
+          alt="Scribble 1"
+          width={96}
+          height={96}
+          className="absolute bottom-[21%] left-[43%] w-40 h-40 opacity-80"
+        />
       </div>
     </div>
   );

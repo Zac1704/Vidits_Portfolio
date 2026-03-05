@@ -37,14 +37,15 @@ export const PortfolioCard = ({
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * -4;
-        const rotateY = ((x - centerX) / centerX) * 4;
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
 
-        wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        wrapper.style.transition = "transform 0.1s ease-out";
+        wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
       }}
       onMouseLeave={(e) => {
         const wrapper = e.currentTarget.querySelector(".tilt-wrapper");
-        wrapper.style.transition = "transform 0.4s ease-out";
+        wrapper.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
         wrapper.style.transform = "rotateX(0) rotateY(0) scale(1)";
         setIsPressed(false);
       }}
@@ -56,7 +57,7 @@ export const PortfolioCard = ({
       }}
       onMouseUp={(e) => {
         const wrapper = e.currentTarget.querySelector(".tilt-wrapper");
-        wrapper.style.transition = "transform 0.15s ease-out";
+        wrapper.style.transition = "transform 0.2s ease-out";
         wrapper.style.transform = "rotateX(0) rotateY(0) scale(1)";
         setIsPressed(false);
       }}

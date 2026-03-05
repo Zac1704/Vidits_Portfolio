@@ -76,13 +76,13 @@ export default function StoryContent() {
 
                 <div className="space-y-6 text-lg md:text-xl text-[#363636] dark:text-[#d2d2d2] opacity-90 leading-relaxed font-medium">
                     <motion.p variants={itemVariants}>
-                        I created Tokko after years of trying to stay consistent, figure out what to post, and understand why some content worked while other posts didn&apos;t. Over time, that process became a system built from real experience and testing.
+                        Hi, I&apos;m Vidit. I enjoy understanding why people struggle with certain digital experiences and how small design decisions can make things clearer, smoother, and more intuitive.
                     </motion.p>
                     <motion.p variants={itemVariants}>
-                        This course is everything I wish I had earlier – a practical framework that brings structure to content, removes guesswork, and makes growth simpler to sustain.
+                        My journey into design wasn&apos;t straightforward. In college I initially explored coding, but toward the end of my third year I discovered UI/UX design and felt naturally drawn to its blend of creativity and problem-solving.
                     </motion.p>
                     <motion.p variants={itemVariants}>
-                        This course is everything I wish I had earlier – a practical framework that brings structure to content, removes guesswork, and makes growth simpler to sustain.
+                        A lesson from my childhood still shapes how I design today. My mother once told me, <span className="italic">&ldquo;Before doing something to someone, pause and ask how you&apos;d feel if it were done to you,&rdquo;</span> and that idea of empathy became the foundation of my design process.
                     </motion.p>
                 </div>
             </div>

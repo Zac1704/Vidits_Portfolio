@@ -25,7 +25,7 @@ export default function MyWork({ onImageSelect }) {
               img={work.img}
               title={work.title}
               shadow={work.shadow}
-              onClick={onImageSelect}
+              onClick={() => onImageSelect(Portfolio, index)}
               subtitle={work.subtitle}
               description={work.description}
             />

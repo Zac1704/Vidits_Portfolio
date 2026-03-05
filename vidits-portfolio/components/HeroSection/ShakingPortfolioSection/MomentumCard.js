@@ -39,6 +39,7 @@ export default function MomentumHoverCardsBase({
   const containerRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isTouching, setIsTouching] = useState(false);
+  const containerRectRef = useRef(null);
 
   // 🔹 Responsive card sizing
   const [dimensions, setDimensions] = useState({
@@ -107,7 +108,7 @@ export default function MomentumHoverCardsBase({
   const handlePointerMove = useCallback(
     (x, y) => {
       if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
+      const rect = containerRectRef.current || containerRef.current.getBoundingClientRect();
       const currentTime = Date.now();
       const deltaTime = currentTime - lastTime.current;
 
@@ -145,7 +146,12 @@ export default function MomentumHoverCardsBase({
     [handlePointerMove],
   );
 
-  const handleMouseEnter = useCallback(() => setIsHovering(true), []);
+  const handleMouseEnter = useCallback(() => {
+    setIsHovering(true);
+    if (containerRef.current) {
+      containerRectRef.current = containerRef.current.getBoundingClientRect();
+    }
+  }, []);
   const handleMouseLeave = useCallback(() => {
     setIsHovering(false);
     mouseVX.set(0);
@@ -216,9 +222,8 @@ export default function MomentumHoverCardsBase({
       style={{
         ...style,
         position: "relative",
-        width: `${
-          dimensions.width + (cards.length - 1) * dimensions.width * overlap
-        }px`,
+        width: `${dimensions.width + (cards.length - 1) * dimensions.width * overlap
+          }px`,
         height: `${dimensions.height}px`,
         overflow: "visible",
         touchAction: "none",
@@ -287,9 +292,9 @@ function MomentumCard({
       !isHovering
         ? 0
         : -(
-            (y / 100) * maxRotation * inf +
-            (vy / 1000) * maxRotation * intensity * inf
-          ),
+          (y / 100) * maxRotation * inf +
+          (vy / 1000) * maxRotation * intensity * inf
+        ),
   );
   const rotateY = useTransform(
     [relativeX, mouseVX, influence],
@@ -297,7 +302,7 @@ function MomentumCard({
       !isHovering
         ? 0
         : (x / 100) * maxRotation * inf +
-          (vx / 1000) * maxRotation * intensity * inf,
+        (vx / 1000) * maxRotation * intensity * inf,
   );
 
   const translateX = useTransform(
@@ -362,6 +367,7 @@ function MomentumCard({
         transformOrigin: "center center",
         boxShadow: "0 8px 25px rgba(0,0,0,0.35)",
         borderRadius: `${cardBorderRadius}px`,
+        willChange: "transform",
       }}
       className={`${rotate}`}
     >
