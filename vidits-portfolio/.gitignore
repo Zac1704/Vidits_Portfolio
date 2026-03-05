@@ -41,8 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 # testsprite
-testsprite_tests/
-PRD.md
-
-# testsprite
 testsprite_tests

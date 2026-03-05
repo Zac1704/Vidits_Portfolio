@@ -245,7 +245,7 @@ export default function ToolStack() {
     <div className="relative w-full h-[450px] md:h-[600px] lg:h-[800px] flex items-center justify-center overflow-hidden bg-transparent">
       {/* Center Text matching image style */}
       <h2
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-[#111111] dark:text-white z-0"
+        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-[#111111] z-0"
         style={{ letterSpacing: "-0.04em" }}
       >
         Tool Stack
