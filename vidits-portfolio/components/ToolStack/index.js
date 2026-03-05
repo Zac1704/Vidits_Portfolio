@@ -46,7 +46,7 @@ export default function ToolStack() {
           className="absolute top-[40%] left-[25%] -rotate-10 w-24 h-24 opacity-80"
         />
         <Image
-          src="/Images/svg/toolstack/container.svg"
+          src="/Images/svg/toolstack/Container.svg"
           alt="Container"
           width={128}
           height={128}
