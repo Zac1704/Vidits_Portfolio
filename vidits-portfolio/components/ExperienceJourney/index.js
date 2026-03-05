@@ -13,7 +13,7 @@ export default function ExperienceJourney() {
         </h2>
       </div>
 
-      <div className="relative w-full">
+      <div className="relative sm:w-[90%] lg:w-full mx-auto">
         {cardsData.map((card, i) => (
           <Card key={i} index={i} {...card} />
         ))}

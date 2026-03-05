@@ -38,9 +38,11 @@ const modal = {
 
 const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setCurrentIndex(initialIndex);
+    setIsLoading(true);
   }, [initialIndex]);
 
   const hasItems = items.length > 0 && currentIndex >= 0;
@@ -48,11 +50,13 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
 
   const handleNext = (e) => {
     e.stopPropagation();
+    setIsLoading(true);
     setCurrentIndex((prev) => (prev + 1) % items.length);
   };
 
   const handlePrev = (e) => {
     e.stopPropagation();
+    setIsLoading(true);
     setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 
@@ -73,6 +77,15 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
     document.body.style.overflow = hasItems ? "hidden" : "auto";
   }, [hasItems]);
 
+  // Preload next and prev images invisibly for performance
+  useEffect(() => {
+    if (!hasItems) return;
+    const nextImg = new window.Image();
+    const prevImg = new window.Image();
+    nextImg.src = items[(currentIndex + 1) % items.length]?.img || "";
+    prevImg.src = items[(currentIndex - 1 + items.length) % items.length]?.img || "";
+  }, [currentIndex, hasItems, items]);
+
   return (
     <AnimatePresence>
       {hasItems && (
@@ -90,7 +103,7 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute inset-0 m-5  border-white bg-white rounded-[24px] shadow-[0_8px_40px_rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden"
+            className="absolute inset-0 m-5 border-white bg-white rounded-[24px] shadow-[0_8px_40px_rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -148,16 +161,22 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="w-full h-full overflow-auto rounded-[20px] hide-scrollbar"
+              className="w-full h-full overflow-auto rounded-[20px] hide-scrollbar relative"
             >
               <div className="flex justify-center items-center min-w-full min-h-full">
+                {isLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-10 h-10 border-4 border-gray-200 border-t-gray-800 rounded-full animate-spin"></div>
+                  </div>
+                )}
                 <Image
                   src={currentItem.img || "/Images/image.jpg"}
                   alt={currentItem.title || "Image"}
                   width={2000}
                   height={2000}
-                  className="object-contain select-none mx-auto"
+                  className={`object-contain select-none mx-auto transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
                   priority
+                  onLoad={() => setIsLoading(false)}
                 />
               </div>
             </motion.div>

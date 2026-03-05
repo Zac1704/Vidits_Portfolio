@@ -7,7 +7,7 @@ export default function MyWork() {
     <div className="">
       {/* Header */}
       <header className="text-center px-4">
-        <h2 className="text-[32px] md:text-[40px] lg:text-[72px] font-semibold text-black leading-[72px]">
+        <h2 className="text-[32px] md:text-[40px] lg:text-[72px] font-semibold text-black leading-[36px] md:leading-[48px] lg:leading-[72px]">
           Some of my
           <br /> Recent works
         </h2>

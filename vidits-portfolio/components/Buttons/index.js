@@ -24,9 +24,17 @@
 //   );
 // }
 
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Buttons({ ButtonName, className }) {
+export default function Buttons({ ButtonName, className, href }) {
+  if (href) {
+    return (
+      <Link href={href} target="_blank" rel="noopener noreferrer">
+        <button className={className}>{ButtonName}</button>
+      </Link>
+    );
+  }
+
   return (
     <div>
       <button className={className}>{ButtonName}</button>

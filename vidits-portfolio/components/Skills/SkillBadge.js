@@ -25,12 +25,12 @@ export default function SkillBadge({ icon: Icon, text, className }) {
             tabIndex={0}
             role="button"
             aria-label={`Skill: ${text}`}
-            className="flex items-center gap-3 md:gap-4 md:mr-6 bg-[#f4f5f7] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] rounded-full pr-6 pl-2 py-2 transition-colors focus:outline-none hover:bg-white hover:shadow-[0_8px_30px_rgba(47,104,255,0.15)]"
+            className="flex items-center gap-2 sm:gap-3 md:gap-4 md:mr-6 bg-[#f4f5f7] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] rounded-full pr-4 sm:pr-6 pl-1.5 sm:pl-2 py-1.5 sm:py-2 transition-colors focus:outline-none hover:bg-white hover:shadow-[0_8px_30px_rgba(47,104,255,0.15)]"
         >
-            <div className={`${className} flex items-center justify-center w-10 h-10 md:w-18 md:h-18 bg-[#2f68ff] rounded-full text-white shadow-md`}>
-                <Icon className="text-lg md:text-3xl" />
+            <div className={`${className} flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-18 md:h-18 bg-[#2f68ff] rounded-full text-white shadow-md`}>
+                <Icon className="text-base sm:text-lg md:text-3xl" />
             </div>
-            <span className="text-gray-800 font-semibold text-sm md:text-[28px] tracking-tight">
+            <span className="text-gray-800 font-semibold text-xs sm:text-sm md:text-[28px] tracking-tight">
                 {text}
             </span>
         </motion.div>

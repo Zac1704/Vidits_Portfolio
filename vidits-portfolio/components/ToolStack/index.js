@@ -6,16 +6,20 @@ import MagneticIcon from "./MagneticIcon";
 import { getIconsData } from "./toolstackData";
 
 export default function ToolStack() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [deviceType, setDeviceType] = useState("desktop");
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      if (window.innerWidth < 640) setDeviceType("mobile");
+      else if (window.innerWidth >= 640 && window.innerWidth < 768) setDeviceType("tablet");
+      else setDeviceType("desktop");
+    };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const iconsData = getIconsData(isMobile);
+  const iconsData = getIconsData(deviceType);
 
   return (
     <div className="relative w-full h-[450px] md:h-[600px] lg:h-[800px] flex items-center justify-center overflow-hidden bg-transparent">
@@ -37,7 +41,7 @@ export default function ToolStack() {
       </div>
 
       {/* Decorative scribbles */}
-      <div className="hidden sm:block absolute inset-0 max-w-[1200px] mx-auto pointer-events-none z-[-1]">
+      <div className="hidden md:block absolute inset-0 max-w-[1200px] mx-auto pointer-events-none z-[-1]">
         <Image
           src="/Images/svg/toolstack/scribble-2.svg"
           alt="Scribble 2"

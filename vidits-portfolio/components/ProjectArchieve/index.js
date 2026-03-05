@@ -9,7 +9,7 @@ const PortfolioCard = ({ img, title, shadow, onClick }) => {
 
   return (
     <div
-      className="relative w-[200px] h-[160px] sm:w-[260px] sm:h-[210px] md:w-[300px] md:h-[240px] lg:w-[360px] lg:h-[290px] xl:w-[400px] xl:h-[320px] 2xl:w-[440px] 2xl:h-[350px] rounded-[24px] flex items-center justify-center bg-transparent transition-transform duration-300 cursor-pointer"
+      className="relative w-[150px] h-[110px] sm:w-[260px] sm:h-[210px] md:w-[300px] md:h-[240px] lg:w-[360px] lg:h-[290px] xl:w-[400px] xl:h-[320px] 2xl:w-[440px] 2xl:h-[350px] rounded-[16px] sm:rounded-[24px] flex items-center justify-center bg-transparent transition-transform duration-300 cursor-pointer"
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
@@ -55,7 +55,7 @@ const PortfolioCard = ({ img, title, shadow, onClick }) => {
       onClick={() => onClick(img, title)}
     >
       <div
-        className={`inner rounded-[24px] w-full h-full overflow-hidden border-[3px] sm:border-[4px] border-white flex items-center justify-center bg-white transition-all duration-300 hover:brightness-105 ${isPressed ? "brightness-95" : ""
+        className={`inner rounded-[16px] sm:rounded-[24px] w-full h-full overflow-hidden border-2 sm:border-[4px] border-white flex items-center justify-center bg-white transition-all duration-300 hover:brightness-105 ${isPressed ? "brightness-95" : ""
           }`}
         style={{
           transform: "rotateX(0deg) rotateY(0deg)",
@@ -77,7 +77,7 @@ const PortfolioCard = ({ img, title, shadow, onClick }) => {
           width={380}
           height={300}
           draggable={false}
-          className="w-full h-full object-cover rounded-[20px] select-none pointer-events-none"
+          className="w-full h-full object-cover rounded-[12px] sm:rounded-[20px] select-none pointer-events-none"
         />
       </div>
     </div>
@@ -99,15 +99,15 @@ const ProjectArchieve = ({ onImageSelect }) => {
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-20 pt-6 sm:pt-10 flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[40px] place-items-center max-w-[1400px] w-full">
+      <section className="px-2 sm:px-6 md:px-10 lg:px-20 pt-6 sm:pt-10 flex justify-center">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-[40px] place-items-center max-w-[1400px] w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}
               img={work.img}
               title={work.title}
               shadow={work.shadow}
-              onClick={() => onImageSelect([{ img: work.archiveImg, title: work.title }], 0)}
+              onClick={() => onImageSelect(Portfolio.map(p => ({ img: p.archiveImg, title: p.title })), index)}
             />
           ))}
         </div>

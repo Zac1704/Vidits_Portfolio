@@ -208,6 +208,7 @@ export default function HeroSection() {
         >
           <Buttons
             ButtonName="View Resume"
+            href="/files/vidit_shah_resume.pdf"
             className=" rounded-full py-3 px-5 bg-(--button-color)/95 hover:bg-(--button-color) text-white cursor-pointer"
           />
           {/* <Buttons
