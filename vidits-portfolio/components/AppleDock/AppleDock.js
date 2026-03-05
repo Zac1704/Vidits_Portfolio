@@ -115,7 +115,6 @@ const AppleDock = ({ items = DEFAULT_ITEMS, borderRadius = 20, hoverText }) => {
             willChange: "transform, backdrop-filter",
           }}
         >
-
           <ul
             style={{
               display: "flex",

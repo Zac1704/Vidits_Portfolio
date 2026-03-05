@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const PortfolioCard = ({
   img,
@@ -8,8 +9,9 @@ export const PortfolioCard = ({
   shadow,
   subtitle,
   description,
-  onClick,
+  link,
 }) => {
+  const router = useRouter();
   const [isPressed, setIsPressed] = useState(false);
 
   return (
@@ -37,8 +39,8 @@ export const PortfolioCard = ({
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * -5;
-        const rotateY = ((x - centerX) / centerX) * 5;
+        const rotateX = ((y - centerY) / centerY) * -3;
+        const rotateY = ((x - centerX) / centerX) * 3;
 
         wrapper.style.transition = "transform 0.1s ease-out";
         wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
@@ -61,7 +63,7 @@ export const PortfolioCard = ({
         wrapper.style.transform = "rotateX(0) rotateY(0) scale(1)";
         setIsPressed(false);
       }}
-      onClick={() => onClick(img, title)}
+      onClick={() => link && router.push(link)}
     >
       {/* Inner wrapper (gets animated, outer stays fixed) */}
       <div

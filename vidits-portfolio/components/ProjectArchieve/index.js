@@ -99,7 +99,7 @@ const ProjectArchieve = ({ onImageSelect }) => {
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 sm:py-10 flex justify-center">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-20 pt-6 sm:pt-10 flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[40px] place-items-center max-w-[1400px] w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
@@ -107,7 +107,7 @@ const ProjectArchieve = ({ onImageSelect }) => {
               img={work.img}
               title={work.title}
               shadow={work.shadow}
-              onClick={() => onImageSelect(Portfolio, index)}
+              onClick={() => onImageSelect([{ img: work.archiveImg, title: work.title }], 0)}
             />
           ))}
         </div>

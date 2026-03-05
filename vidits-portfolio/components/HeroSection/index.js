@@ -190,8 +190,8 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.35 }}
         >
-          Unlock the content tactics creators use to blow up fast and stay at
-          the top of the feed.
+          Turning complex problems into simple and intuitive digital
+          experiences.
         </motion.p>
 
         {/* Resume Button */}
@@ -210,10 +210,10 @@ export default function HeroSection() {
             ButtonName="View Resume"
             className=" rounded-full py-3 px-5 bg-(--button-color)/95 hover:bg-(--button-color) text-white cursor-pointer"
           />
-          <Buttons
+          {/* <Buttons
             ButtonName="Cover Letter"
             className=" rounded-full py-3 px-5 bg-[#1a1a1a1a] hover:bg-[#dddddd] text-black cursor-pointer font-semibold"
-          />
+          /> */}
         </motion.div>
       </motion.div>
     </div>

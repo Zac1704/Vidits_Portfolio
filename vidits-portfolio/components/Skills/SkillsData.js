@@ -30,7 +30,7 @@ export const skillsData = [
     { id: 10, text: "Analytics", icon: FaChartBar },
     { id: 11, text: "User Empathy", icon: FaHeart },
     { id: 12, text: "Analytical Thinking", icon: FaBrain },
-    { id: 13, text: "Problem Solving", icon: FaPuzzlePiece },
+    { id: 13, text: "Problem Solving", icon: FaPuzzlePiece, className: "pl-[6px] pb-[3px]" },
     { id: 14, text: "Clear Communication", icon: FaComments },
     { id: 15, text: "Adaptability", icon: FaArrowsRotate },
     { id: 16, text: "Attention to Detail", icon: FaEye },

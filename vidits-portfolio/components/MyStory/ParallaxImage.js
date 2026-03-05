@@ -25,7 +25,7 @@ export default function ParallaxImage() {
             >
                 {/* Replace src with a real image or the user's specific image path. Using a high-quality abstract placeholder for now. */}
                 <Image
-                    src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+                    src="/Images/mystory/profile.webp"
                     alt="My Story"
                     fill
                     className="object-cover"

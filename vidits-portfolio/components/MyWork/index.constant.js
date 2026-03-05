@@ -6,6 +6,7 @@ export const Portfolio = [
       "Premium digital storefront for traditional baking and seamless ordering.",
     img: "/Images/myWork/baking.webp",
     shadow: "rgba(197, 173, 150, 0.7) 0px 0px 22px 0px",
+    link: "/auditflow",
   },
   {
     title: "Jimmy The Pet Shop",

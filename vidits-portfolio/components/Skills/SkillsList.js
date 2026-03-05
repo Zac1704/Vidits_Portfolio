@@ -25,7 +25,7 @@ export default function SkillsList() {
             className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-x-6 md:gap-y-6 max-w-7xl mx-auto"
         >
             {skillsData.map((skill) => (
-                <SkillBadge key={skill.id} icon={skill.icon} text={skill.text} />
+                <SkillBadge key={skill.id} icon={skill.icon} text={skill.text} className={skill.className} />
             ))}
         </motion.div>
     );

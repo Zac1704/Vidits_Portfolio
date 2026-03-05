@@ -47,12 +47,9 @@ export default function Odometer({ value, label }) {
                 viewport={{ once: true, margin: "-50px" }}
                 className="flex items-baseline font-bold text-xl md:text-2xl tracking-tight"
             >
-                <div className="w-6 h-6 mr-2 flex-shrink-0 flex items-center justify-center">
-                    {/* Render different icons based on the label, or just the logo if passed differently. 
-                        For simplicity, we assume the icon is passed as children or handle it in the parent. 
-                        Let's adjust to receive icon as a prop or handle it completely in the parent and just do the number here.
-                    */}
-                </div>
+                {/* <div className="w-6 h-6 mr-2 flex-shrink-0 flex items-center justify-center">
+                    
+                </div> */}
                 <motion.span>{displayValue}</motion.span>
                 <span>{suffix}</span>
             </motion.div>

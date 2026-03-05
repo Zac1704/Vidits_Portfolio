@@ -1,10 +1,8 @@
-"use client";
-
 import { Portfolio } from "./index.constant";
 import { PortfolioCard } from "./PortfolioCard";
 
 // ✅ Main Component
-export default function MyWork({ onImageSelect }) {
+export default function MyWork() {
   return (
     <div className="">
       {/* Header */}
@@ -18,14 +16,14 @@ export default function MyWork({ onImageSelect }) {
 
       {/* Portfolio Grid */}
       <section className="px-4 sm:px-6 md:px-8 lg:px-20 pt-6 sm:pt-10 flex justify-center">
-        <div className="py-12 -my-12 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 xl:grid-cols-3 md:overflow-visible md:place-items-center w-full">
+        <div className=" flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 xl:grid-cols-3 md:overflow-visible md:place-items-center w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}
               img={work.img}
               title={work.title}
               shadow={work.shadow}
-              onClick={() => onImageSelect(Portfolio, index)}
+              link={work.link}
               subtitle={work.subtitle}
               description={work.description}
             />

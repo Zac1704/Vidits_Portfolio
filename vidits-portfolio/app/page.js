@@ -43,12 +43,7 @@ export default function Home() {
         </motion.div>
 
         <ScrollReveal>
-          <MyWork
-            onImageSelect={(items, index) => {
-              setCarouselData(items);
-              setCarouselIndex(index);
-            }}
-          />
+          <MyWork />
         </ScrollReveal>
 
         <ScrollReveal>
@@ -65,14 +60,8 @@ export default function Home() {
 
         <ProjectArchieve
           onImageSelect={(items, index) => {
-            const archiveImages = [
-              {
-                img: "/Images/projectArchieve/Android Large - 9.webp",
-                title: items[index]?.title || "Project Archive",
-              },
-            ];
-            setCarouselData(archiveImages);
-            setCarouselIndex(0);
+            setCarouselData(items);
+            setCarouselIndex(index);
           }}
         />
 
