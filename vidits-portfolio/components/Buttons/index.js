@@ -26,12 +26,10 @@
 
 import Image from "next/image";
 
-export default function Buttons({ ButtonName }) {
+export default function Buttons({ ButtonName, className }) {
   return (
     <div>
-      <button className=" rounded-full py-3 px-5 bg-(--button-color)/95 hover:bg-(--button-color) text-white cursor-pointer">
-        {ButtonName}
-      </button>
+      <button className={className}>{ButtonName}</button>
     </div>
   );
 }

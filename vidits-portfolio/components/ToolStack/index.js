@@ -4,14 +4,9 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useSpring } from "framer-motion";
 import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaLinkedin,
-  FaTiktok,
-  FaTelegram,
-} from "react-icons/fa";
-import { SiThreads } from "react-icons/si";
+  SiOpenai,
+} from "react-icons/si";
+import { CgFigma } from "react-icons/cg";
 
 // Cubic bezier for Apple-style smoothness
 const springTransition = {
@@ -23,12 +18,14 @@ const springTransition = {
 
 const MagneticIcon = ({
   icon: Icon,
+  iconSrc,
   color,
   badgeCount,
   delay,
   top,
   left,
   size,
+  iconScale = 1,
   id,
 }) => {
   const ref = useRef(null);
@@ -113,7 +110,7 @@ const MagneticIcon = ({
         }}
       >
         {/* Special case for Instagram gradient */}
-        {id === "instagram" && (
+        {id === "instagram" ? (
           <svg width="0" height="0">
             <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#f09433" />
@@ -123,18 +120,28 @@ const MagneticIcon = ({
               <stop offset="100%" stopColor="#bc1888" />
             </linearGradient>
           </svg>
+        ) : null}
+
+        {Icon ? (
+          <Icon
+            style={{
+              color: id === "instagram" ? "url(#ig-grad)" : color,
+              fill: id === "instagram" ? "url(#ig-grad)" : color,
+              fontSize: size * 0.48 * iconScale,
+            }}
+          />
+        ) : (
+          <Image
+            src={iconSrc}
+            alt={`${id} icon`}
+            width={size * 0.48 * iconScale}
+            height={size * 0.48 * iconScale}
+            style={{ objectFit: "contain" }}
+          />
         )}
 
-        <Icon
-          style={{
-            color: id === "instagram" ? "url(#ig-grad)" : color,
-            fill: id === "instagram" ? "url(#ig-grad)" : color,
-            fontSize: size * 0.48,
-          }}
-        />
-
         {/* Developer Badge Matching Design exactly */}
-        <motion.div
+        {/* <motion.div
           className="absolute -top-1 -right-1 bg-[#FF1E56] text-white text-[12px] font-bold min-w-[28px] h-[28px] flex items-center justify-center px-1.5 rounded-full z-20 shadow-sm"
           initial={{ scale: 1 }}
           animate={{ scale: isHovered ? [1, 1.25, 1] : 1 }}
@@ -142,7 +149,7 @@ const MagneticIcon = ({
           style={{ transform: "translate(10%, -10%)" }}
         >
           {badgeCount}
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.div>
   );
@@ -162,82 +169,94 @@ export default function ToolStack() {
   }, []);
 
   const iconsData = [
-    // Top Left: Instagram
+    // Top Left: Figma
     {
-      id: "instagram",
-      icon: FaInstagram,
-      color: "#E4405F",
-      badgeCount: 17,
+      id: "figma",
+      iconSrc: "/Images/svg/toolstack/appIcons/figma-svgrepo-com.svg",
+      color: "#F24E1E",
+      badgeCount: 5,
       delay: 0.4,
       top: isMobile ? "45%" : "35%",
       left: isMobile ? "15%" : "20%",
       size: isMobile ? 65 : 100,
     },
-    // Top Center-Left: Facebook
+    // Top Center-Left: FigJam
     {
-      id: "facebook",
-      icon: FaFacebook,
-      color: "#1877F2",
-      badgeCount: 13,
+      id: "figjam",
+      icon: CgFigma, // Still using react-icons for FigJam as there was no file for it
+      color: "#A259FF", // Distinct color for FigJam flavor
+      badgeCount: 2,
       delay: 0,
-      top: isMobile ? "10%" : "15%",
-      left: isMobile ? "45%" : "42%",
+      top: isMobile ? "10%" : "18%",
+      left: isMobile ? "45%" : "39%",
       size: isMobile ? 75 : 110,
     },
-    // Top Right: YouTube
+    // Top Right: Adobe Illustrator
     {
-      id: "youtube",
-      icon: FaYoutube,
-      color: "#FF0000",
-      badgeCount: 39,
+      id: "illustrator",
+      iconSrc: "/Images/svg/toolstack/appIcons/adobe-illustrator-svgrepo-com.svg",
+      color: "#FF9A00",
+      badgeCount: 12,
       delay: 0.2,
       top: isMobile ? "22%" : "18%",
       left: isMobile ? "80%" : "62%",
       size: isMobile ? 70 : 115,
     },
-    // Mid Right: LinkedIn
+    // Mid Right: Adobe Photoshop
     {
-      id: "linkedin",
-      icon: FaLinkedin,
-      color: "#0A66C2",
-      badgeCount: 21,
+      id: "photoshop",
+      iconSrc: "/Images/svg/toolstack/appIcons/adobe-photoshop-svgrepo-com.svg",
+      color: "#31A8FF",
+      badgeCount: 3,
       delay: 0.6,
       top: isMobile ? "45%" : "35%",
       left: isMobile ? "85%" : "78%",
       size: isMobile ? 60 : 110,
     },
-    // Bottom Left: TikTok
+    // Bottom Right: Framer (Mirrors Photoshop)
     {
-      id: "tiktok",
-      icon: FaTiktok,
-      color: "#000000",
-      badgeCount: 76,
+      id: "framer",
+      iconSrc: "/Images/svg/toolstack/appIcons/framer-black-icon.svg",
+      color: "#0055FF",
+      badgeCount: 8,
       delay: 0.8,
-      top: isMobile ? "65%" : "72%",
-      left: isMobile ? "18%" : "30%",
-      size: isMobile ? 65 : 105,
+      top: isMobile ? "55%" : "65%",
+      left: isMobile ? "85%" : "78%",
+      size: isMobile ? 60 : 110,
+      iconScale: 0.7, // Downscale the inner icon so it matches others
     },
-    // Bottom Center: Telegram
+    // Bottom Center-Right: Canva (Mirrors Illustrator)
     {
-      id: "telegram",
-      icon: FaTelegram,
-      color: "#229ED9",
-      badgeCount: 18,
+      id: "canva",
+      iconSrc: "/Images/svg/toolstack/appIcons/canva-icon.svg",
+      color: "#00C4CC",
+      badgeCount: 15,
       delay: 1.0,
-      top: isMobile ? "75%" : "82%",
-      left: isMobile ? "50%" : "50%",
-      size: isMobile ? 80 : 115,
+      top: isMobile ? "78%" : "82%",
+      left: isMobile ? "80%" : "62%",
+      size: isMobile ? 70 : 115,
     },
-    // Bottom Right: Threads
+    // Bottom Center-Left: Notion (Mirrors FigJam)
     {
-      id: "threads",
-      icon: SiThreads,
-      color: "#000000",
-      badgeCount: 11,
+      id: "notion",
+      iconSrc: "/Images/svg/toolstack/appIcons/notion-svgrepo-com.svg",
+      color: "#333333",
+      badgeCount: 21,
       delay: 1.2,
-      top: isMobile ? "62%" : "72%",
-      left: isMobile ? "78%" : "70%",
-      size: isMobile ? 65 : 110,
+      top: isMobile ? "90%" : "82%",
+      left: isMobile ? "45%" : "39%",
+      size: isMobile ? 75 : 110,
+    },
+    // Bottom Left: ChatGPT (Mirrors Figma)
+    {
+      id: "chatgpt",
+      icon: SiOpenai, // Using react-icons for ChatGPT since no SVG file was provided in the directory
+      color: "black",
+      badgeCount: 9,
+      delay: 1.4,
+      top: isMobile ? "55%" : "65%",
+      left: isMobile ? "15%" : "20%",
+      size: isMobile ? 65 : 100,
     },
   ];
 
@@ -284,7 +303,7 @@ export default function ToolStack() {
           alt="Scribble 2"
           width={96}
           height={96}
-          className="absolute top-[32%] left-[28%] w-24 h-24 opacity-80"
+          className="absolute top-[40%] left-[25%] -rotate-10 w-24 h-24 opacity-80"
         />
 
         {/* 2. Dotted loop between YouTube and LinkedIn */}

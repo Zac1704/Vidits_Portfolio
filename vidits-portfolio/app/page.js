@@ -11,7 +11,7 @@ import MyStory from "@/components/MyStory";
 import { motion } from "framer-motion";
 import ScrollReveal from "../hooks/ScrollRevealHooks";
 import { useState } from "react";
-import ImageModal from "../components/MyWork/ImageModal";
+import ImageModal from "../components/ImageModal";
 import PortfolioRow from "@/components/HeroSection/ShakingPortfolioSection";
 import ProjectArchieve from "@/components/ProjectArchieve";
 
@@ -65,8 +65,14 @@ export default function Home() {
 
         <ProjectArchieve
           onImageSelect={(items, index) => {
-            setCarouselData(items);
-            setCarouselIndex(index);
+            const archiveImages = [
+              {
+                img: "/Images/projectArchieve/Android Large - 9.webp",
+                title: items[index]?.title || "Project Archive",
+              },
+            ];
+            setCarouselData(archiveImages);
+            setCarouselIndex(0);
           }}
         />
 

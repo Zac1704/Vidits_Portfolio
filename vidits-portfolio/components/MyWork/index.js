@@ -17,7 +17,7 @@ export default function MyWork({ onImageSelect }) {
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-10 flex justify-center">
+      <section className="px-4 sm:px-6 md:px-8 lg:px-20 pt-6 sm:pt-10 flex justify-center">
         <div className="py-12 -my-12 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 xl:grid-cols-3 md:overflow-visible md:place-items-center w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard

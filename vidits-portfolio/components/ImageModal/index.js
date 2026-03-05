@@ -90,7 +90,7 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute inset-0 m-5 bg-white rounded-[24px] shadow-[0_8px_40px_rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden"
+            className="absolute inset-0 m-5  border-white bg-white rounded-[24px] shadow-[0_8px_40px_rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}

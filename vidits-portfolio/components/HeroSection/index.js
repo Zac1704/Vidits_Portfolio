@@ -177,7 +177,9 @@ export default function HeroSection() {
               height={70}
               className="w-[205px] sm:w-[400px] md:w-full h-auto mx-auto"
             /> */}
-            <h1 className="text-5xl xs:text-7xl sm:text-8xl text-(--text-color) font-(--font-futura)">ViDiT SHaH</h1>
+            <h1 className="text-5xl xs:text-7xl sm:text-8xl text-(--text-color) font-(--font-futura)">
+              ViDiT SHaH
+            </h1>
           </motion.div>
         </motion.div>
 
@@ -188,12 +190,13 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.35 }}
         >
-          Unlock the content tactics creators use to blow up fast and stay at the top of the feed.
+          Unlock the content tactics creators use to blow up fast and stay at
+          the top of the feed.
         </motion.p>
 
         {/* Resume Button */}
         <motion.div
-          className="flex justify-center sm:mb-6  mt-5 sm:mt-0"
+          className="flex justify-center sm:mb-6  mt-5 sm:mt-0 space-x-5"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -203,9 +206,16 @@ export default function HeroSection() {
             delay: 0.3,
           }}
         >
-          <Buttons ButtonName="View Resume" src="/Images/Button/star.svg" />
+          <Buttons
+            ButtonName="View Resume"
+            className=" rounded-full py-3 px-5 bg-(--button-color)/95 hover:bg-(--button-color) text-white cursor-pointer"
+          />
+          <Buttons
+            ButtonName="Cover Letter"
+            className=" rounded-full py-3 px-5 bg-[#1a1a1a1a] hover:bg-[#dddddd] text-black cursor-pointer font-semibold"
+          />
         </motion.div>
       </motion.div>
     </div>
   );
-} 
+}
