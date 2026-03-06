@@ -89,17 +89,17 @@ const ProjectArchieve = ({ onImageSelect }) => {
   return (
     <div className="">
       {/* Header */}
-      <header className="text-center px-4 sm:space-y-3 pb-8">
+      <header className="text-center px-4 sm:space-y-3">
         <h1
-          className="text-5xl md:text-[72px] font-semibold tracking-tight text-black leading-[1.1]"
-          style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}
+          className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight text-black leading-[1.1]"
+          style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
         >
-          Project Archieve
+          Project Archive
         </h1>
       </header>
 
       {/* Portfolio Grid */}
-      <section className="px-2 sm:px-6 md:px-10 lg:px-20 pt-6 sm:pt-10 flex justify-center">
+      <section className="px-2 sm:px-6 md:px-10 lg:px-20 pt-16 flex justify-center">
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-[40px] place-items-center max-w-[1400px] w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
@@ -107,7 +107,12 @@ const ProjectArchieve = ({ onImageSelect }) => {
               img={work.img}
               title={work.title}
               shadow={work.shadow}
-              onClick={() => onImageSelect(Portfolio.map(p => ({ img: p.archiveImg, title: p.title })), index)}
+              onClick={() =>
+                onImageSelect(
+                  Portfolio.map((p) => ({ img: p.archiveImg, title: p.title })),
+                  index,
+                )
+              }
             />
           ))}
         </div>

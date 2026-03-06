@@ -240,11 +240,9 @@ const DockIcon = memo(function DockIcon({
           </AnimatePresence>
         )}
 
-        <Image
+        <img
           src={item.image}
           alt={item.title}
-          height={300}
-          width={300}
           style={{
             width: "100%",
             height: "100%",

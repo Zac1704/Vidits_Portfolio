@@ -11,7 +11,8 @@ export default function ToolStack() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) setDeviceType("mobile");
-      else if (window.innerWidth >= 640 && window.innerWidth < 768) setDeviceType("tablet");
+      else if (window.innerWidth >= 640 && window.innerWidth < 768)
+        setDeviceType("tablet");
       else setDeviceType("desktop");
     };
     handleResize();
@@ -25,7 +26,7 @@ export default function ToolStack() {
     <div className="relative w-full h-[450px] md:h-[600px] lg:h-[800px] flex items-center justify-center overflow-hidden bg-transparent">
       {/* Center heading */}
       <h2
-        className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-[#111111] z-0"
+        className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-[#111111] z-0"
         style={{ letterSpacing: "-0.04em" }}
       >
         Tool Stack

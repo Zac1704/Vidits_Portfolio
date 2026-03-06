@@ -33,14 +33,14 @@ export const Card = ({
 
                     {/* Period (experience layout) */}
                     {period && (
-                        <p className="text-[11px] sm:text-sm md:text-base font-semibold uppercase tracking-widest opacity-60">
+                        <p className="text-[11px] sm:text-sm md:text-xl font-semibold uppercase tracking-widest opacity-60">
                             {period}
                         </p>
                     )}
 
                     {/* Subtitle (non-experience cards) */}
                     {subtitle && (
-                        <p className="text-base sm:text-lg md:text-xl opacity-90 max-w-xl font-medium leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-2xl opacity-90 max-w-xl font-medium leading-relaxed">
                             {subtitle}
                         </p>
                     )}
@@ -52,11 +52,11 @@ export const Card = ({
 
                     {/* Description paragraphs (experience layout) */}
                     {description?.length > 0 && (
-                        <div className="flex flex-col gap-2 sm:gap-3 max-w-2xl">
+                        <div className="flex flex-col gap-2 sm:gap-3">
                             {description.map((para, i) => (
                                 <p
                                     key={i}
-                                    className="text-xs sm:text-sm md:text-base opacity-85 font-medium leading-relaxed"
+                                    className="text-xs sm:text-sm md:text-xl opacity-85 font-medium leading-relaxed"
                                 >
                                     {para}
                                 </p>
