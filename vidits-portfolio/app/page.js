@@ -1,19 +1,22 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Buttons from "@/components/Buttons";
 import HeroSection from "@/components/HeroSection";
-import HoverRevealText from "@/components/HoverRevealText";
-import MyWork from "@/components/MyWork";
-import ToolStack from "@/components/ToolStack";
-import Skills from "@/components/Skills";
-import ExperienceJourney from "@/components/ExperienceJourney";
-import MyStory from "@/components/MyStory";
 import { motion } from "framer-motion";
 import ScrollReveal from "../hooks/ScrollRevealHooks";
 import { useState } from "react";
-import ImageModal from "../components/ImageModal";
 import PortfolioRow from "@/components/HeroSection/ShakingPortfolioSection";
-import ProjectArchieve from "@/components/ProjectArchieve";
+
+// Lazy load below-the-fold components to reduce initial bundle size and speed up page load
+const HoverRevealText = dynamic(() => import("@/components/HoverRevealText"));
+const MyWork = dynamic(() => import("@/components/MyWork"));
+const ToolStack = dynamic(() => import("@/components/ToolStack"));
+const Skills = dynamic(() => import("@/components/Skills"));
+const ExperienceJourney = dynamic(() => import("@/components/ExperienceJourney"));
+const MyStory = dynamic(() => import("@/components/MyStory"));
+const ProjectArchieve = dynamic(() => import("@/components/ProjectArchieve"));
+const ImageModal = dynamic(() => import("../components/ImageModal"));
 
 export default function Home() {
   const [carouselData, setCarouselData] = useState([]);

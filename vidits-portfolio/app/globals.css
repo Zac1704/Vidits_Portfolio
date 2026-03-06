@@ -3,6 +3,9 @@
 
 @theme {
   --font-inter: var(--font-inter);
+  --font-futura: var(--font-futura);
+  --font-geist-sans: var(--font-geist-sans);
+  --font-caveat: var(--font-caveat);
 }
 
 :root {

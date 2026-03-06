@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export default function AuditFlowSection() {
   const slugMap = {
@@ -61,11 +62,11 @@ export default function AuditFlowSection() {
               <span>Internal Compliance</span>
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-gray-900 mb-6 leading-[0.9]">
+            <h1 className="font-futura text-6xl md:text-8xl font-bold tracking-tighter text-gray-900 mb-6 leading-[0.9]">
               AuditFlow
             </h1>
 
-            <p className="font-inter text-xl text-gray-600 leading-relaxed max-w-xl font-medium">
+            <p className="text-lg md:text-xl text-[#363636] opacity-90 leading-relaxed font-medium">
               AuditFlow is a web-based audit management platform designed to
               help internal audit teams manage audits more efficiently by
               centralizing tasks, evidence, and risk tracking in one system.
@@ -77,21 +78,29 @@ export default function AuditFlowSection() {
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="lg:w-1/2 w-full"
+          className="lg:w-1/2 w-full flex flex-col mt-12 lg:mt-0"
         >
-          <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[5/2]">
+          <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[4/3]">
             <Image
               src="/Images/assets/92be70cd9b78da0c1357c1a3ebf376f2e7b0b7ee.png"
               alt="AuditFlow Dashboard"
               fill
-              className="object-contain"
+              className="object-contain drop-shadow-2xl"
               priority
             />
           </div>
 
-          <p className="text-center text-sm text-gray-500 italic mt-4">
-            Final AuditFlow Dashboard Interface
-          </p>
+          <div className="flex justify-center w-full px-4 sm:px-0">
+            <Link
+              href="https://www.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=0-2200&t=XBr4xu4lI18Y5BdC-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 px-8 py-4 bg-blue-600 text-white text-[10px] md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-fit mx-auto"
+            >
+              View the affinity map via FigJam.
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
         </motion.div>
       </div>
 

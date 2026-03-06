@@ -100,7 +100,7 @@ export const PortfolioCard = ({
               {description}
             </p>
 
-            <div className="block sm:hidden mt-6">
+            <div className="hidden mt-6">
               <button className="inline-flex items-center justify-center rounded-full bg-[#D9D9D9] text-zinc-900 font-semibold transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm md:px-6 md:py-3 md:text-base">
                 Our Approach
               </button>

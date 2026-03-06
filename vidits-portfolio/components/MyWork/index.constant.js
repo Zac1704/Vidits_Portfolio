@@ -1,29 +1,28 @@
 export const Portfolio = [
   {
-    title: "Baking Gharana",
-    subtitle: "Culinary Heritage",
-    description:
-      "Premium digital storefront for traditional baking and seamless ordering.",
-    img: "/Images/myWork/baking.webp",
+    title: "AuditFlow",
+    subtitle: "Operations Management",
+    description: "A streamlined system for recording, tracking, and verifying audit data with precision and clarity.",
+    img: "/Images/myWork/auditflow.webp",
     shadow: "rgba(197, 173, 150, 0.7) 0px 0px 22px 0px",
     link: "/auditflow",
   },
-  {
-    title: "Jimmy The Pet Shop",
-    subtitle: "Pet Care Excellence",
-    description:
-      "Vibrant, user-centric e-commerce built for the ultimate pet lovers.",
-    img: "/Images/myWork/JimmyThePetShop.webp",
-    shadow: "rgba(207, 144, 82, 0.7) 0px 0px 22px 0px",
-  },
-  {
-    title: "Relaxzone",
-    subtitle: "Wellness Redefined",
-    description:
-      "A serene digital atmosphere for holistic health and professional wellness.",
-    img: "/Images/myWork/Relaxzone.webp",
-    shadow: "rgba(91, 131, 166, 0.7) 0px 0px 22px 0px",
-  },
+  // {
+  //   title: "Jimmy The Pet Shop",
+  //   subtitle: "Pet Care Excellence",
+  //   description:
+  //     "Vibrant, user-centric e-commerce built for the ultimate pet lovers.",
+  //   img: "/Images/myWork/JimmyThePetShop.webp",
+  //   shadow: "rgba(207, 144, 82, 0.7) 0px 0px 22px 0px",
+  // },
+  // {
+  //   title: "Relaxzone",
+  //   subtitle: "Wellness Redefined",
+  //   description:
+  //     "A serene digital atmosphere for holistic health and professional wellness.",
+  //   img: "/Images/myWork/Relaxzone.webp",
+  //   shadow: "rgba(91, 131, 166, 0.7) 0px 0px 22px 0px",
+  // },
   // {
   //   title: "AK Studio",
   //   subtitle: "Visual Storytelling",

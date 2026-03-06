@@ -87,10 +87,10 @@ export const Card = ({
                                 <div key={i} className="flex gap-3 sm:gap-4 items-start">
                                     <span className="text-white/40 font-semibold text-xs sm:text-sm mt-0.5 sm:mt-1">●</span>
                                     <div>
-                                        <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest opacity-50 mb-0.5">{entry.year}</p>
+                                        <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest opacity-80 mb-0.5">{entry.year}</p>
                                         <p className="text-sm sm:text-base md:text-lg font-bold leading-tight">{entry.degree}</p>
-                                        <p className="text-xs sm:text-sm opacity-70 font-medium">{entry.institution}</p>
-                                        <p className="text-xs sm:text-sm opacity-50 font-medium mt-0.5">{entry.grade}</p>
+                                        <p className="text-xs sm:text-sm opacity-90 font-medium">{entry.institution}</p>
+                                        <p className="text-xs sm:text-sm opacity-90 font-medium mt-0.5">{entry.grade}</p>
                                     </div>
                                 </div>
                             ))}

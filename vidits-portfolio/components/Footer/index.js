@@ -5,7 +5,7 @@ import LiquidGlassButton from "./footerButton";
 
 export default function Footer() {
   return (
-    <section className="bg-(--text-color) text-white py-12 px-6 md:px-12 lg:px-25">
+    <section className="bg-(--text-color) text-white pt-12 pb-7 px-6 md:px-12 lg:px-25">
       <div>
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
           {/* Left Content */}

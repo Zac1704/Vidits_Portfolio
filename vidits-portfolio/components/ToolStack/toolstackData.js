@@ -21,7 +21,7 @@ export function getIconsData(deviceType) {
             delay: 0.4,
             top: getConfig(deviceType, "25%", "25%", "35%"),
             left: getConfig(deviceType, "25%", "25%", "20%"),
-            size: getConfig(deviceType, 65, 80, 100),
+            size: getConfig(deviceType, 65, 85, 110),
         },
         // Top Center: Figma
         {
@@ -32,7 +32,7 @@ export function getIconsData(deviceType) {
             delay: 0,
             top: getConfig(deviceType, "15%", "15%", "18%"),
             left: getConfig(deviceType, "50%", "50%", "39%"),
-            size: getConfig(deviceType, 75, 90, 110),
+            size: getConfig(deviceType, 65, 85, 110),
         },
         // Top Right: Adobe Illustrator
         {
@@ -43,7 +43,7 @@ export function getIconsData(deviceType) {
             delay: 0.2,
             top: getConfig(deviceType, "25%", "25%", "18%"),
             left: getConfig(deviceType, "75%", "75%", "62%"),
-            size: getConfig(deviceType, 70, 85, 115),
+            size: getConfig(deviceType, 65, 85, 110),
         },
         // Mid Right: Adobe Photoshop
         {
@@ -54,7 +54,7 @@ export function getIconsData(deviceType) {
             delay: 0.6,
             top: getConfig(deviceType, "50%", "50%", "35%"),
             left: getConfig(deviceType, "85%", "85%", "78%"),
-            size: getConfig(deviceType, 60, 80, 110),
+            size: getConfig(deviceType, 65, 85, 110),
         },
         // Bottom Right: Framer
         {
@@ -65,7 +65,7 @@ export function getIconsData(deviceType) {
             delay: 0.8,
             top: getConfig(deviceType, "75%", "75%", "65%"),
             left: getConfig(deviceType, "75%", "75%", "78%"),
-            size: getConfig(deviceType, 60, 80, 110),
+            size: getConfig(deviceType, 65, 85, 110),
             iconScale: 0.6,
         },
         // Bottom Center-Right: Canva
@@ -77,7 +77,7 @@ export function getIconsData(deviceType) {
             delay: 1.0,
             top: getConfig(deviceType, "85%", "85%", "82%"),
             left: getConfig(deviceType, "50%", "50%", "62%"),
-            size: getConfig(deviceType, 70, 85, 115),
+            size: getConfig(deviceType, 65, 85, 110),
         },
         // Bottom Center-Left: Notion
         {
@@ -88,7 +88,7 @@ export function getIconsData(deviceType) {
             delay: 1.2,
             top: getConfig(deviceType, "75%", "75%", "82%"),
             left: getConfig(deviceType, "25%", "25%", "39%"),
-            size: getConfig(deviceType, 75, 90, 110),
+            size: getConfig(deviceType, 65, 85, 110),
         },
         // Bottom Left: ChatGPT
         {
@@ -99,7 +99,7 @@ export function getIconsData(deviceType) {
             delay: 1.4,
             top: getConfig(deviceType, "50%", "50%", "65%"),
             left: getConfig(deviceType, "15%", "15%", "20%"),
-            size: getConfig(deviceType, 65, 80, 100),
+            size: getConfig(deviceType, 65, 85, 110),
         },
     ];
 }
