@@ -29,9 +29,9 @@ import Link from "next/link";
 export default function Buttons({ ButtonName, className, href }) {
   if (href) {
     return (
-      <Link href={href} target="_blank" rel="noopener noreferrer">
+      <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
         <button className={className}>{ButtonName}</button>
-      </Link>
+      </a>
     );
   }
 

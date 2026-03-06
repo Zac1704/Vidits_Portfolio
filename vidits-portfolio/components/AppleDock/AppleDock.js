@@ -249,7 +249,6 @@ const DockIcon = memo(function DockIcon({
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            borderRadius,
             pointerEvents: "none",
             userSelect: "none",
           }}

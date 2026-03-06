@@ -29,7 +29,6 @@ export default function ParallaxImage() {
                     alt="My Story"
                     fill
                     className="object-cover"
-                    priority
                 />
 
                 {/* Vintage/Grain Overlays */}

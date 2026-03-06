@@ -111,7 +111,7 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
               onClick={onClose}
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute top-5 right-5 bg-white rounded-full shadow-lg hover:bg-gray-100 transition p-2 cursor-pointer z-50"
+              className="absolute top-5 right-5 bg-white rounded-full shadow-lg hover:bg-gray-100 transition p-2 cursor-pointer z-50 "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
               onClick={handlePrev}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute left-5 top-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition p-2 cursor-pointer z-50 flex items-center justify-center"
+              className="absolute left-5 top-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition p-2 cursor-pointer z-50 hidden sm:flex items-center justify-center"
               aria-label="Previous"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,7 +147,7 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
               onClick={handleNext}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute right-5 top-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition p-2 cursor-pointer z-50 flex items-center justify-center"
+              className="absolute right-5 top-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition p-2 cursor-pointer z-50 hidden sm:flex items-center justify-center"
               aria-label="Next"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">

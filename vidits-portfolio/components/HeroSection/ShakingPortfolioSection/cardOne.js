@@ -5,6 +5,7 @@ export default function CardOne() {
     <MomentumHoverCardsBase
       cards={[{ id: "1", src: "/Images/heroSection/post1.webp" }]}
       rotate="rotate-4"
+      wrapperClassName="hidden sm:block"
     />
   );
 }

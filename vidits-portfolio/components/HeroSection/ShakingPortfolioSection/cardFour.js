@@ -7,6 +7,8 @@ export default function CardFour() {
       cards={[{ id: "4", src: "/Images/heroSection/post4.webp" }]}
       rotate="-rotate-4"
       height="-12"
+      mobileWidth={150}
+      mobileHeight={150}
     />
   );
 }

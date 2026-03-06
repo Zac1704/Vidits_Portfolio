@@ -7,7 +7,7 @@ export default function ExperienceJourney() {
   return (
     <div className="relative z-20 bg-transparent w-full">
       <div className="text-center pb-10">
-        <h2 className="text-5xl md:text-7xl font-semibold tracking-tight text-black mb-4 leading-[72px]">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-black mb-4 px-4 sm:px-0">
           Experience
           <br />& Journey
         </h2>

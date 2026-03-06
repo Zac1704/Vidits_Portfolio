@@ -89,7 +89,7 @@ export default function StoryContent() {
           <span className="text-sm font-semibold uppercase tracking-widest text-[#a3a3a3]">
             About
           </span>
-          <h2 className="text-5xl md:text-6xl font-semibold mt-2 mb-8 tracking-tight text-black">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold mt-2 mb-8 tracking-tight text-black">
             My story
           </h2>
         </motion.div>

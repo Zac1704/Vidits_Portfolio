@@ -35,6 +35,9 @@ export default function MomentumHoverCardsBase({
   style,
   rotate,
   height,
+  wrapperClassName = "",
+  mobileWidth = 110,
+  mobileHeight = 110,
 }) {
   const containerRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
@@ -51,9 +54,9 @@ export default function MomentumHoverCardsBase({
     const updateDimensions = () => {
       if (typeof window !== "undefined") {
         if (window.innerWidth < 375) {
-          setDimensions({ width: 100, height: 100 }); // smaller Mobile
+          setDimensions({ width: mobileWidth - 10, height: mobileHeight - 10 }); // smaller Mobile
         } else if (window.innerWidth < 640) {
-          setDimensions({ width: 110, height: 110 }); // Mobile
+          setDimensions({ width: mobileWidth, height: mobileHeight }); // Mobile
         } else if (window.innerWidth < 1024) {
           setDimensions({ width: 160, height: 160 }); // Tablet
         } else {
@@ -71,7 +74,7 @@ export default function MomentumHoverCardsBase({
         window.removeEventListener("resize", updateDimensions);
       }
     };
-  }, [cardWidth, cardHeight]);
+  }, [cardWidth, cardHeight, mobileWidth, mobileHeight]);
 
   const isInView = useInView(containerRef, { once: true, margin: "-10%" });
   const prefersReducedMotion =
@@ -219,6 +222,7 @@ export default function MomentumHoverCardsBase({
   return (
     <motion.div
       ref={containerRef}
+      className={wrapperClassName}
       style={{
         ...style,
         position: "relative",
@@ -408,6 +412,7 @@ function MomentumCard({
           alt={`Card ${index + 1}`}
           fill
           onLoadingComplete={() => setIsLoaded(true)}
+          priority
           style={{
             objectFit: "cover",
             borderRadius: `${cardBorderRadius}px`,
