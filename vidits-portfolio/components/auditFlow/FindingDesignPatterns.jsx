@@ -27,8 +27,7 @@ const FindingDesignPatternsSection = () => {
       <div className="max-w-6xl mx-auto px-6 py-24 space-y-10">
         {/* FINDING DESIGN PATTERNS */}
         <div
-          id="finding-design-patterns"
-          // className="max-w-6xl mx-auto px-6 mb-24 flex flex-col scroll-mt-20"
+        // className="max-w-6xl mx-auto px-6 mb-24 flex flex-col scroll-mt-20"
         >
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-10">
@@ -109,7 +108,7 @@ const FindingDesignPatternsSection = () => {
 
               <a
                 href="#"
-                className="inline-flex items-center gap-2 mt-4 px-8 py-4 bg-blue-600 text-white text-[10px] md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-fit mx-auto"
+                className="inline-flex justify-center items-center gap-2 mt-4 px-6 py-3 md:px-8 md:py-4 bg-blue-600 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-full sm:w-fit mx-auto text-center"
               >
                 View low-fi wireframes via Figma.
                 <ArrowUpRight className="w-4 h-4" />

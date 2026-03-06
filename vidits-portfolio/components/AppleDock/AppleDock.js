@@ -207,9 +207,25 @@ const DockIcon = memo(function DockIcon({
         whileTap={{ scale: 0.88 }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onClick={() => {
-          window.location.href = item.link;
+        onClick={(e) => {
+          e.preventDefault();
+          const target = item.link;
+
+          // If the link starts with "/#" and we are already on the homepage "/"
+          if (target.startsWith("/#") && window.location.pathname === "/") {
+            const id = target.substring(2);
+            const element = document.getElementById(id);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+              return;
+            }
+          }
+
+          // Otherwise, navigate normally
+          window.location.href = target;
         }}
+        role="button"
+        aria-label={item.title}
       >
         {/* Tooltip (Desktop Only) */}
         {!isMobile && (

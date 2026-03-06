@@ -92,12 +92,12 @@ export default function AuditFlowSection() {
 
           <div className="flex justify-center w-full px-4 sm:px-0">
             <Link
-              href="https://www.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=0-2200&t=XBr4xu4lI18Y5BdC-1"
+              href="https://mauve-app-67550399.figma.site/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 px-8 py-4 bg-blue-600 text-white text-[10px] md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-fit mx-auto"
+              className="inline-flex justify-center items-center gap-2 mt-4 px-6 py-3 md:px-8 md:py-4 bg-blue-600 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-full sm:w-fit mx-auto text-center"
             >
-              View the affinity map via FigJam.
+              View the hi-fi prototype
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
@@ -156,7 +156,12 @@ export default function AuditFlowSection() {
             key={idx}
             className="bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:border-blue-200 transition-all duration-300"
           >
-            <h3 className="text-blue-600 font-extrabold tracking-widest text-sm mb-8">
+            <h3
+              className="text-blue-600 font-extrabold tracking-widest text-sm mb-8 cursor-pointer hover:text-blue-800 transition-colors inline-block"
+              onClick={() => handleScroll(slugMap[phase.items[0]])}
+              role="button"
+              aria-label={`Scroll to ${phase.id} section`}
+            >
               {phase.id}
             </h3>
 

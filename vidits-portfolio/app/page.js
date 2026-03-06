@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       {/* Main content constrained */}
-      <div className="flex flex-col gap-24 sm:gap-32 overflow-clip">
+      <div className="flex flex-col gap-10 sm:gap-32 overflow-clip">
         <HeroSection />
 
         {/* Portfolio */}

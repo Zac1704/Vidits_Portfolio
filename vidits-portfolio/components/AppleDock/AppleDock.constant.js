@@ -7,21 +7,21 @@ export const DEFAULT_ITEMS = [
     {
         title: "Work",
         image: "/Images/dockIcon/work.svg",
-        link: "/work",
+        link: "/#work",
     },
     {
         title: "About",
         image: "/Images/dockIcon/about.svg",
-        link: "/about",
+        link: "/#about",
     },
     {
         title: "Resume",
         image: "/Images/dockIcon/resume.svg",
-        link: "/resume",
+        link: "/files/vidit_shah_resume.pdf",
     },
     {
         title: "Contact",
         image: "/Images/dockIcon/contact.svg",
-        link: "/contact",
+        link: "/#contact",
     },
 ];

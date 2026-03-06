@@ -3,7 +3,7 @@ import Image from "next/image";
 const WhyAuditorsSection = () => {
   return (
     <>
-      <div className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
+      <div id="why-auditors" className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Designing an app for auditors
@@ -11,7 +11,7 @@ const WhyAuditorsSection = () => {
         </div>
       </div>
 
-      <div id="why-auditors" className="max-w-6xl mx-auto px-6 py-18">
+      <div className="max-w-6xl mx-auto px-6 py-18">
         {/* Title */}
         <div className="flex items-center gap-4 mb-10">
           <div className="w-1 h-10 bg-blue-600" />
@@ -29,7 +29,7 @@ const WhyAuditorsSection = () => {
 
             <ul className="font-inter space-y-8 text-base md:text-lg lg:text-xl text-gray-900 leading-relaxed ">
               <li className="flex gap-4">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-3 shrink-0"/>
+                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-3 shrink-0" />
                 <p>
                   I was talking to a friend of mine who is a Chartered
                   Accountant, and during our conversation he shared how{" "}

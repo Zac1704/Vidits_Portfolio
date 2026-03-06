@@ -5,7 +5,7 @@ import Link from "next/link";
 const UserPersonasSection = () => {
   return (
     <>
-      <div className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
+      <div id="who-auditflow-is-designed-for" className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Who AuditFlow is designed for
@@ -42,6 +42,7 @@ const UserPersonasSection = () => {
           <div className="w-full">
             <div className="aspect-[9/16] md:aspect-video w-full overflow-hidden border border-gray-100 shadow-sm bg-gray-50">
               <iframe
+                loading="lazy"
                 className="w-full h-full"
                 src="https://embed.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=80-3523&embed-host=share"
                 allowFullScreen
@@ -57,6 +58,7 @@ const UserPersonasSection = () => {
           <div className="w-full">
             <div className="aspect-[9/16] md:aspect-video w-full overflow-hidden border border-gray-100 shadow-sm bg-gray-50">
               <iframe
+                loading="lazy"
                 style={{
                   border: "1px solid rgba(0, 0, 0, 0.1)",
                 }}
@@ -78,6 +80,7 @@ const UserPersonasSection = () => {
           <div className="w-full overflow-hidden border-t border-gray-100">
             <div className="aspect-[9/16] md:aspect-video w-full overflow-hidden border border-gray-100 shadow-sm bg-gray-50">
               <iframe
+                loading="lazy"
                 className="w-full h-full"
                 src="https://embed.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=345-2490&embed-host=share"
                 allowFullScreen
@@ -93,7 +96,7 @@ const UserPersonasSection = () => {
                   href="https://www.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=0-2283&t=bONteTeEdb3q6o2E-4"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white text-[10px] md:text-xs font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm whitespace-nowrap"
+                  className="inline-flex justify-center items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-blue-600 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-full md:w-auto text-center"
                 >
                   View Persona RESEARCH via FigJam
                   <ArrowUpRight className="w-4 h-4" />

@@ -20,6 +20,7 @@ const UsabilityTestResultsSection = () => {
         <div className="max-w-6xl mx-auto px-6 mb-24">
           <div className="aspect-[9/16] md:aspect-video w-full overflow-hidden border border-gray-100 shadow-sm bg-gray-50">
             <iframe
+              loading="lazy"
               className="w-full h-full"
               src="https://embed.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=45-2226&embed-host=share"
               allowFullScreen
@@ -32,7 +33,7 @@ const UsabilityTestResultsSection = () => {
             href="https://www.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=45-2226&t=XBr4xu4lI18Y5BdC-1"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-blue-600 text-white text-[10px] md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm"
+            className="inline-flex justify-center items-center gap-2 px-6 py-3 md:px-10 md:py-5 bg-blue-600 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-full md:w-auto text-center"
           >
             View usability test results, affinity map, and analysis via FigJam
             <ArrowUpRight className="w-4 h-4" />

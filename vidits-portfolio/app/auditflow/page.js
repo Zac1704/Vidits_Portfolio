@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import AuditFlowSection from "@/components/auditFlow/AuditflowSection";
+import ScrollToTopButton from "@/components/auditFlow/ScrollToTopButton";
 
 // Lazy load below-the-fold components to improve initial loading performance
 const WhyAuditorsSection = dynamic(() => import("@/components/auditFlow/WhyAuditors"));
@@ -21,7 +22,7 @@ export const metadata = {
 const Auditflow = () => {
   return (
     <main
-      className="audit-flow-page bg-[#ffffff]"
+      className="audit-flow-page bg-[#ffffff] relative"
       style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
     >
       <AuditFlowSection />
@@ -35,6 +36,7 @@ const Auditflow = () => {
       <UsabilityTestResultsSection />
       <IncreasingClaritySection />
       <WhatILearnedSection />
+      <ScrollToTopButton />
     </main>
   );
 };

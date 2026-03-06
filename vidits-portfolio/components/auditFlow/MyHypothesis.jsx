@@ -5,7 +5,7 @@ import Link from "next/link";
 const MyHypothesisSection = () => {
   return (
     <>
-      <div className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
+      <div id="how-do-experienced-auditors-manage-audits" className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             How do experienced auditors manage audits using existing tools?
@@ -14,7 +14,6 @@ const MyHypothesisSection = () => {
       </div>
       <div
         className="max-w-6xl mx-auto px-6 py-18 space-y-20"
-        id="how-do-experienced-auditors-manage-audits"
       >
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
           {/* Left Content */}
@@ -115,6 +114,7 @@ const MyHypothesisSection = () => {
           <figure className="my-8">
             <div className="aspect-[9/16] md:aspect-video w-full overflow-hidden border border-gray-100 shadow-sm bg-gray-50">
               <iframe
+                loading="lazy"
                 style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
                 className="w-full h-full"
                 src="https://embed.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=0-2200&embed-host=share"
@@ -131,7 +131,7 @@ const MyHypothesisSection = () => {
                 href="https://www.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=0-2200&t=XBr4xu4lI18Y5BdC-1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-4 px-8 py-4 bg-blue-600 text-white text-[10px] md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-fit mx-auto"
+                className="inline-flex justify-center items-center gap-2 mt-4 px-6 py-3 md:px-8 md:py-4 bg-blue-600 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-full sm:w-fit mx-auto text-center"
               >
                 View the affinity map via FigJam.
                 <ArrowUpRight className="w-4 h-4" />

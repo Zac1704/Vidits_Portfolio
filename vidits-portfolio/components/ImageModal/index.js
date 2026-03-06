@@ -90,12 +90,14 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
     <AnimatePresence>
       {hasItems && (
         <motion.div
-          className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer"
           variants={backdrop}
           initial="hidden"
           animate="visible"
           exit="exit"
           onClick={onClose}
+          role="dialog"
+          aria-modal="true"
         >
           {/* Pop-in Modal Container */}
           <motion.div
@@ -103,7 +105,7 @@ const ImageModal = ({ items = [], initialIndex = -1, onClose }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute inset-0 m-5 border-white bg-white rounded-[24px] shadow-[0_8px_40px_rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden"
+            className="relative w-[calc(100%-2.5rem)] h-[calc(100%-2.5rem)] border-white bg-white rounded-[24px] shadow-[0_8px_40px_rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden cursor-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}

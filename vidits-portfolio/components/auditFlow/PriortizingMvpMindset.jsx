@@ -42,6 +42,7 @@ const PriortizingMvpMindsetSection = () => {
           <figure className="my-8">
             <div className="aspect-[9/16] md:aspect-video w-full overflow-hidden border border-gray-100 shadow-sm bg-gray-50">
               <iframe
+                loading="lazy"
                 className="w-full h-full"
                 src="https://embed.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=2-6993&embed-host=share"
                 allowFullScreen
@@ -58,7 +59,7 @@ const PriortizingMvpMindsetSection = () => {
                 href="https://www.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=2-6993&t=XBr4xu4lI18Y5BdC-1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-4 px-8 py-4 bg-blue-600 text-white text-[10px] md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-fit mx-auto"
+                className="inline-flex justify-center items-center gap-2 mt-4 px-6 py-3 md:px-8 md:py-4 bg-blue-600 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-full sm:w-fit mx-auto text-center"
               >
                 View the sitemap via FigJam.
                 <ArrowUpRight className="w-4 h-4" />
@@ -90,6 +91,7 @@ const PriortizingMvpMindsetSection = () => {
             <figure className="my-8">
               <div className="aspect-[9/16] md:aspect-video w-full overflow-hidden border border-gray-100 shadow-sm bg-gray-50">
                 <iframe
+                  loading="lazy"
                   className="w-full h-full"
                   src="https://embed.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=0-3450&embed-host=share"
                   allowFullScreen
@@ -105,7 +107,7 @@ const PriortizingMvpMindsetSection = () => {
                   href="https://www.figma.com/board/lmIcebfOrVNPauUrGRijSc/AuditFlow-UX?node-id=0-3450&t=XBr4xu4lI18Y5BdC-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-4 px-8 py-4 bg-blue-600 text-white text-[10px] md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-fit mx-auto"
+                  className="inline-flex justify-center items-center gap-2 mt-4 px-6 py-3 md:px-8 md:py-4 bg-blue-600 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-full sm:w-fit mx-auto text-center"
                 >
                   View the user flows via FigJam.
                   <ArrowUpRight className="w-4 h-4" />
@@ -167,7 +169,7 @@ const PriortizingMvpMindsetSection = () => {
               <div className="mt-10">
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm"
+                  className="inline-flex justify-center items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-blue-600 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all shadow-sm w-full md:w-auto text-center"
                 >
                   View feature roadmap
                   <ArrowRight className="w-4 h-4" />

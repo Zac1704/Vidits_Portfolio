@@ -4,7 +4,7 @@ import Image from "next/image";
 const DefiningTheProblemSection = () => {
   return (
     <>
-      <div className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
+      <div id="my-hypothesis-was-wrong" className="bg-blue-600 py-18 px-6 overflow-hidden relative scroll-mt-20">
         <div className="uppercase max-w-4xl mx-auto text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             My hypothesis was somewhat wrong!
@@ -13,7 +13,6 @@ const DefiningTheProblemSection = () => {
       </div>
       <div
         className="max-w-6xl mx-auto px-6 py-18"
-        id="my-hypothesis-was-wrong"
       >
         {/* Section Title */}
         <div className="flex items-center gap-4 mb-10">
@@ -24,7 +23,7 @@ const DefiningTheProblemSection = () => {
         </div>
         <div className="flex flex-col md:flex-row gap-16 items-start">
           {/* left Text Content */}
-          
+
           <div className="flex-1 text-xl text-gray-600 leading-relaxed font-medium space-y-8">
             <p className="font-inter text-gray-900">
               Internal auditors are managing audits alongside multiple tools and
@@ -192,7 +191,7 @@ const DefiningTheProblemSection = () => {
             <div className="mt-10 pt-8 border-t-4 border-gray-100 flex flex-col gap-3">
               <a
                 href="#"
-                className="flex items-center justify-between px-8 py-5 bg-blue-50 text-blue-600 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-blue-600 hover:text-white transition-all group/btn shadow-sm hover:shadow-md"
+                className="flex items-center justify-between px-6 py-4 md:px-8 md:py-5 bg-blue-50 text-blue-600 rounded-2xl font-black uppercase text-xs md:text-sm tracking-widest hover:bg-blue-600 hover:text-white transition-all group/btn shadow-sm hover:shadow-md w-full md:w-auto"
               >
                 View full analysis
                 <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
@@ -200,7 +199,7 @@ const DefiningTheProblemSection = () => {
 
               <a
                 href="#"
-                className="flex items-center justify-between px-8 py-5 bg-gray-50 text-gray-500 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-gray-100 hover:text-gray-900 transition-all shadow-sm"
+                className="flex items-center justify-between px-6 py-4 md:px-8 md:py-5 bg-gray-50 text-gray-500 rounded-2xl font-black uppercase text-xs md:text-sm tracking-widest hover:bg-gray-100 hover:text-gray-900 transition-all shadow-sm w-full md:w-auto"
               >
                 Browse screenshots
                 <Globe className="w-5 h-5" />

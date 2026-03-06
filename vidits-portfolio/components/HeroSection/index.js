@@ -54,7 +54,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="mt-16 sm:mt-0 pb-10 sm:pb-0 relative w-full overflow-hidden">
+    <div id="home" className="mt-10 sm:mt-0 pb-10 sm:pb-0 relative w-full overflow-hidden scroll-mt-24">
       <motion.div
         className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-6"
         initial={{ opacity: 0, scale: 0.9 }}
@@ -209,7 +209,7 @@ export default function HeroSection() {
           <Buttons
             ButtonName="View Resume"
             href="/files/vidit_shah_resume.pdf"
-            className="rounded-full text-sm sm:text-base py-2 px-4 sm:py-3 sm:px-5 bg-(--button-color)/95 hover:bg-(--button-color) text-white cursor-pointer"
+            className="mb-8 sm:mb-0 rounded-full text-sm sm:text-base py-2 px-4 sm:py-3 sm:px-5 bg-(--button-color)/95 hover:bg-(--button-color) text-white cursor-pointer"
           />
           {/* <Buttons
             ButtonName="Cover Letter"

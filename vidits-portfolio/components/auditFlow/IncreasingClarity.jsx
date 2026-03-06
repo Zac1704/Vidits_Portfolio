@@ -90,7 +90,7 @@ const IncreasingClaritySection = () => {
               href="https://mauve-app-67550399.figma.site/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-12 py-6 bg-blue-600 text-white font-black text-[10px] md:text-base rounded-full tracking-widest uppercase hover:bg-blue-700 transition-colors shadow-lg inline-flex items-center justify-center text-center"
+              className="px-6 py-4 md:px-12 md:py-6 bg-blue-600 text-white font-black text-xs md:text-base rounded-full tracking-widest uppercase hover:bg-blue-700 transition-colors shadow-lg inline-flex items-center justify-center text-center w-full md:w-auto"
             >
               View the hi-fi prototype
             </Link>
