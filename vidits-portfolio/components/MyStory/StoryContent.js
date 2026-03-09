@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Odometer from "./Odometer";
 import { FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa"; // Need a fallback if not installed, let's use standard svgs or what they had. Assuming react-icons is available as it was used in ToolStack.
+import Image from "next/image";
 
 // Fallback to simple SVGs if react-icons imports fail differently, but FaYoutube works.
 // We'll use custom SVGs to be perfectly safe and exact.
@@ -162,21 +163,13 @@ export default function StoryContent() {
           </div>
         </div>
 
-        <div className="absolute right-0 bottom-4 opacity-40 rotate-[15deg] pointer-events-none scale-75 md:scale-100 hidden sm:block">
-          <svg
-            width="60"
-            height="60"
-            viewBox="0 0 100 100"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-(--text-color)"
-          >
-            <path d="M 30,70 C 10,50 30,10 60,30 C 80,45 80,70 50,90" />
-            <path d="M 50,90 L 70,85 M 50,90 L 45,70" />
-          </svg>
+        <div className="absolute -right-10 bottom-5 opacity-40 rotate-[15deg] pointer-events-none scale-75 md:scale-100 hidden sm:block">
+          <Image
+            src="/Images/mystory/svg/Scribble 4.svg"
+            alt="Design Snapshot"
+            width={100}
+            height={100}
+          />
         </div>
       </motion.div>
     </motion.div>

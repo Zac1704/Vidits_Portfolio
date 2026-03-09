@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
         {/* Client-only route aware UI */}
         <ClientRouteGate>
           <Footer />
-          <AppleDockClientWrapper />
+          {/* <AppleDockClientWrapper /> */}
         </ClientRouteGate>
       </body>
     </html>

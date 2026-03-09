@@ -9,13 +9,13 @@ export default function MyWork() {
       <div className="text-center">
         <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight text-black px-4 sm:px-0">
           Some of my
-          <br /> Recent works
+          <br /> Recent Works
         </h2>
       </div>
 
       {/* Portfolio Grid */}
       <section className="flex justify-center w-full">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-20 pt-10 sm:pt-16 pb-8 md:pb-10 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 xl:grid-cols-3 md:overflow-visible md:place-items-center w-full">
+        <div className="px-4 sm:px-6 md:px-8 lg:px-20 pt-12 md:pt-14 lg:pt-16 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 xl:grid-cols-3 md:overflow-visible md:place-items-center w-full">
           {Portfolio.map((work, index) => (
             <PortfolioCard
               key={index}

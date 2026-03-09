@@ -17,7 +17,7 @@ export default function Skills() {
                 Skills
             </motion.h2>
 
-            <div className="w-full max-w-[100vw] overflow-visible px-2 pt-10 sm:pt-16">
+            <div className="w-full max-w-[100vw] overflow-visible px-2 pt-12 md:pt-14 lg:pt-16">
                 <SkillsList />
             </div>
         </div>

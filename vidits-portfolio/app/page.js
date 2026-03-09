@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       {/* Main content constrained */}
-      <div className="flex flex-col gap-10 sm:gap-32 overflow-clip">
+      <div className="flex flex-col gap-[160px] md:gap-[200px] lg:gap-[240px] overflow-clip">
         <HeroSection />
 
         {/* Portfolio */}
@@ -40,7 +40,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ ...bounceSpring, delay: 0.4 }}
-          className="w-full flex justify-center -mt-20"
+          className="w-full flex justify-center -mt-45"
         >
           <PortfolioRow />
         </motion.div>
